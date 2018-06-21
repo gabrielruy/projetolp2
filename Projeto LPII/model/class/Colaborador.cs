@@ -14,7 +14,8 @@ namespace Projeto_LPII
         private String telefone;
         private String cargo;
         private int nroRh;
-        private Login login;
+        private String login;
+        private String senha;
 
         public int Codigo { get { return codigo; } set { codigo = value; } }
         public String Nome { get { return nome; } set { nome = value; } }
@@ -22,6 +23,7 @@ namespace Projeto_LPII
         public String Telefone { get { return telefone; } set { telefone = value; } }
         public String Cargo { get { return cargo; } set { cargo = value; } }
         public int NroRh { get { return nroRh; } set { nroRh = value; } }
-        public Login Login { get { return login; } set { login = value; } }
+        public String Login { get { return login; } set { login = value; } }
+        public String Senha { get { return senha; } set { senha = value; } }
     }
 }

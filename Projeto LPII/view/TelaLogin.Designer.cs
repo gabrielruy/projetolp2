@@ -32,12 +32,10 @@
             this.groupBoxLoginInicio = new System.Windows.Forms.GroupBox();
             this.loginInicio = new System.Windows.Forms.Label();
             this.LoginColaboradorInicio = new System.Windows.Forms.TextBox();
-            this.senhaColaboradorInicio = new System.Windows.Forms.TextBox();
             this.SenhaInicio = new System.Windows.Forms.Label();
             this.buttonFecharLogin = new System.Windows.Forms.Button();
             this.buttonConfirmarLogin = new System.Windows.Forms.Button();
-            this.buttonCadastroNovoColaborador = new System.Windows.Forms.Button();
-            this.buttonRecuperaçãoSenha = new System.Windows.Forms.Button();
+            this.maskedTextBoxSenha = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxLoginInicio.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,16 +45,16 @@
             this.efetueSeuLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.efetueSeuLogin.Location = new System.Drawing.Point(12, 9);
             this.efetueSeuLogin.Name = "efetueSeuLogin";
-            this.efetueSeuLogin.Size = new System.Drawing.Size(144, 21);
+            this.efetueSeuLogin.Size = new System.Drawing.Size(143, 21);
             this.efetueSeuLogin.TabIndex = 1;
             this.efetueSeuLogin.Text = "EFETUE SEU LOGIN";
             this.efetueSeuLogin.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBoxLoginInicio
             // 
+            this.groupBoxLoginInicio.Controls.Add(this.maskedTextBoxSenha);
             this.groupBoxLoginInicio.Controls.Add(this.loginInicio);
             this.groupBoxLoginInicio.Controls.Add(this.LoginColaboradorInicio);
-            this.groupBoxLoginInicio.Controls.Add(this.senhaColaboradorInicio);
             this.groupBoxLoginInicio.Controls.Add(this.SenhaInicio);
             this.groupBoxLoginInicio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxLoginInicio.Location = new System.Drawing.Point(51, 60);
@@ -82,15 +80,6 @@
             this.LoginColaboradorInicio.Name = "LoginColaboradorInicio";
             this.LoginColaboradorInicio.Size = new System.Drawing.Size(99, 27);
             this.LoginColaboradorInicio.TabIndex = 13;
-            // 
-            // senhaColaboradorInicio
-            // 
-            this.senhaColaboradorInicio.Location = new System.Drawing.Point(275, 32);
-            this.senhaColaboradorInicio.Name = "senhaColaboradorInicio";
-            this.senhaColaboradorInicio.PasswordChar = '*';
-            this.senhaColaboradorInicio.Size = new System.Drawing.Size(91, 27);
-            this.senhaColaboradorInicio.TabIndex = 14;
-            this.senhaColaboradorInicio.TextChanged += new System.EventHandler(this.SenhaColaboradorInicio_TextChanged);
             // 
             // SenhaInicio
             // 
@@ -127,38 +116,20 @@
             this.buttonConfirmarLogin.UseVisualStyleBackColor = false;
             this.buttonConfirmarLogin.Click += new System.EventHandler(this.buttonConfirmarLogin_Click);
             // 
-            // buttonCadastroNovoColaborador
+            // maskedTextBoxSenha
             // 
-            this.buttonCadastroNovoColaborador.BackColor = System.Drawing.Color.YellowGreen;
-            this.buttonCadastroNovoColaborador.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastroNovoColaborador.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonCadastroNovoColaborador.Location = new System.Drawing.Point(236, 205);
-            this.buttonCadastroNovoColaborador.Name = "buttonCadastroNovoColaborador";
-            this.buttonCadastroNovoColaborador.Size = new System.Drawing.Size(194, 33);
-            this.buttonCadastroNovoColaborador.TabIndex = 23;
-            this.buttonCadastroNovoColaborador.Text = "Fazer um novo cadastro";
-            this.buttonCadastroNovoColaborador.UseVisualStyleBackColor = false;
-            this.buttonCadastroNovoColaborador.Click += new System.EventHandler(this.buttonCadastroNovoColaborador_Click);
-            // 
-            // buttonRecuperaçãoSenha
-            // 
-            this.buttonRecuperaçãoSenha.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonRecuperaçãoSenha.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRecuperaçãoSenha.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRecuperaçãoSenha.Location = new System.Drawing.Point(236, 257);
-            this.buttonRecuperaçãoSenha.Name = "buttonRecuperaçãoSenha";
-            this.buttonRecuperaçãoSenha.Size = new System.Drawing.Size(193, 51);
-            this.buttonRecuperaçãoSenha.TabIndex = 24;
-            this.buttonRecuperaçãoSenha.Text = "Esqueceu sua senha ou login? Click aqui!";
-            this.buttonRecuperaçãoSenha.UseVisualStyleBackColor = false;
+            this.maskedTextBoxSenha.Location = new System.Drawing.Point(272, 31);
+            this.maskedTextBoxSenha.Mask = "0000000000";
+            this.maskedTextBoxSenha.Name = "maskedTextBoxSenha";
+            this.maskedTextBoxSenha.Size = new System.Drawing.Size(100, 27);
+            this.maskedTextBoxSenha.TabIndex = 21;
+            this.maskedTextBoxSenha.ValidatingType = typeof(int);
             // 
             // Tela_de_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 369);
-            this.Controls.Add(this.buttonRecuperaçãoSenha);
-            this.Controls.Add(this.buttonCadastroNovoColaborador);
+            this.ClientSize = new System.Drawing.Size(481, 223);
             this.Controls.Add(this.buttonFecharLogin);
             this.Controls.Add(this.buttonConfirmarLogin);
             this.Controls.Add(this.groupBoxLoginInicio);
@@ -180,11 +151,9 @@
         private System.Windows.Forms.GroupBox groupBoxLoginInicio;
         private System.Windows.Forms.Label loginInicio;
         private System.Windows.Forms.TextBox LoginColaboradorInicio;
-        private System.Windows.Forms.TextBox senhaColaboradorInicio;
         private System.Windows.Forms.Label SenhaInicio;
         private System.Windows.Forms.Button buttonFecharLogin;
         private System.Windows.Forms.Button buttonConfirmarLogin;
-        private System.Windows.Forms.Button buttonCadastroNovoColaborador;
-        private System.Windows.Forms.Button buttonRecuperaçãoSenha;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxSenha;
     }
 }

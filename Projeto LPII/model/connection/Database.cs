@@ -127,7 +127,7 @@ namespace Projeto_LPII
                     "email VARCHAR(64) NOT NULL," +
                     "CONSTRAINT pk_colaborador PRIMARY KEY(codigo)," +
                     "CONSTRAINT un_colaborador_nome UNIQUE(nome)," +
-                    "CONSTRAINT un_colaborador_nroRh UNIQUE(nome)," +
+                    "CONSTRAINT un_colaborador_nroRh UNIQUE(nroRh)," +
                     "CONSTRAINT un_colaborador_login UNIQUE(login));";
 
                 /* Executa o comando MySql */

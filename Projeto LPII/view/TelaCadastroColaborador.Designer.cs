@@ -34,19 +34,18 @@
             this.labelEmailColaborador = new System.Windows.Forms.Label();
             this.emailColaborador = new System.Windows.Forms.TextBox();
             this.labelTelefoneColaborador = new System.Windows.Forms.Label();
-            this.telefoneColaborador = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBoxFunçaoColaborador = new System.Windows.Forms.ListBox();
             this.labelNroRegistroColaborador = new System.Windows.Forms.Label();
-            this.nroRegistroColaborador = new System.Windows.Forms.TextBox();
             this.labelSenhaColaborador = new System.Windows.Forms.Label();
             this.cadastroLoginColaborador = new System.Windows.Forms.TextBox();
             this.cadastroSenhaColaborador = new System.Windows.Forms.TextBox();
             this.buttonconfirmarCadastroColaborador = new System.Windows.Forms.Button();
             this.buttoncancelarCadastroColaborador = new System.Windows.Forms.Button();
-            this.checkboxAdmDoProjeto = new System.Windows.Forms.CheckBox();
             this.groupBoxLoginSenhaColaborador = new System.Windows.Forms.GroupBox();
             this.labelLoginColaborador = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBoxLoginSenhaColaborador.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,16 +101,9 @@
             this.labelTelefoneColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTelefoneColaborador.Location = new System.Drawing.Point(87, 180);
             this.labelTelefoneColaborador.Name = "labelTelefoneColaborador";
-            this.labelTelefoneColaborador.Size = new System.Drawing.Size(67, 20);
+            this.labelTelefoneColaborador.Size = new System.Drawing.Size(66, 20);
             this.labelTelefoneColaborador.TabIndex = 5;
             this.labelTelefoneColaborador.Text = "Telefone";
-            // 
-            // telefoneColaborador
-            // 
-            this.telefoneColaborador.Location = new System.Drawing.Point(164, 182);
-            this.telefoneColaborador.Name = "telefoneColaborador";
-            this.telefoneColaborador.Size = new System.Drawing.Size(240, 20);
-            this.telefoneColaborador.TabIndex = 6;
             // 
             // label5
             // 
@@ -123,42 +115,16 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Função ";
             // 
-            // listBoxFunçaoColaborador
-            // 
-            this.listBoxFunçaoColaborador.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxFunçaoColaborador.FormattingEnabled = true;
-            this.listBoxFunçaoColaborador.Items.AddRange(new object[] {
-            "01 -Recepcionista ",
-            "02 - Gerente",
-            "03 - Supervisor",
-            "04 - Operacional",
-            "05 - Compras",
-            "06 -Pós-Vendas",
-            "07 - Vendedor",
-            "09 - Suporte",
-            "10 - Assistencia Técnica "});
-            this.listBoxFunçaoColaborador.Location = new System.Drawing.Point(164, 221);
-            this.listBoxFunçaoColaborador.Name = "listBoxFunçaoColaborador";
-            this.listBoxFunçaoColaborador.Size = new System.Drawing.Size(240, 17);
-            this.listBoxFunçaoColaborador.TabIndex = 8;
-            // 
             // labelNroRegistroColaborador
             // 
             this.labelNroRegistroColaborador.AutoSize = true;
             this.labelNroRegistroColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNroRegistroColaborador.Location = new System.Drawing.Point(47, 257);
+            this.labelNroRegistroColaborador.Location = new System.Drawing.Point(13, 257);
             this.labelNroRegistroColaborador.Name = "labelNroRegistroColaborador";
-            this.labelNroRegistroColaborador.Size = new System.Drawing.Size(107, 20);
+            this.labelNroRegistroColaborador.Size = new System.Drawing.Size(145, 20);
             this.labelNroRegistroColaborador.TabIndex = 9;
-            this.labelNroRegistroColaborador.Text = "Nrº de registro";
+            this.labelNroRegistroColaborador.Text = "Nrº de Registro (RH)";
             this.labelNroRegistroColaborador.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // nroRegistroColaborador
-            // 
-            this.nroRegistroColaborador.Location = new System.Drawing.Point(160, 257);
-            this.nroRegistroColaborador.Name = "nroRegistroColaborador";
-            this.nroRegistroColaborador.Size = new System.Drawing.Size(76, 20);
-            this.nroRegistroColaborador.TabIndex = 10;
             // 
             // labelSenhaColaborador
             // 
@@ -189,7 +155,7 @@
             this.buttonconfirmarCadastroColaborador.BackColor = System.Drawing.Color.Orange;
             this.buttonconfirmarCadastroColaborador.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonconfirmarCadastroColaborador.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonconfirmarCadastroColaborador.Location = new System.Drawing.Point(332, 425);
+            this.buttonconfirmarCadastroColaborador.Location = new System.Drawing.Point(334, 392);
             this.buttonconfirmarCadastroColaborador.Name = "buttonconfirmarCadastroColaborador";
             this.buttonconfirmarCadastroColaborador.Size = new System.Drawing.Size(88, 33);
             this.buttonconfirmarCadastroColaborador.TabIndex = 15;
@@ -200,25 +166,13 @@
             // 
             this.buttoncancelarCadastroColaborador.BackColor = System.Drawing.Color.Crimson;
             this.buttoncancelarCadastroColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttoncancelarCadastroColaborador.Location = new System.Drawing.Point(236, 424);
+            this.buttoncancelarCadastroColaborador.Location = new System.Drawing.Point(229, 392);
             this.buttoncancelarCadastroColaborador.Name = "buttoncancelarCadastroColaborador";
             this.buttoncancelarCadastroColaborador.Size = new System.Drawing.Size(84, 34);
             this.buttoncancelarCadastroColaborador.TabIndex = 16;
             this.buttoncancelarCadastroColaborador.Text = "Cancelar ";
             this.buttoncancelarCadastroColaborador.UseVisualStyleBackColor = false;
             this.buttoncancelarCadastroColaborador.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // checkboxAdmDoProjeto
-            // 
-            this.checkboxAdmDoProjeto.AutoSize = true;
-            this.checkboxAdmDoProjeto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxAdmDoProjeto.Location = new System.Drawing.Point(225, 383);
-            this.checkboxAdmDoProjeto.Name = "checkboxAdmDoProjeto";
-            this.checkboxAdmDoProjeto.Size = new System.Drawing.Size(197, 24);
-            this.checkboxAdmDoProjeto.TabIndex = 18;
-            this.checkboxAdmDoProjeto.Text = "Administrador de projeto";
-            this.checkboxAdmDoProjeto.UseVisualStyleBackColor = true;
-            this.checkboxAdmDoProjeto.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // groupBoxLoginSenhaColaborador
             // 
@@ -245,21 +199,45 @@
             this.labelLoginColaborador.Text = "Login";
             this.labelLoginColaborador.Click += new System.EventHandler(this.label9_Click);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(164, 179);
+            this.maskedTextBox1.Mask = "(99) 00000-0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(129, 20);
+            this.maskedTextBox1.TabIndex = 20;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(164, 257);
+            this.maskedTextBox2.Mask = "00000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(240, 20);
+            this.maskedTextBox2.TabIndex = 21;
+            this.maskedTextBox2.ValidatingType = typeof(int);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(164, 221);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(240, 21);
+            this.comboBox1.TabIndex = 22;
+            // 
             // Tela_cadastro_de_colaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 544);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.groupBoxLoginSenhaColaborador);
-            this.Controls.Add(this.checkboxAdmDoProjeto);
             this.Controls.Add(this.buttoncancelarCadastroColaborador);
             this.Controls.Add(this.buttonconfirmarCadastroColaborador);
-            this.Controls.Add(this.nroRegistroColaborador);
             this.Controls.Add(this.labelNroRegistroColaborador);
-            this.Controls.Add(this.listBoxFunçaoColaborador);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.telefoneColaborador);
             this.Controls.Add(this.labelTelefoneColaborador);
             this.Controls.Add(this.emailColaborador);
             this.Controls.Add(this.labelEmailColaborador);
@@ -286,18 +264,17 @@
         private System.Windows.Forms.Label labelEmailColaborador;
         private System.Windows.Forms.TextBox emailColaborador;
         private System.Windows.Forms.Label labelTelefoneColaborador;
-        private System.Windows.Forms.TextBox telefoneColaborador;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBoxFunçaoColaborador;
         private System.Windows.Forms.Label labelNroRegistroColaborador;
-        private System.Windows.Forms.TextBox nroRegistroColaborador;
         private System.Windows.Forms.Label labelSenhaColaborador;
         private System.Windows.Forms.TextBox cadastroLoginColaborador;
         private System.Windows.Forms.TextBox cadastroSenhaColaborador;
         private System.Windows.Forms.Button buttonconfirmarCadastroColaborador;
         private System.Windows.Forms.Button buttoncancelarCadastroColaborador;
-        private System.Windows.Forms.CheckBox checkboxAdmDoProjeto;
         private System.Windows.Forms.GroupBox groupBoxLoginSenhaColaborador;
         private System.Windows.Forms.Label labelLoginColaborador;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

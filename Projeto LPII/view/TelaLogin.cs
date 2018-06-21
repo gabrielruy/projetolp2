@@ -47,6 +47,11 @@ namespace Projeto_LPII
             {
                 MessageBox.Show("Senha ou usuário incorretos!!",  ex.Message);
             }
+
+            //Se tudo der certo no Database chama a tela inicial
+
+            //TelaInicial telaInicial = new TelaInicial();
+            //telaInicial.Show();
         }
 
         private void SenhaColaboradorInicio_TextChanged(object sender, EventArgs e)

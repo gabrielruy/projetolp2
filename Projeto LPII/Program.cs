@@ -16,7 +16,7 @@ namespace Projeto_LPII
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Tela_de_login());
         }
     }
 }
