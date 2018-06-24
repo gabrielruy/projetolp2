@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="model\class\TrabalhaEmProjeto.cs" />
     <Compile Include="model\dao\ColaboradorDAO.cs" />
     <Compile Include="model\class\Cliente.cs" />
     <Compile Include="model\class\Colaborador.cs" />
@@ -53,6 +54,9 @@
     <Compile Include="model\class\Login.cs" />
     <Compile Include="model\connection\Database.cs" />
     <Compile Include="model\dao\ClienteDAO.cs" />
+    <Compile Include="model\dao\EtapaDAO.cs" />
+    <Compile Include="model\dao\ProjetoDAO.cs" />
+    <Compile Include="model\dao\TrabalhaEmProjetoDAO.cs" />
     <Compile Include="view\TelaCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>

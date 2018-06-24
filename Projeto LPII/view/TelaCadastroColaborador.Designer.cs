@@ -161,6 +161,7 @@
             this.buttonconfirmarCadastroColaborador.TabIndex = 15;
             this.buttonconfirmarCadastroColaborador.Text = "Cadastrar";
             this.buttonconfirmarCadastroColaborador.UseVisualStyleBackColor = false;
+            this.buttonconfirmarCadastroColaborador.Click += new System.EventHandler(this.buttonconfirmarCadastroColaborador_Click);
             // 
             // buttoncancelarCadastroColaborador
             // 

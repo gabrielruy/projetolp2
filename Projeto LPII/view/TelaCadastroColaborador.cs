@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_LPII.model.dao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace Projeto_LPII
 {
     public partial class Tela_cadastro_de_colaborador : Form
     {
+        /* Atributo responsável pelo CRUD Cliente */
+        private ColaboradorDAO dao = new ColaboradorDAO();
+
         public Tela_cadastro_de_colaborador()
         {
             InitializeComponent();
@@ -42,14 +46,45 @@ namespace Projeto_LPII
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Cancelar
         {
+            //Colocar aqui se precisar limpar a tela
             this.Close();
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonconfirmarCadastroColaborador_Click(object sender, EventArgs e) //Cadastrar
+        {
+            Colaborador c;
+
+            /* Chama o método para retornar um objeto colaborador com as informações da tela */
+            c = GetDTO();
+
+            if (dao.Create(c))
+                MessageBox.Show("O colaborador foi cadastrado.", "Colaborador Cadastrado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Erro ao cadastrar.", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /* Retorna um objeto categoria com as informações recolhidas da tela */
+        private Colaborador GetDTO()
+        {
+            Colaborador c = new Colaborador();
+
+            c.Nome = nomeColaborador.Text;
+            c.Login = cadastroLoginColaborador.Text;
+            c.Senha = cadastroSenhaColaborador.Text;
+            c.Telefone = maskedTextBox1.Text;
+            c.Cargo = comboBox1.Text;
+            c.NroRh = int.Parse(maskedTextBox2.Text);
+            c.Email = emailColaborador.Text;
+            return c;
         }
     }
 }

@@ -42,7 +42,7 @@
             this.groupBoxLogradouro = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.labelEstado = new System.Windows.Forms.Label();
             this.labelCnpj = new System.Windows.Forms.Label();
             this.groupBoxContato = new System.Windows.Forms.GroupBox();
@@ -156,7 +156,7 @@
             // 
             this.groupBoxLogradouro.Controls.Add(this.comboBox1);
             this.groupBoxLogradouro.Controls.Add(this.maskedTextBox3);
-            this.groupBoxLogradouro.Controls.Add(this.maskedTextBox2);
+            this.groupBoxLogradouro.Controls.Add(this.txtCep);
             this.groupBoxLogradouro.Controls.Add(this.labelEstado);
             this.groupBoxLogradouro.Controls.Add(this.cidadeCliente);
             this.groupBoxLogradouro.Controls.Add(this.labelCep);
@@ -220,13 +220,13 @@
             this.maskedTextBox3.TabIndex = 18;
             this.maskedTextBox3.ValidatingType = typeof(int);
             // 
-            // maskedTextBox2
+            // txtCep
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(89, 26);
-            this.maskedTextBox2.Mask = "00000-999";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(272, 27);
-            this.maskedTextBox2.TabIndex = 17;
+            this.txtCep.Location = new System.Drawing.Point(89, 26);
+            this.txtCep.Mask = "00000-999";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(272, 27);
+            this.txtCep.TabIndex = 17;
             // 
             // labelEstado
             // 
@@ -401,7 +401,7 @@
         private System.Windows.Forms.Button buttonconfirmarCadastroCliente;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;

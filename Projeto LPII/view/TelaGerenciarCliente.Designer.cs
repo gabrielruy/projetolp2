@@ -357,6 +357,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(495, 276);
             this.dataGridView1.TabIndex = 40;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
@@ -386,6 +387,7 @@
             this.button1.TabIndex = 43;
             this.button1.Text = "EXCLUIR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button3
             // 
@@ -398,6 +400,7 @@
             this.button3.TabIndex = 45;
             this.button3.Text = "BUSCAR";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -409,6 +412,7 @@
             this.button2.TabIndex = 44;
             this.button2.Text = "Voltar  ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Tela_listar_cliente
             // 

@@ -36,29 +36,28 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonVoltarListarCliente = new System.Windows.Forms.Button();
             this.buttonConfirmarListagemdeClientes = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelNroEtapas = new System.Windows.Forms.Label();
             this.labelInicioProjeto = new System.Windows.Forms.Label();
             this.dateTimeProjeto = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.labelCliente = new System.Windows.Forms.Label();
             this.nomeProjeto = new System.Windows.Forms.TextBox();
             this.labelNomeProjeto = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSituacao = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProjetos
@@ -82,17 +81,19 @@
             this.button3.TabIndex = 60;
             this.button3.Text = "BUSCAR";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.OrangeRed;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(114, 379);
+            this.button1.Location = new System.Drawing.Point(129, 380);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 34);
             this.button1.TabIndex = 59;
             this.button1.Text = "EXCLUIR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -129,103 +130,71 @@
             this.buttonVoltarListarCliente.TabIndex = 55;
             this.buttonVoltarListarCliente.Text = "ATUALIZAR ";
             this.buttonVoltarListarCliente.UseVisualStyleBackColor = false;
+            this.buttonVoltarListarCliente.Click += new System.EventHandler(this.buttonVoltarListarCliente_Click);
             // 
             // buttonConfirmarListagemdeClientes
             // 
             this.buttonConfirmarListagemdeClientes.BackColor = System.Drawing.Color.Orange;
             this.buttonConfirmarListagemdeClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmarListagemdeClientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonConfirmarListagemdeClientes.Location = new System.Drawing.Point(419, 379);
+            this.buttonConfirmarListagemdeClientes.Location = new System.Drawing.Point(314, 381);
             this.buttonConfirmarListagemdeClientes.Name = "buttonConfirmarListagemdeClientes";
             this.buttonConfirmarListagemdeClientes.Size = new System.Drawing.Size(88, 33);
             this.buttonConfirmarListagemdeClientes.TabIndex = 54;
-            this.buttonConfirmarListagemdeClientes.Text = "SALVAR";
+            this.buttonConfirmarListagemdeClientes.Text = "CANCELAR";
             this.buttonConfirmarListagemdeClientes.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(710, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(240, 21);
-            this.comboBox1.TabIndex = 68;
+            this.buttonConfirmarListagemdeClientes.Click += new System.EventHandler(this.buttonConfirmarListagemdeClientes_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(551, 358);
+            this.groupBox2.Location = new System.Drawing.Point(551, 307);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(689, 179);
+            this.groupBox2.Size = new System.Drawing.Size(689, 232);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Colaboradores ";
             // 
-            // comboBox3
+            // dataGridView2
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(159, 99);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(240, 28);
-            this.comboBox3.TabIndex = 11;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 54);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(240, 28);
-            this.comboBox2.TabIndex = 10;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nome});
+            this.dataGridView2.Location = new System.Drawing.Point(159, 69);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(341, 108);
+            this.dataGridView2.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(46, 102);
+            this.label4.Location = new System.Drawing.Point(46, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Colaboradores";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(45, 57);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Administrador ";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.labelNroEtapas);
             this.groupBox1.Controls.Add(this.labelInicioProjeto);
             this.groupBox1.Controls.Add(this.dateTimeProjeto);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(551, 168);
+            this.groupBox1.Location = new System.Drawing.Point(551, 151);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 179);
+            this.groupBox1.Size = new System.Drawing.Size(689, 131);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Etapas";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(159, 44);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(56, 27);
-            this.numericUpDown1.TabIndex = 12;
+            this.groupBox1.Text = "Datas";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(159, 139);
+            this.dateTimePicker1.Location = new System.Drawing.Point(159, 86);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(240, 27);
             this.dateTimePicker1.TabIndex = 11;
@@ -234,27 +203,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 142);
+            this.label1.Location = new System.Drawing.Point(8, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "Previsão de término ";
             // 
-            // labelNroEtapas
-            // 
-            this.labelNroEtapas.AutoSize = true;
-            this.labelNroEtapas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNroEtapas.Location = new System.Drawing.Point(39, 51);
-            this.labelNroEtapas.Name = "labelNroEtapas";
-            this.labelNroEtapas.Size = new System.Drawing.Size(104, 20);
-            this.labelNroEtapas.TabIndex = 6;
-            this.labelNroEtapas.Text = "Nrº de etapas ";
-            // 
             // labelInicioProjeto
             // 
             this.labelInicioProjeto.AutoSize = true;
             this.labelInicioProjeto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInicioProjeto.Location = new System.Drawing.Point(34, 99);
+            this.labelInicioProjeto.Location = new System.Drawing.Point(34, 46);
             this.labelInicioProjeto.Name = "labelInicioProjeto";
             this.labelInicioProjeto.Size = new System.Drawing.Size(119, 20);
             this.labelInicioProjeto.TabIndex = 9;
@@ -262,33 +221,16 @@
             // 
             // dateTimeProjeto
             // 
-            this.dateTimeProjeto.Location = new System.Drawing.Point(159, 95);
+            this.dateTimeProjeto.Location = new System.Drawing.Point(159, 42);
             this.dateTimeProjeto.Name = "dateTimeProjeto";
             this.dateTimeProjeto.Size = new System.Drawing.Size(240, 27);
             this.dateTimeProjeto.TabIndex = 8;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(710, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(56, 20);
-            this.textBox1.TabIndex = 65;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(636, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "Código";
             // 
             // labelCliente
             // 
             this.labelCliente.AutoSize = true;
             this.labelCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCliente.Location = new System.Drawing.Point(626, 128);
+            this.labelCliente.Location = new System.Drawing.Point(649, 107);
             this.labelCliente.Name = "labelCliente";
             this.labelCliente.Size = new System.Drawing.Size(55, 20);
             this.labelCliente.TabIndex = 63;
@@ -296,7 +238,7 @@
             // 
             // nomeProjeto
             // 
-            this.nomeProjeto.Location = new System.Drawing.Point(710, 84);
+            this.nomeProjeto.Location = new System.Drawing.Point(710, 63);
             this.nomeProjeto.Name = "nomeProjeto";
             this.nomeProjeto.Size = new System.Drawing.Size(240, 20);
             this.nomeProjeto.TabIndex = 62;
@@ -305,7 +247,7 @@
             // 
             this.labelNomeProjeto.AutoSize = true;
             this.labelNomeProjeto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomeProjeto.Location = new System.Drawing.Point(576, 84);
+            this.labelNomeProjeto.Location = new System.Drawing.Point(576, 63);
             this.labelNomeProjeto.Name = "labelNomeProjeto";
             this.labelNomeProjeto.Size = new System.Drawing.Size(128, 20);
             this.labelNomeProjeto.TabIndex = 61;
@@ -315,12 +257,62 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Crimson;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(423, 433);
+            this.button2.Location = new System.Drawing.Point(423, 380);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 34);
             this.button2.TabIndex = 69;
             this.button2.Text = "Voltar  ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(710, 107);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(240, 20);
+            this.textBox1.TabIndex = 70;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1049, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 20);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "Situação";
+            // 
+            // txtSituacao
+            // 
+            this.txtSituacao.Location = new System.Drawing.Point(1002, 63);
+            this.txtSituacao.Name = "txtSituacao";
+            this.txtSituacao.Size = new System.Drawing.Size(141, 20);
+            this.txtSituacao.TabIndex = 72;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 300;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(710, 24);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(240, 20);
+            this.textBox3.TabIndex = 74;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(646, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "Codigo";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Tela_listar_projetos
             // 
@@ -328,12 +320,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1253, 567);
             this.ControlBox = false;
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtSituacao);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.nomeProjeto);
             this.Controls.Add(this.labelNomeProjeto);
@@ -353,9 +347,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,24 +365,23 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonVoltarListarCliente;
         private System.Windows.Forms.Button buttonConfirmarListagemdeClientes;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelNroEtapas;
         private System.Windows.Forms.Label labelInicioProjeto;
         private System.Windows.Forms.DateTimePicker dateTimeProjeto;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelCliente;
         private System.Windows.Forms.TextBox nomeProjeto;
         private System.Windows.Forms.Label labelNomeProjeto;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
     }
 }

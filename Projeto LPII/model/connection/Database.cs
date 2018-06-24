@@ -14,7 +14,7 @@ namespace Projeto_LPII
         private static MySqlConnection connection; /* Conexão com o Banco de Dados */
         private static Database instance; /* Instância do objeto Database */
         private string connectionString = /* String de configuração da Conexão */
-            "Server=localhost; database=projeto; Uid=root; Pwd=";
+            "Server=localhost; database=projeto; Uid=Gabriel; Pwd=3968wyxb";
 
         /* Construtor privado */
         private Database()
@@ -93,7 +93,7 @@ namespace Projeto_LPII
             try
             {
                 /* Troca a string de conexão */
-                connection.ConnectionString = "Server=localhost; Uid=root; Pwd=";
+                connection.ConnectionString = "Server=localhost; Uid=root; Pwd=3968wyxb";
 
                 /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
@@ -151,17 +151,20 @@ namespace Projeto_LPII
                     "CONSTRAINT un_cliente_cnpj UNIQUE(cnpj));";
 
                 /* Executa o comando MySql */
-                command = new MySqlCommand(query, connection);
+                command = new MySqlCommand(query, connection);  
                 command.ExecuteNonQuery();
 
                 /* SQL para criar a tabela Projeto */
                 query = "CREATE TABLE IF NOT EXISTS Projeto (" +
                     "codigo INTEGER AUTO_INCREMENT," +
+                    "cliente INTEGER NOT NULL," +
                     "nome VARCHAR(64) NOT NULL," +
-                    "nroEtapas INTEGER NOT NULL," +
                     "dataInicio DATETIME NOT NULL, " +
                     "previsaoTermino DATETIME NOT NULL, " +
-                    "CONSTRAINT pk_projeto PRIMARY KEY(codigo));";
+                    "situacao VARCHAR(64) NOT NULL," +
+                    "CONSTRAINT pk_projeto PRIMARY KEY(codigo)" +
+                    "CONSTRAINT fk_projeto_cliente FOREIGN KEY(cliente) " +
+                    "REFERENCES Cliente(codigo));";
 
                 /* Executa o comando MySql */
                 command = new MySqlCommand(query, connection);
@@ -171,9 +174,9 @@ namespace Projeto_LPII
                 query = "CREATE TABLE IF NOT EXISTS Etapa (" +
                     "codigo INTEGER AUTO_INCREMENT," +
                     "nome VARCHAR(64) NOT NULL," +
-                    "duracao DATETIME NOT NULL, " +
+                    "duracao INTEGER, " +
                     "projeto INTEGER NOT NULL," +
-                    "numero INTEGER NOT NULL," +
+                    "numero INTEGER AUTO_INCREMENT," +
                     "CONSTRAINT pk_etapa PRIMARY KEY(codigo)" +
                     "CONSTRAINT fk_etapa_projeto FOREIGN KEY(projeto) " +
                     "REFERENCES Projeto(codigo));";
@@ -184,10 +187,10 @@ namespace Projeto_LPII
 
                 /* SQL para criar a tabela de relação entre colaborador e projeto */
                 query = "CREATE TABLE IF NOT EXISTS TrabalhaEmProjeto (" +
+                    "codigo INTEGER AUTO_INCREMENT," +
                     "codigo_colaborador INTEGER," +
                     "codigo_projeto INTEGER," +
-                    "CONSTRAINT pk_trabalha_colaborador PRIMARY KEY(codigo_colaborador)" +
-                    "CONSTRAINT pk_trabalha_projeto PRIMARY KEY(codigo_projeto)" +
+                    "CONSTRAINT pk_trabalha_em_projeto PRIMARY KEY(codigo)" +
                     "CONSTRAINT fk_trabalha_colaborador FOREIGN KEY(codigo_colaborador) " +
                     "REFERENCES Colaborador(codigo)" +
                     "CONSTRAINT fk_trabalha_projeto FOREIGN KEY(codigo_projeto) " +

@@ -77,6 +77,7 @@
             this.button3.TabIndex = 53;
             this.button3.Text = "BUSCAR";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -88,6 +89,7 @@
             this.button2.TabIndex = 52;
             this.button2.Text = "Voltar  ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -99,6 +101,7 @@
             this.button1.TabIndex = 51;
             this.button1.Text = "EXCLUIR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -135,6 +138,7 @@
             this.buttonVoltarListarCliente.TabIndex = 47;
             this.buttonVoltarListarCliente.Text = "ATUALIZAR ";
             this.buttonVoltarListarCliente.UseVisualStyleBackColor = false;
+            this.buttonVoltarListarCliente.Click += new System.EventHandler(this.buttonVoltarListarCliente_Click);
             // 
             // buttonConfirmarListagemdeClientes
             // 
@@ -147,6 +151,7 @@
             this.buttonConfirmarListagemdeClientes.TabIndex = 46;
             this.buttonConfirmarListagemdeClientes.Text = "SALVAR";
             this.buttonConfirmarListagemdeClientes.UseVisualStyleBackColor = false;
+            this.buttonConfirmarListagemdeClientes.Click += new System.EventHandler(this.buttonConfirmarListagemdeClientes_Click);
             // 
             // comboBox1
             // 

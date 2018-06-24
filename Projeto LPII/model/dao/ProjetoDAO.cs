@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Projeto_LPII.model.dao
 {
-    class ClienteDAO
+    class ProjetoDAO
     {
-        public bool Create(Cliente c)
+        public bool Create(Projeto p)
         {
             bool state = false; /* Indica se o comando foi executado com sucesso */
 
@@ -19,9 +19,9 @@ namespace Projeto_LPII.model.dao
 
             /* String que contém o SQL que será executado */
             string query =
-            string.Format("INSERT INTO Cliente (nome, cnpj, telefone, email, responsavel, rua, numero, cep, cidade, estado) " +
-                           "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}', {10});",
-                           c.Nome, c.Cnpj, c.Telefone, c.Email, c.Responsavel, c.Rua, c.Numero, c.Cep, c.Cidade, c.Estado);
+            string.Format("INSERT INTO Projeto (cliente, nome, dataInicio, previsaoTermino) " +
+                           "VALUES ('{0}','{1}','{2}','{3}');",
+                           p.Cliente, p.Nome, p.DataInicio, p.PrevisaoTermino);
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -42,9 +42,9 @@ namespace Projeto_LPII.model.dao
                 /* Exceção por violar algum UNIQUE */
                 if (exception.Number == (int)MySqlErrorCode.DuplicateKeyEntry)
                 {
-                    /* UNIQUE(cnpj) */
-                    if (exception.Message.ToString().Contains("un_cliente_cnpj"))
-                        MessageBox.Show("Este CNPJ já está cadastrado.", "CNPJ já Cadastrado",
+                    // Se o cliente nao existir
+                    if (exception.Message.ToString().Contains("fk_projeto_cliente"))
+                        MessageBox.Show("O Cliente não existe.", "Cliente inexistente.",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -56,7 +56,7 @@ namespace Projeto_LPII.model.dao
             return state;
         }
 
-        public bool Update(Cliente c)
+        public bool Update(Projeto p)
         {
             bool state = false; /* Indica se o comando foi executado com sucesso */
 
@@ -65,11 +65,9 @@ namespace Projeto_LPII.model.dao
 
             /* String que contém o SQL que será executado */
             string query =
-            string.Format("UPDATE Cliente SET nome='{0}', cnpj='{1}', telefone='{2}," +
-            "email='{3}', responsavel='{4}', rua='{5}', numero='{6}', cep='{7}'," +
-            "cidade='{8}', estado'{9}'" +
-            "WHERE codigo={10};", c.Nome, c.Cnpj, c.Telefone, c.Email, c.Responsavel,
-            c.Rua, c.Numero, c.Cep, c.Cidade, c.Estado, c.Codigo);
+            string.Format("UPDATE Projeto SET cliente='{0}', nome='{1}', dataInicio='{2}," +
+            "previsaoTermino='{3}'" +
+            "WHERE codigo={7};", p.Cliente, p.Nome, p.DataInicio, p.PrevisaoTermino);
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -90,9 +88,9 @@ namespace Projeto_LPII.model.dao
                 /* Exceção por violar algum UNIQUE */
                 if (exception.Number == (int)MySqlErrorCode.DuplicateKeyEntry)
                 {
-                    /* UNIQUE(cnpj) */
-                    if (exception.Message.ToString().Contains("un_cliente_cnpj"))
-                        MessageBox.Show("Este CNPJ já está cadastrado.", "CNPJ já Cadastrado",
+                    /* UNIQUE(nome) */
+                    if (exception.Message.ToString().Contains("fk_projeto_cliente"))
+                        MessageBox.Show("Este cliente é invalido.", "Cliente inválido",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -104,7 +102,7 @@ namespace Projeto_LPII.model.dao
             return state;
         }
 
-        public bool Delete(Cliente c)
+        public bool Delete(Projeto p)
         {
             bool state = false; /* Indica se o comando foi executado com sucesso */
 
@@ -112,7 +110,7 @@ namespace Projeto_LPII.model.dao
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             /* String que contém o SQL que será executado */
-            string query = string.Format("DELETE FROM Cliente WHERE codigo = {0};", c.Codigo);
+            string query = string.Format("DELETE FROM Projeto WHERE codigo = {0};", p.Codigo);
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -140,16 +138,16 @@ namespace Projeto_LPII.model.dao
             return state;
         }
 
-        public Cliente Read(int codigo)
+        public Projeto Read(String nome)
         {
             /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             /* Objeto de Categoria para receber as informações do Banco de Dados */
-            Cliente cliente = null;
+            Projeto projeto = null;
 
             /* String que contém o SQL que será executado */
-            string query = "SELECT * FROM Cliente WHERE codigo = " + codigo;
+            string query = string.Format("SELECT * FROM Projeto WHERE nome LIKE '%{0}%'", nome);
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -166,18 +164,13 @@ namespace Projeto_LPII.model.dao
                 /* Verifica se troxe informações do banco e coloca no objeto categoria */
                 if (dataReader.Read())
                 {
-                    cliente= new Cliente();
-                    cliente.Codigo = dataReader.GetInt32(0);
-                    cliente.Nome = dataReader.GetString(1);
-                    cliente.Cnpj = dataReader.GetString(2);
-                    cliente.Telefone = dataReader.GetString(3);
-                    cliente.Email = dataReader.GetString(4);
-                    cliente.Responsavel = dataReader.GetString(5);
-                    cliente.Rua = dataReader.GetString(6);
-                    cliente.Numero = dataReader.GetInt32(7);
-                    cliente.Cep = dataReader.GetString(8);
-                    cliente.Cidade = dataReader.GetString(9);
-                    cliente.Estado = dataReader.GetString(10);
+                    projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+
                 }
                 /* Fecha o dataReader */
                 dataReader.Close();
@@ -193,19 +186,19 @@ namespace Projeto_LPII.model.dao
                 /* Fecha a conexão */
                 connection.Close();
             }
-            return cliente;
+            return projeto;
         }
 
-        public Cliente Read(String nome)
+        public Projeto Read(int codigo)
         {
             /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             /* Objeto de Categoria para receber as informações do Banco de Dados */
-            Cliente cliente = null;
+            Projeto projeto = null;
 
             /* String que contém o SQL que será executado */
-            string query = string.Format("SELECT * FROM Cliente WHERE nome LIKE '%{0}%'", nome);
+            string query = "SELECT * FROM Projeto WHERE codigo = " + codigo;
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -222,18 +215,13 @@ namespace Projeto_LPII.model.dao
                 /* Verifica se troxe informações do banco e coloca no objeto categoria */
                 if (dataReader.Read())
                 {
-                    cliente = new Cliente();
-                    cliente.Codigo = dataReader.GetInt32(0);
-                    cliente.Nome = dataReader.GetString(1);
-                    cliente.Cnpj = dataReader.GetString(2);
-                    cliente.Telefone = dataReader.GetString(3);
-                    cliente.Email = dataReader.GetString(4);
-                    cliente.Responsavel = dataReader.GetString(5);
-                    cliente.Rua = dataReader.GetString(6);
-                    cliente.Numero = dataReader.GetInt32(7);
-                    cliente.Cep = dataReader.GetString(8);
-                    cliente.Cidade = dataReader.GetString(9);
-                    cliente.Estado = dataReader.GetString(10);
+                    projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+
                 }
                 /* Fecha o dataReader */
                 dataReader.Close();
@@ -249,21 +237,21 @@ namespace Projeto_LPII.model.dao
                 /* Fecha a conexão */
                 connection.Close();
             }
-            return cliente;
+            return projeto;
         }
 
-        public List<Cliente> ListAll()
+        public List<Projeto> ListAll()
         {
             /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            List<Cliente> lista = new List<Cliente>();
+            List<Projeto> lista = new List<Projeto>();
 
             /* Preenchido com as informações do Banco de Dados */
-            Cliente cliente;
+            Projeto projeto;
 
             /* String que contém o SQL que será executado */
-            string query = "SELECT * FROM Cliente";
+            string query = "SELECT * FROM Projeto";
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -280,20 +268,14 @@ namespace Projeto_LPII.model.dao
                 /* Lê todos os dados na tabela do Banco de Dados */
                 while (dataReader.Read())
                 {
-                    cliente = new Cliente();
-                    cliente.Codigo = dataReader.GetInt32(0);
-                    cliente.Nome = dataReader.GetString(1);
-                    cliente.Cnpj = dataReader.GetString(2);
-                    cliente.Telefone = dataReader.GetString(3);
-                    cliente.Email = dataReader.GetString(4);
-                    cliente.Responsavel = dataReader.GetString(5);
-                    cliente.Rua = dataReader.GetString(6);
-                    cliente.Numero = dataReader.GetInt32(7);
-                    cliente.Cep = dataReader.GetString(8);
-                    cliente.Cidade = dataReader.GetString(9);
-                    cliente.Estado = dataReader.GetString(10);
+                    projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
 
-                    lista.Add(cliente); /* Adiciona na lista */
+                    lista.Add(projeto); /* Adiciona na lista */
                 }
                 dataReader.Close();
             }
@@ -311,5 +293,5 @@ namespace Projeto_LPII.model.dao
             /* Retorna a lista */
             return lista;
         }
-    }   
+    }
 }
