@@ -35,8 +35,6 @@
             this.labelRua = new System.Windows.Forms.Label();
             this.labelCep = new System.Windows.Forms.Label();
             this.labelNro = new System.Windows.Forms.Label();
-            this.bairroCleinte = new System.Windows.Forms.TextBox();
-            this.labelBairro = new System.Windows.Forms.Label();
             this.labelCidade = new System.Windows.Forms.Label();
             this.cidadeCliente = new System.Windows.Forms.TextBox();
             this.groupBoxLogradouro = new System.Windows.Forms.GroupBox();
@@ -53,8 +51,8 @@
             this.buttonCancelarCadastroCliente = new System.Windows.Forms.Button();
             this.buttonconfirmarCadastroCliente = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelTelefone = new System.Windows.Forms.Label();
+            this.maskedTextBoxTelefoneCliente = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxLogradouro.SuspendLayout();
             this.groupBoxContato.SuspendLayout();
             this.SuspendLayout();
@@ -84,14 +82,14 @@
             this.nomeCliente.Location = new System.Drawing.Point(148, 103);
             this.nomeCliente.Name = "nomeCliente";
             this.nomeCliente.Size = new System.Drawing.Size(313, 20);
-            this.nomeCliente.TabIndex = 3;
+            this.nomeCliente.TabIndex = 0;
             // 
             // ruaCliente
             // 
             this.ruaCliente.Location = new System.Drawing.Point(89, 73);
             this.ruaCliente.Name = "ruaCliente";
             this.ruaCliente.Size = new System.Drawing.Size(147, 27);
-            this.ruaCliente.TabIndex = 5;
+            this.ruaCliente.TabIndex = 1;
             // 
             // labelRua
             // 
@@ -120,26 +118,10 @@
             this.labelNro.TabIndex = 9;
             this.labelNro.Text = "Nro";
             // 
-            // bairroCleinte
-            // 
-            this.bairroCleinte.Location = new System.Drawing.Point(89, 107);
-            this.bairroCleinte.Name = "bairroCleinte";
-            this.bairroCleinte.Size = new System.Drawing.Size(105, 27);
-            this.bairroCleinte.TabIndex = 11;
-            // 
-            // labelBairro
-            // 
-            this.labelBairro.AutoSize = true;
-            this.labelBairro.Location = new System.Drawing.Point(31, 107);
-            this.labelBairro.Name = "labelBairro";
-            this.labelBairro.Size = new System.Drawing.Size(53, 20);
-            this.labelBairro.TabIndex = 12;
-            this.labelBairro.Text = "Bairro ";
-            // 
             // labelCidade
             // 
             this.labelCidade.AutoSize = true;
-            this.labelCidade.Location = new System.Drawing.Point(200, 110);
+            this.labelCidade.Location = new System.Drawing.Point(22, 110);
             this.labelCidade.Name = "labelCidade";
             this.labelCidade.Size = new System.Drawing.Size(60, 20);
             this.labelCidade.TabIndex = 13;
@@ -147,10 +129,10 @@
             // 
             // cidadeCliente
             // 
-            this.cidadeCliente.Location = new System.Drawing.Point(258, 107);
+            this.cidadeCliente.Location = new System.Drawing.Point(90, 110);
             this.cidadeCliente.Name = "cidadeCliente";
             this.cidadeCliente.Size = new System.Drawing.Size(103, 27);
-            this.cidadeCliente.TabIndex = 14;
+            this.cidadeCliente.TabIndex = 3;
             // 
             // groupBoxLogradouro
             // 
@@ -162,15 +144,13 @@
             this.groupBoxLogradouro.Controls.Add(this.labelCep);
             this.groupBoxLogradouro.Controls.Add(this.labelCidade);
             this.groupBoxLogradouro.Controls.Add(this.ruaCliente);
-            this.groupBoxLogradouro.Controls.Add(this.labelBairro);
             this.groupBoxLogradouro.Controls.Add(this.labelRua);
-            this.groupBoxLogradouro.Controls.Add(this.bairroCleinte);
             this.groupBoxLogradouro.Controls.Add(this.labelNro);
             this.groupBoxLogradouro.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxLogradouro.Location = new System.Drawing.Point(58, 180);
+            this.groupBoxLogradouro.Location = new System.Drawing.Point(58, 234);
             this.groupBoxLogradouro.Name = "groupBoxLogradouro";
-            this.groupBoxLogradouro.Size = new System.Drawing.Size(408, 204);
-            this.groupBoxLogradouro.TabIndex = 15;
+            this.groupBoxLogradouro.Size = new System.Drawing.Size(408, 163);
+            this.groupBoxLogradouro.TabIndex = 4;
             this.groupBoxLogradouro.TabStop = false;
             this.groupBoxLogradouro.Text = "Logradouro ";
             this.groupBoxLogradouro.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -206,10 +186,10 @@
             "SP",
             "SE ",
             "TO "});
-            this.comboBox1.Location = new System.Drawing.Point(90, 139);
+            this.comboBox1.Location = new System.Drawing.Point(282, 110);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(54, 28);
-            this.comboBox1.TabIndex = 19;
+            this.comboBox1.TabIndex = 4;
             // 
             // maskedTextBox3
             // 
@@ -217,7 +197,7 @@
             this.maskedTextBox3.Mask = "00000";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(79, 27);
-            this.maskedTextBox3.TabIndex = 18;
+            this.maskedTextBox3.TabIndex = 2;
             this.maskedTextBox3.ValidatingType = typeof(int);
             // 
             // txtCep
@@ -226,12 +206,12 @@
             this.txtCep.Mask = "00000-999";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(272, 27);
-            this.txtCep.TabIndex = 17;
+            this.txtCep.TabIndex = 0;
             // 
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(50, 142);
+            this.labelEstado.Location = new System.Drawing.Point(250, 110);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(26, 20);
             this.labelEstado.TabIndex = 15;
@@ -252,10 +232,10 @@
             this.groupBoxContato.Controls.Add(this.nomeContatoCliente);
             this.groupBoxContato.Controls.Add(this.labelNomeContato);
             this.groupBoxContato.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxContato.Location = new System.Drawing.Point(58, 408);
+            this.groupBoxContato.Location = new System.Drawing.Point(58, 427);
             this.groupBoxContato.Name = "groupBoxContato";
             this.groupBoxContato.Size = new System.Drawing.Size(408, 76);
-            this.groupBoxContato.TabIndex = 18;
+            this.groupBoxContato.TabIndex = 5;
             this.groupBoxContato.TabStop = false;
             this.groupBoxContato.Text = "Contato";
             // 
@@ -264,7 +244,7 @@
             this.nomeContatoCliente.Location = new System.Drawing.Point(89, 23);
             this.nomeContatoCliente.Name = "nomeContatoCliente";
             this.nomeContatoCliente.Size = new System.Drawing.Size(304, 27);
-            this.nomeContatoCliente.TabIndex = 19;
+            this.nomeContatoCliente.TabIndex = 0;
             // 
             // labelNomeContato
             // 
@@ -291,17 +271,17 @@
             this.emailCliente.Location = new System.Drawing.Point(323, 142);
             this.emailCliente.Name = "emailCliente";
             this.emailCliente.Size = new System.Drawing.Size(138, 20);
-            this.emailCliente.TabIndex = 20;
+            this.emailCliente.TabIndex = 2;
             // 
             // buttonCancelarCadastroCliente
             // 
             this.buttonCancelarCadastroCliente.BackColor = System.Drawing.Color.Crimson;
-            this.buttonCancelarCadastroCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelarCadastroCliente.Location = new System.Drawing.Point(288, 516);
+            this.buttonCancelarCadastroCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelarCadastroCliente.Location = new System.Drawing.Point(288, 526);
             this.buttonCancelarCadastroCliente.Name = "buttonCancelarCadastroCliente";
             this.buttonCancelarCadastroCliente.Size = new System.Drawing.Size(84, 34);
-            this.buttonCancelarCadastroCliente.TabIndex = 26;
-            this.buttonCancelarCadastroCliente.Text = "Cancelar ";
+            this.buttonCancelarCadastroCliente.TabIndex = 7;
+            this.buttonCancelarCadastroCliente.Text = "CANCELAR";
             this.buttonCancelarCadastroCliente.UseVisualStyleBackColor = false;
             this.buttonCancelarCadastroCliente.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -310,11 +290,11 @@
             this.buttonconfirmarCadastroCliente.BackColor = System.Drawing.Color.Orange;
             this.buttonconfirmarCadastroCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonconfirmarCadastroCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonconfirmarCadastroCliente.Location = new System.Drawing.Point(378, 517);
+            this.buttonconfirmarCadastroCliente.Location = new System.Drawing.Point(378, 527);
             this.buttonconfirmarCadastroCliente.Name = "buttonconfirmarCadastroCliente";
             this.buttonconfirmarCadastroCliente.Size = new System.Drawing.Size(88, 33);
-            this.buttonconfirmarCadastroCliente.TabIndex = 25;
-            this.buttonconfirmarCadastroCliente.Text = "Cadastrar";
+            this.buttonconfirmarCadastroCliente.TabIndex = 6;
+            this.buttonconfirmarCadastroCliente.Text = "CADASTRAR";
             this.buttonconfirmarCadastroCliente.UseVisualStyleBackColor = false;
             this.buttonconfirmarCadastroCliente.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -324,34 +304,34 @@
             this.maskedTextBox1.Mask = "99.000.000/0000-00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(113, 20);
-            this.maskedTextBox1.TabIndex = 27;
+            this.maskedTextBox1.TabIndex = 1;
             // 
-            // label1
+            // labelTelefone
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(72, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Código";
+            this.labelTelefone.AutoSize = true;
+            this.labelTelefone.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelefone.Location = new System.Drawing.Point(73, 185);
+            this.labelTelefone.Name = "labelTelefone";
+            this.labelTelefone.Size = new System.Drawing.Size(70, 20);
+            this.labelTelefone.TabIndex = 30;
+            this.labelTelefone.Text = "Telefone ";
             // 
-            // textBox1
+            // maskedTextBoxTelefoneCliente
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Location = new System.Drawing.Point(148, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(36, 20);
-            this.textBox1.TabIndex = 29;
+            this.maskedTextBoxTelefoneCliente.Location = new System.Drawing.Point(147, 185);
+            this.maskedTextBoxTelefoneCliente.Mask = "(99) 00000-0000";
+            this.maskedTextBoxTelefoneCliente.Name = "maskedTextBoxTelefoneCliente";
+            this.maskedTextBoxTelefoneCliente.Size = new System.Drawing.Size(187, 20);
+            this.maskedTextBoxTelefoneCliente.TabIndex = 3;
             // 
             // Tela_cadastro_de_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 570);
+            this.ClientSize = new System.Drawing.Size(542, 625);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.maskedTextBoxTelefoneCliente);
+            this.Controls.Add(this.labelTelefone);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.buttonCancelarCadastroCliente);
             this.Controls.Add(this.buttonconfirmarCadastroCliente);
@@ -366,7 +346,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Tela_cadastro_de_cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela_cadastro_de_cliente";
+            this.Text = "CADASTRO DE CLIENTE";
             this.groupBoxLogradouro.ResumeLayout(false);
             this.groupBoxLogradouro.PerformLayout();
             this.groupBoxContato.ResumeLayout(false);
@@ -385,8 +365,6 @@
         private System.Windows.Forms.Label labelRua;
         private System.Windows.Forms.Label labelCep;
         private System.Windows.Forms.Label labelNro;
-        private System.Windows.Forms.TextBox bairroCleinte;
-        private System.Windows.Forms.Label labelBairro;
         private System.Windows.Forms.Label labelCidade;
         private System.Windows.Forms.TextBox cidadeCliente;
         private System.Windows.Forms.GroupBox groupBoxLogradouro;
@@ -403,7 +381,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelTelefone;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefoneCliente;
     }
 }

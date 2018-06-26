@@ -12,47 +12,38 @@ namespace Projeto_LPII.model.dao
     {
         public bool Create(Colaborador c)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false; 
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
             string query =
             string.Format("INSERT INTO Colaborador (nome, login, senha, telefone, cargo, nroRh, email) " +
                            "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');",
                            c.Nome, c.Login, c.Senha, c.Telefone, c.Cargo, c.NroRh, c.Email);
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true; 
             }
             catch (MySqlException exception)
             {
-                /* Exceção por violar algum UNIQUE */
                 if (exception.Number == (int)MySqlErrorCode.DuplicateKeyEntry)
                 {
-                    /* UNIQUE(nome) */
                     if (exception.Message.ToString().Contains("un_colaborador_nome"))
                         MessageBox.Show("Este nome já está cadastrado.", "Nome já cadastrado",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    /* UNIQUE(nroRh) */
                     if (exception.Message.ToString().Contains("un_colaborador_nroRh"))
                         MessageBox.Show("Este número de RH já está cadastrado.", "Número de RH já cadastrado",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    /* UNIQUE(login) */
                     if (exception.Message.ToString().Contains("un_colaborador_login"))
                         MessageBox.Show("Este login já está cadastrado.", "Login já Cadastrado",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -60,7 +51,6 @@ namespace Projeto_LPII.model.dao
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return state;
@@ -68,48 +58,39 @@ namespace Projeto_LPII.model.dao
 
         public bool Update(Colaborador c)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false; 
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
             string query =
-            string.Format("UPDATE Colaborador SET nome='{0}', login='{1}', senha='{2}," +
+            string.Format("UPDATE Colaborador SET nome='{0}', login='{1}', senha='{2}'," +
             "telefone='{3}', cargo='{4}', nroRh='{5}', email='{6}'" +
             "WHERE codigo={7};", c.Nome, c.Login, c.Senha, c.Telefone, c.Cargo,
             c.NroRh, c.Email, c.Codigo);
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true; 
             }
             catch (MySqlException exception)
             {
-                /* Exceção por violar algum UNIQUE */
                 if (exception.Number == (int)MySqlErrorCode.DuplicateKeyEntry)
                 {
-                    /* UNIQUE(nome) */
                     if (exception.Message.ToString().Contains("un_colaborador_nome"))
                         MessageBox.Show("Este nome já está cadastrado.", "Nome já cadastrado",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    /* UNIQUE(nroRh) */
                     if (exception.Message.ToString().Contains("un_colaborador_nroRh"))
                         MessageBox.Show("Este número de RH já está cadastrado.", "Número de RH já cadastrado",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    /* UNIQUE(login) */
                     if (exception.Message.ToString().Contains("un_colaborador_login"))
                         MessageBox.Show("Este login já está cadastrado.", "Login já Cadastrado",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -117,7 +98,6 @@ namespace Projeto_LPII.model.dao
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return state;
@@ -125,27 +105,22 @@ namespace Projeto_LPII.model.dao
 
         public bool Delete(Colaborador c)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false; 
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
             string query = string.Format("DELETE FROM Colaborador WHERE codigo = {0};", c.Codigo);
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true; 
             }
             catch (MySqlException exception)
             {
@@ -161,28 +136,21 @@ namespace Projeto_LPII.model.dao
 
         public Colaborador Read(int codigo)
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* Objeto de Categoria para receber as informações do Banco de Dados */
             Colaborador colaborador = null;
 
-            /* String que contém o SQL que será executado */
             string query = "SELECT * FROM Colaborador WHERE codigo = " + codigo;
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Verifica se troxe informações do banco e coloca no objeto categoria */
                 if (dataReader.Read())
                 {
                     colaborador = new Colaborador();
@@ -195,18 +163,15 @@ namespace Projeto_LPII.model.dao
                     colaborador.NroRh = dataReader.GetInt32(6);
                     colaborador.Email = dataReader.GetString(7);
                 }
-                /* Fecha o dataReader */
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return colaborador;
@@ -214,28 +179,23 @@ namespace Projeto_LPII.model.dao
 
         public Colaborador Read(String nome)
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* Objeto de Categoria para receber as informações do Banco de Dados */
             Colaborador colaborador = null;
 
-            /* String que contém o SQL que será executado */
-            string query = string.Format("SELECT * FROM Colaborador WHERE nome LIKE '%{0}%'", nome);
+            string query = "SELECT * FROM Colaborador WHERE nome LIKE @Nome;";
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Nome", nome + "%");
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Verifica se troxe informações do banco e coloca no objeto categoria */
                 if (dataReader.Read())
                 {
                     colaborador = new Colaborador();
@@ -248,18 +208,15 @@ namespace Projeto_LPII.model.dao
                     colaborador.NroRh = dataReader.GetInt32(6);
                     colaborador.Email = dataReader.GetString(7);
                 }
-                /* Fecha o dataReader */
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return colaborador;
@@ -267,30 +224,23 @@ namespace Projeto_LPII.model.dao
 
         public List<Colaborador> ListAll()
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             List<Colaborador> lista = new List<Colaborador>();
 
-            /* Preenchido com as informações do Banco de Dados */
             Colaborador colaborador;
 
-            /* String que contém o SQL que será executado */
             string query = "SELECT * FROM Colaborador";
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Lê todos os dados na tabela do Banco de Dados */
                 while (dataReader.Read())
                 {
                     colaborador = new Colaborador();
@@ -303,22 +253,19 @@ namespace Projeto_LPII.model.dao
                     colaborador.NroRh = dataReader.GetInt32(6);
                     colaborador.Email = dataReader.GetString(7);
 
-                    lista.Add(colaborador); /* Adiciona na lista */
+                    lista.Add(colaborador); 
                 }
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
-            /* Retorna a lista */
             return lista;
         }
     }

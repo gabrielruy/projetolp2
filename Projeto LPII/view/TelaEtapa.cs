@@ -8,13 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto_LPII
+namespace Projeto_LPII.view
 {
-    public partial class Tela_etapas : Form
+    public partial class TelaEtapa : Form
     {
-        public Tela_etapas()
+        public TelaEtapa()
         {
             InitializeComponent();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bntProximo_Click(object sender, EventArgs e)
+        {
+            //No fim chama a tela de trabalho em projeto 
+
+            TelaTrabalhoEmProjeto trabalhoEmProjeto = new TelaTrabalhoEmProjeto();
+            trabalhoEmProjeto.Show();
         }
     }
 }

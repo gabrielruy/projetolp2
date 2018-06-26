@@ -31,7 +31,6 @@ namespace Projeto_LPII
         {
             Cliente cliente;
 
-            /* Chama o método para retornar um objeto Cliente com as informações da tela */
             cliente = GetDTO();
 
             if (dao.Create(cliente))
@@ -45,7 +44,6 @@ namespace Projeto_LPII
         private void button2_Click(object sender, EventArgs e) // Cancelar
         {
             nomeCliente.Text = ""; //Nome
-            textBox1.Text = ""; //Codigo
             maskedTextBox1.Text = ""; //CNPJ
             emailCliente.Text = ""; //Email
             txtCep.Text = ""; //CEP
@@ -54,22 +52,17 @@ namespace Projeto_LPII
             cidadeCliente.Text = ""; //Cidade
             comboBox1.Text = ""; //UF - Estado
             nomeContatoCliente.Text = ""; //Responsavel
-            // Ta faltando telefone
-
+  
             this.Close(); 
         }
 
-        /* Retorna um objeto categoria com as informações recolhidas da tela */
         private Cliente GetDTO()
         {
             Cliente cliente = new Cliente();
-
-            /* Quando um Cliente é adicionado, não é inserido o código */
-            if (!textBox1.Text.Equals(""))
-                cliente.Codigo = int.Parse(textBox1.Text);
+            
             cliente.Nome = nomeCliente.Text;
             cliente.Cnpj = maskedTextBox1.Text;
-            //cliente.Telefone = ;
+            cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
             cliente.Email = emailCliente.Text;
             cliente.Responsavel = nomeContatoCliente.Text;
             cliente.Rua = ruaCliente.Text;

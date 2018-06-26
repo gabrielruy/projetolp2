@@ -1,6 +1,6 @@
-﻿namespace Projeto_LPII
+﻿/*namespace Projeto_LPII.view
 {
-    partial class Tela_de_login
+    partial class TelaLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,118 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.efetueSeuLogin = new System.Windows.Forms.Label();
-            this.groupBoxLoginInicio = new System.Windows.Forms.GroupBox();
-            this.loginInicio = new System.Windows.Forms.Label();
-            this.LoginColaboradorInicio = new System.Windows.Forms.TextBox();
-            this.SenhaInicio = new System.Windows.Forms.Label();
-            this.buttonFecharLogin = new System.Windows.Forms.Button();
-            this.buttonConfirmarLogin = new System.Windows.Forms.Button();
-            this.maskedTextBoxSenha = new System.Windows.Forms.MaskedTextBox();
-            this.groupBoxLoginInicio.SuspendLayout();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.bnEntrar = new System.Windows.Forms.Button();
+            this.bnCancelar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // efetueSeuLogin
+            // txtUsuario
             // 
-            this.efetueSeuLogin.AutoSize = true;
-            this.efetueSeuLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.efetueSeuLogin.Location = new System.Drawing.Point(12, 9);
-            this.efetueSeuLogin.Name = "efetueSeuLogin";
-            this.efetueSeuLogin.Size = new System.Drawing.Size(143, 21);
-            this.efetueSeuLogin.TabIndex = 1;
-            this.efetueSeuLogin.Text = "EFETUE SEU LOGIN";
-            this.efetueSeuLogin.Click += new System.EventHandler(this.label1_Click);
+            this.txtUsuario.Location = new System.Drawing.Point(160, 68);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(243, 20);
+            this.txtUsuario.TabIndex = 0;
             // 
-            // groupBoxLoginInicio
+            // txtSenha
             // 
-            this.groupBoxLoginInicio.Controls.Add(this.maskedTextBoxSenha);
-            this.groupBoxLoginInicio.Controls.Add(this.loginInicio);
-            this.groupBoxLoginInicio.Controls.Add(this.LoginColaboradorInicio);
-            this.groupBoxLoginInicio.Controls.Add(this.SenhaInicio);
-            this.groupBoxLoginInicio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxLoginInicio.Location = new System.Drawing.Point(51, 60);
-            this.groupBoxLoginInicio.Name = "groupBoxLoginInicio";
-            this.groupBoxLoginInicio.Size = new System.Drawing.Size(378, 89);
-            this.groupBoxLoginInicio.TabIndex = 20;
-            this.groupBoxLoginInicio.TabStop = false;
-            this.groupBoxLoginInicio.Text = "Digite seu dados";
+            this.txtSenha.Location = new System.Drawing.Point(160, 119);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(243, 20);
+            this.txtSenha.TabIndex = 1;
             // 
-            // loginInicio
+            // bnEntrar
             // 
-            this.loginInicio.AutoSize = true;
-            this.loginInicio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginInicio.Location = new System.Drawing.Point(40, 34);
-            this.loginInicio.Name = "loginInicio";
-            this.loginInicio.Size = new System.Drawing.Size(46, 20);
-            this.loginInicio.TabIndex = 20;
-            this.loginInicio.Text = "Login";
+            this.bnEntrar.BackColor = System.Drawing.Color.DarkOrange;
+            this.bnEntrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnEntrar.Location = new System.Drawing.Point(312, 166);
+            this.bnEntrar.Name = "bnEntrar";
+            this.bnEntrar.Size = new System.Drawing.Size(91, 34);
+            this.bnEntrar.TabIndex = 2;
+            this.bnEntrar.Text = "ENTRAR";
+            this.bnEntrar.UseVisualStyleBackColor = false;
+            this.bnEntrar.Click += new System.EventHandler(this.bnEntrar_Click);
             // 
-            // LoginColaboradorInicio
+            // bnCancelar
             // 
-            this.LoginColaboradorInicio.Location = new System.Drawing.Point(102, 34);
-            this.LoginColaboradorInicio.Name = "LoginColaboradorInicio";
-            this.LoginColaboradorInicio.Size = new System.Drawing.Size(99, 27);
-            this.LoginColaboradorInicio.TabIndex = 13;
+            this.bnCancelar.BackColor = System.Drawing.Color.Crimson;
+            this.bnCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnCancelar.Location = new System.Drawing.Point(160, 166);
+            this.bnCancelar.Name = "bnCancelar";
+            this.bnCancelar.Size = new System.Drawing.Size(129, 34);
+            this.bnCancelar.TabIndex = 3;
+            this.bnCancelar.Text = "CANCELAR";
+            this.bnCancelar.UseVisualStyleBackColor = false;
+            this.bnCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // SenhaInicio
+            // label1
             // 
-            this.SenhaInicio.AutoSize = true;
-            this.SenhaInicio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SenhaInicio.Location = new System.Drawing.Point(220, 32);
-            this.SenhaInicio.Name = "SenhaInicio";
-            this.SenhaInicio.Size = new System.Drawing.Size(49, 20);
-            this.SenhaInicio.TabIndex = 12;
-            this.SenhaInicio.Text = "Senha";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(81, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Usuário ";
             // 
-            // buttonFecharLogin
+            // label2
             // 
-            this.buttonFecharLogin.BackColor = System.Drawing.Color.Crimson;
-            this.buttonFecharLogin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFecharLogin.Location = new System.Drawing.Point(236, 155);
-            this.buttonFecharLogin.Name = "buttonFecharLogin";
-            this.buttonFecharLogin.Size = new System.Drawing.Size(84, 34);
-            this.buttonFecharLogin.TabIndex = 22;
-            this.buttonFecharLogin.Text = "Fechar";
-            this.buttonFecharLogin.UseVisualStyleBackColor = false;
-            this.buttonFecharLogin.Click += new System.EventHandler(this.buttonCancelarNovoProjeto_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(81, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Senha";
             // 
-            // buttonConfirmarLogin
-            // 
-            this.buttonConfirmarLogin.BackColor = System.Drawing.Color.Orange;
-            this.buttonConfirmarLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirmarLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonConfirmarLogin.Location = new System.Drawing.Point(341, 155);
-            this.buttonConfirmarLogin.Name = "buttonConfirmarLogin";
-            this.buttonConfirmarLogin.Size = new System.Drawing.Size(88, 33);
-            this.buttonConfirmarLogin.TabIndex = 21;
-            this.buttonConfirmarLogin.Text = "Entrar";
-            this.buttonConfirmarLogin.UseVisualStyleBackColor = false;
-            this.buttonConfirmarLogin.Click += new System.EventHandler(this.buttonConfirmarLogin_Click);
-            // 
-            // maskedTextBoxSenha
-            // 
-            this.maskedTextBoxSenha.Location = new System.Drawing.Point(272, 31);
-            this.maskedTextBoxSenha.Mask = "0000000000";
-            this.maskedTextBoxSenha.Name = "maskedTextBoxSenha";
-            this.maskedTextBoxSenha.Size = new System.Drawing.Size(100, 27);
-            this.maskedTextBoxSenha.TabIndex = 21;
-            this.maskedTextBoxSenha.ValidatingType = typeof(int);
-            // 
-            // Tela_de_login
+            // TelaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 223);
-            this.Controls.Add(this.buttonFecharLogin);
-            this.Controls.Add(this.buttonConfirmarLogin);
-            this.Controls.Add(this.groupBoxLoginInicio);
-            this.Controls.Add(this.efetueSeuLogin);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Tela_de_login";
+            this.ClientSize = new System.Drawing.Size(525, 225);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bnCancelar);
+            this.Controls.Add(this.bnEntrar);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtUsuario);
+            this.Name = "TelaLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela_de_login";
-            this.groupBoxLoginInicio.ResumeLayout(false);
-            this.groupBoxLoginInicio.PerformLayout();
+            this.Text = "LOGAR - SGP";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TelaLogin_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,13 +116,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label efetueSeuLogin;
-        private System.Windows.Forms.GroupBox groupBoxLoginInicio;
-        private System.Windows.Forms.Label loginInicio;
-        private System.Windows.Forms.TextBox LoginColaboradorInicio;
-        private System.Windows.Forms.Label SenhaInicio;
-        private System.Windows.Forms.Button buttonFecharLogin;
-        private System.Windows.Forms.Button buttonConfirmarLogin;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxSenha;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.Button bnEntrar;
+        private System.Windows.Forms.Button bnCancelar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
-}
+}*/

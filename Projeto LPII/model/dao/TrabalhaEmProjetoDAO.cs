@@ -10,49 +10,59 @@ namespace Projeto_LPII.model.dao
 {
     class TrabalhaEmProjetoDAO
     {
-        /* Salva um Trabalhador no Banco de Dados */
-        public void Create(TrabalhaEmProjeto trabalha)
+        public bool Create(TrabalhaEmProjeto trabalha)
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
+            bool state = false;
+
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
-            string query =
-            string.Format("INSERT INTO TrabalhaEmProjeto (codigo_colaborador, codigo_projeto) " +
-                          "VALUES ('{0}','{1}');",
-                           trabalha.Colaborador, trabalha.Projeto);
+            string query ="INSERT INTO TrabalhaEmProjeto (codigo_colaborador, codigo_projeto) " +
+                          "VALUES (@Colaborador, @Projeto);";
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
-            /* Executa o comando SQL */
-            command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("@Colaborador", trabalha.Colaborador.Codigo);
+            command.Parameters.AddWithValue("@Projeto", trabalha.Projeto.Codigo);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                command.ExecuteNonQuery();
+
+                state = true;
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return state;
         }
 
-        // Deleta um trabalhador do banco de dados
         public bool Delete(TrabalhaEmProjeto t)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false; 
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
             string query = string.Format("DELETE FROM Cliente WHERE codigo = {0};", t.Codigo);
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true;
             }
             catch (MySqlException exception)
             {
@@ -67,19 +77,14 @@ namespace Projeto_LPII.model.dao
         }
 
 
-        /* Recupera uma lista contendo todos os trabalhadores em um projeto no Banco de Dados */
         public List<TrabalhaEmProjeto> ListAll(int codProj)
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* Lista de itens */
             List<TrabalhaEmProjeto> lista = new List<TrabalhaEmProjeto>();
 
-            /* Preenchido com as informações do Banco de Dados */
             TrabalhaEmProjeto trabalhador;
 
-            /* String que contém o SQL que será executado */
             string query =
             string.Format("SELECT tp.*, c.*, p.* FROM Projeto p " +
                           "JOIN TrabalhaEmProjeto tp ON p.codigo = tp.codigo_projeto " +
@@ -87,19 +92,15 @@ namespace Projeto_LPII.model.dao
                           "WHERE tp.codigo_projeto = " + codProj);
 
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Lê todos os dados na tabela do Banco de Dados */
                 while (dataReader.Read())
                 {
                     trabalhador = new TrabalhaEmProjeto();
@@ -121,22 +122,20 @@ namespace Projeto_LPII.model.dao
                     trabalhador.Projeto.PrevisaoTermino = dataReader.GetDateTime(15);
                     trabalhador.Projeto.Situacao = dataReader.GetString(16);
 
-                    lista.Add(trabalhador); /* Adiciona na lista */
+                    lista.Add(trabalhador); 
                 }
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
-            return lista; /* Retorna a lista */
+            return lista; 
         }
     }
 }

@@ -38,11 +38,11 @@
             this.pROJETOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eMANDAMENTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eMSTOPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gERENCIARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOLABORADORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROJETOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,8 +64,8 @@
             this.buttonFechaSistem.Location = new System.Drawing.Point(566, 329);
             this.buttonFechaSistem.Name = "buttonFechaSistem";
             this.buttonFechaSistem.Size = new System.Drawing.Size(77, 36);
-            this.buttonFechaSistem.TabIndex = 2;
-            this.buttonFechaSistem.Text = "Sair";
+            this.buttonFechaSistem.TabIndex = 1;
+            this.buttonFechaSistem.Text = "SAIR";
             this.buttonFechaSistem.UseVisualStyleBackColor = false;
             this.buttonFechaSistem.Click += new System.EventHandler(this.buttonFechaSistem_Click);
             // 
@@ -74,12 +74,12 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cADASTROToolStripMenuItem,
             this.pROJETOSToolStripMenuItem,
-            this.rELATÓRIOSToolStripMenuItem,
-            this.gERENCIARToolStripMenuItem});
+            this.gERENCIARToolStripMenuItem,
+            this.rELATÓRIOSToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(654, 28);
-            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // cADASTROToolStripMenuItem
@@ -105,12 +105,14 @@
             this.cOLABORADORESToolStripMenuItem.Name = "cOLABORADORESToolStripMenuItem";
             this.cOLABORADORESToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
             this.cOLABORADORESToolStripMenuItem.Text = "NOVO COLABORADOR";
+            this.cOLABORADORESToolStripMenuItem.Click += new System.EventHandler(this.cOLABORADORESToolStripMenuItem_Click);
             // 
             // pROJETOToolStripMenuItem
             // 
             this.pROJETOToolStripMenuItem.Name = "pROJETOToolStripMenuItem";
             this.pROJETOToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
             this.pROJETOToolStripMenuItem.Text = "NOVO PROJETO";
+            this.pROJETOToolStripMenuItem.Click += new System.EventHandler(this.pROJETOToolStripMenuItem_Click_1);
             // 
             // pROJETOSToolStripMenuItem
             // 
@@ -127,20 +129,13 @@
             this.eMANDAMENTOToolStripMenuItem.Name = "eMANDAMENTOToolStripMenuItem";
             this.eMANDAMENTOToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.eMANDAMENTOToolStripMenuItem.Text = "EM ANDAMENTO ";
+            this.eMANDAMENTOToolStripMenuItem.Click += new System.EventHandler(this.eMANDAMENTOToolStripMenuItem_Click);
             // 
             // eMSTOPToolStripMenuItem
             // 
             this.eMSTOPToolStripMenuItem.Name = "eMSTOPToolStripMenuItem";
             this.eMSTOPToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.eMSTOPToolStripMenuItem.Text = "EM STOP";
-            // 
-            // rELATÓRIOSToolStripMenuItem
-            // 
-            this.rELATÓRIOSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
-            this.rELATÓRIOSToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
-            this.rELATÓRIOSToolStripMenuItem.Text = "RELATÓRIOS ";
-            this.rELATÓRIOSToolStripMenuItem.Click += new System.EventHandler(this.rELATÓRIOSToolStripMenuItem_Click);
             // 
             // gERENCIARToolStripMenuItem
             // 
@@ -173,6 +168,14 @@
             this.pROJETOToolStripMenuItem1.Size = new System.Drawing.Size(189, 24);
             this.pROJETOToolStripMenuItem1.Text = "PROJETO";
             this.pROJETOToolStripMenuItem1.Click += new System.EventHandler(this.pROJETOToolStripMenuItem1_Click);
+            // 
+            // rELATÓRIOSToolStripMenuItem
+            // 
+            this.rELATÓRIOSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
+            this.rELATÓRIOSToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.rELATÓRIOSToolStripMenuItem.Text = "RELATÓRIOS ";
+            this.rELATÓRIOSToolStripMenuItem.Click += new System.EventHandler(this.rELATÓRIOSToolStripMenuItem_Click);
             // 
             // Form1
             // 

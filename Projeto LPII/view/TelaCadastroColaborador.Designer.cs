@@ -141,14 +141,14 @@
             this.cadastroLoginColaborador.Location = new System.Drawing.Point(102, 34);
             this.cadastroLoginColaborador.Name = "cadastroLoginColaborador";
             this.cadastroLoginColaborador.Size = new System.Drawing.Size(99, 27);
-            this.cadastroLoginColaborador.TabIndex = 13;
+            this.cadastroLoginColaborador.TabIndex = 1;
             // 
             // cadastroSenhaColaborador
             // 
             this.cadastroSenhaColaborador.Location = new System.Drawing.Point(281, 32);
             this.cadastroSenhaColaborador.Name = "cadastroSenhaColaborador";
             this.cadastroSenhaColaborador.Size = new System.Drawing.Size(85, 27);
-            this.cadastroSenhaColaborador.TabIndex = 14;
+            this.cadastroSenhaColaborador.TabIndex = 2;
             // 
             // buttonconfirmarCadastroColaborador
             // 
@@ -158,20 +158,20 @@
             this.buttonconfirmarCadastroColaborador.Location = new System.Drawing.Point(334, 392);
             this.buttonconfirmarCadastroColaborador.Name = "buttonconfirmarCadastroColaborador";
             this.buttonconfirmarCadastroColaborador.Size = new System.Drawing.Size(88, 33);
-            this.buttonconfirmarCadastroColaborador.TabIndex = 15;
-            this.buttonconfirmarCadastroColaborador.Text = "Cadastrar";
+            this.buttonconfirmarCadastroColaborador.TabIndex = 12;
+            this.buttonconfirmarCadastroColaborador.Text = "CADASTRAR";
             this.buttonconfirmarCadastroColaborador.UseVisualStyleBackColor = false;
             this.buttonconfirmarCadastroColaborador.Click += new System.EventHandler(this.buttonconfirmarCadastroColaborador_Click);
             // 
             // buttoncancelarCadastroColaborador
             // 
             this.buttoncancelarCadastroColaborador.BackColor = System.Drawing.Color.Crimson;
-            this.buttoncancelarCadastroColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttoncancelarCadastroColaborador.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttoncancelarCadastroColaborador.Location = new System.Drawing.Point(229, 392);
             this.buttoncancelarCadastroColaborador.Name = "buttoncancelarCadastroColaborador";
             this.buttoncancelarCadastroColaborador.Size = new System.Drawing.Size(84, 34);
-            this.buttoncancelarCadastroColaborador.TabIndex = 16;
-            this.buttoncancelarCadastroColaborador.Text = "Cancelar ";
+            this.buttoncancelarCadastroColaborador.TabIndex = 13;
+            this.buttoncancelarCadastroColaborador.Text = "CANCELAR";
             this.buttoncancelarCadastroColaborador.UseVisualStyleBackColor = false;
             this.buttoncancelarCadastroColaborador.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -185,7 +185,7 @@
             this.groupBoxLoginSenhaColaborador.Location = new System.Drawing.Point(44, 302);
             this.groupBoxLoginSenhaColaborador.Name = "groupBoxLoginSenhaColaborador";
             this.groupBoxLoginSenhaColaborador.Size = new System.Drawing.Size(378, 75);
-            this.groupBoxLoginSenhaColaborador.TabIndex = 19;
+            this.groupBoxLoginSenhaColaborador.TabIndex = 11;
             this.groupBoxLoginSenhaColaborador.TabStop = false;
             this.groupBoxLoginSenhaColaborador.Text = "Defina seu login e senha";
             // 
@@ -206,7 +206,7 @@
             this.maskedTextBox1.Mask = "(99) 00000-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(129, 20);
-            this.maskedTextBox1.TabIndex = 20;
+            this.maskedTextBox1.TabIndex = 6;
             // 
             // maskedTextBox2
             // 
@@ -214,7 +214,7 @@
             this.maskedTextBox2.Mask = "00000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(240, 20);
-            this.maskedTextBox2.TabIndex = 21;
+            this.maskedTextBox2.TabIndex = 10;
             this.maskedTextBox2.ValidatingType = typeof(int);
             // 
             // comboBox1
@@ -223,7 +223,7 @@
             this.comboBox1.Location = new System.Drawing.Point(164, 221);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(240, 21);
-            this.comboBox1.TabIndex = 22;
+            this.comboBox1.TabIndex = 8;
             // 
             // Tela_cadastro_de_colaborador
             // 
@@ -248,7 +248,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Tela_cadastro_de_colaborador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela_cadastro_de_colaborador";
+            this.Text = "CADASTRO DE COLABORADOR";
             this.Load += new System.EventHandler(this.Tela_cadastro_de_colaborador_Load);
             this.groupBoxLoginSenhaColaborador.ResumeLayout(false);
             this.groupBoxLoginSenhaColaborador.PerformLayout();

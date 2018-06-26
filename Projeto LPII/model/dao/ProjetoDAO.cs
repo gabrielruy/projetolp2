@@ -12,37 +12,34 @@ namespace Projeto_LPII.model.dao
     {
         public bool Create(Projeto p)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false; 
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
-            string query =
-            string.Format("INSERT INTO Projeto (cliente, nome, dataInicio, previsaoTermino) " +
-                           "VALUES ('{0}','{1}','{2}','{3}');",
-                           p.Cliente, p.Nome, p.DataInicio, p.PrevisaoTermino);
+            string query ="INSERT INTO Projeto (cliente, nome, dataInicio, previsaoTermino, situacao) " +
+                           "VALUES (@Cliente, @Nome, @DataInicio, @PrevisaoTermino, @Situacao);";
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Cliente", p.Cliente);
+            command.Parameters.AddWithValue("@Nome", p.Nome);
+            command.Parameters.AddWithValue("@DataInicio", p.DataInicio);
+            command.Parameters.AddWithValue("@PrevisaoTermino", p.PrevisaoTermino);
+            command.Parameters.AddWithValue("@Situacao", p.Situacao);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true; 
             }
             catch (MySqlException exception)
             {
-                /* Exceção por violar algum UNIQUE */
                 if (exception.Number == (int)MySqlErrorCode.DuplicateKeyEntry)
                 {
-                    // Se o cliente nao existir
                     if (exception.Message.ToString().Contains("fk_projeto_cliente"))
                         MessageBox.Show("O Cliente não existe.", "Cliente inexistente.",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -50,7 +47,6 @@ namespace Projeto_LPII.model.dao
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return state;
@@ -58,37 +54,33 @@ namespace Projeto_LPII.model.dao
 
         public bool Update(Projeto p)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false; 
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
-            string query =
-            string.Format("UPDATE Projeto SET cliente='{0}', nome='{1}', dataInicio='{2}," +
-            "previsaoTermino='{3}'" +
-            "WHERE codigo={7};", p.Cliente, p.Nome, p.DataInicio, p.PrevisaoTermino);
+            string query = "UPDATE Projeto SET cliente=@Cliente, nome=@Nome, dataInicio=@DataInicio, previsaoTermino=@PrevisaoTermino WHERE codigo = @Codigo;";
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Nome", p.Nome);
+            command.Parameters.AddWithValue("@Cliente", p.Cliente);
+            command.Parameters.AddWithValue("@Datainicio", p.DataInicio);
+            command.Parameters.AddWithValue("@Codigo", p.Codigo);
+            command.Parameters.AddWithValue("@PrevisaoTermino", p.PrevisaoTermino);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true; 
             }
             catch (MySqlException exception)
             {
-                /* Exceção por violar algum UNIQUE */
                 if (exception.Number == (int)MySqlErrorCode.DuplicateKeyEntry)
                 {
-                    /* UNIQUE(nome) */
                     if (exception.Message.ToString().Contains("fk_projeto_cliente"))
                         MessageBox.Show("Este cliente é invalido.", "Cliente inválido",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -96,7 +88,6 @@ namespace Projeto_LPII.model.dao
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return state;
@@ -104,27 +95,22 @@ namespace Projeto_LPII.model.dao
 
         public bool Delete(Projeto p)
         {
-            bool state = false; /* Indica se o comando foi executado com sucesso */
+            bool state = false;
 
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* String que contém o SQL que será executado */
             string query = string.Format("DELETE FROM Projeto WHERE codigo = {0};", p.Codigo);
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Executa o comando SQL */
                 command.ExecuteNonQuery();
 
-                state = true; /* Comando foi executado */
+                state = true; 
             }
             catch (MySqlException exception)
             {
@@ -140,28 +126,21 @@ namespace Projeto_LPII.model.dao
 
         public Projeto Read(String nome)
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* Objeto de Categoria para receber as informações do Banco de Dados */
             Projeto projeto = null;
 
-            /* String que contém o SQL que será executado */
             string query = string.Format("SELECT * FROM Projeto WHERE nome LIKE '%{0}%'", nome);
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Verifica se troxe informações do banco e coloca no objeto categoria */
                 if (dataReader.Read())
                 {
                     projeto = new Projeto();
@@ -172,18 +151,15 @@ namespace Projeto_LPII.model.dao
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
 
                 }
-                /* Fecha o dataReader */
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return projeto;
@@ -191,28 +167,21 @@ namespace Projeto_LPII.model.dao
 
         public Projeto Read(int codigo)
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            /* Objeto de Categoria para receber as informações do Banco de Dados */
             Projeto projeto = null;
 
-            /* String que contém o SQL que será executado */
             string query = "SELECT * FROM Projeto WHERE codigo = " + codigo;
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Verifica se troxe informações do banco e coloca no objeto categoria */
                 if (dataReader.Read())
                 {
                     projeto = new Projeto();
@@ -223,18 +192,15 @@ namespace Projeto_LPII.model.dao
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
 
                 }
-                /* Fecha o dataReader */
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
             return projeto;
@@ -242,30 +208,23 @@ namespace Projeto_LPII.model.dao
 
         public List<Projeto> ListAll()
         {
-            /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             List<Projeto> lista = new List<Projeto>();
 
-            /* Preenchido com as informações do Banco de Dados */
             Projeto projeto;
 
-            /* String que contém o SQL que será executado */
             string query = "SELECT * FROM Projeto";
 
-            /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
             {
-                /* Abre a conexão */
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
 
-                /* Responsável pela leitura do Banco de Dados */
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                /* Lê todos os dados na tabela do Banco de Dados */
                 while (dataReader.Read())
                 {
                     projeto = new Projeto();
@@ -275,22 +234,19 @@ namespace Projeto_LPII.model.dao
                     projeto.DataInicio = dataReader.GetDateTime(3);
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
 
-                    lista.Add(projeto); /* Adiciona na lista */
+                    lista.Add(projeto); 
                 }
                 dataReader.Close();
             }
             catch (Exception exception)
             {
-                /* Se ocorrer alguma exceção mostra uma caixa de texto com o erro */
                 MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             finally
             {
-                /* Fecha a conexão */
                 connection.Close();
             }
-            /* Retorna a lista */
             return lista;
         }
     }

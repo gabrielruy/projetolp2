@@ -48,8 +48,8 @@
             this.buttonCancelarCadastroCliente.Location = new System.Drawing.Point(654, 610);
             this.buttonCancelarCadastroCliente.Name = "buttonCancelarCadastroCliente";
             this.buttonCancelarCadastroCliente.Size = new System.Drawing.Size(84, 34);
-            this.buttonCancelarCadastroCliente.TabIndex = 28;
-            this.buttonCancelarCadastroCliente.Text = "Voltar";
+            this.buttonCancelarCadastroCliente.TabIndex = 1;
+            this.buttonCancelarCadastroCliente.Text = "VOLTAR";
             this.buttonCancelarCadastroCliente.UseVisualStyleBackColor = false;
             this.buttonCancelarCadastroCliente.Click += new System.EventHandler(this.buttonCancelarCadastroCliente_Click);
             // 
@@ -61,7 +61,7 @@
             this.buttonconfirmarCadastroCliente.Location = new System.Drawing.Point(601, 70);
             this.buttonconfirmarCadastroCliente.Name = "buttonconfirmarCadastroCliente";
             this.buttonconfirmarCadastroCliente.Size = new System.Drawing.Size(88, 33);
-            this.buttonconfirmarCadastroCliente.TabIndex = 27;
+            this.buttonconfirmarCadastroCliente.TabIndex = 0;
             this.buttonconfirmarCadastroCliente.Text = "Buscar";
             this.buttonconfirmarCadastroCliente.UseVisualStyleBackColor = false;
             this.buttonconfirmarCadastroCliente.Click += new System.EventHandler(this.buttonconfirmarCadastroCliente_Click);
@@ -71,7 +71,7 @@
             this.textBox1.Location = new System.Drawing.Point(322, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(367, 27);
-            this.textBox1.TabIndex = 29;
+            this.textBox1.TabIndex = 4;
             // 
             // radioButton1
             // 
@@ -79,7 +79,7 @@
             this.radioButton1.Location = new System.Drawing.Point(6, 34);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(134, 24);
-            this.radioButton1.TabIndex = 30;
+            this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "COLABORADOR";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             this.radioButton2.Location = new System.Drawing.Point(6, 105);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(90, 24);
-            this.radioButton2.TabIndex = 31;
+            this.radioButton2.TabIndex = 3;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "CLIENTES";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             this.radioButton3.Location = new System.Drawing.Point(6, 70);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(98, 24);
-            this.radioButton3.TabIndex = 32;
+            this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "PROJETOS ";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@
             this.groupBox1.Location = new System.Drawing.Point(13, 64);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(706, 142);
-            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RELATÓRIOS ";
             // 
@@ -151,7 +151,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancelarCadastroCliente);
             this.Name = "TelaRelatorios";
-            this.Text = "TelaRelatorios";
+            this.Text = "RELATÓRIOS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -8,12 +8,14 @@ namespace Projeto_LPII
 {
     class Etapa
     {
+        /*atributos da classe */
         private int codigo;
         private String nome;
         private int duracao; //Em dias
         private int projeto;
         private int numero;
 
+        /*Get e set dos atributos da classe */
         public int Codigo { get { return codigo; } set { codigo = value; } }
         public String Nome { get { return nome; } set { nome = value; } }
         public int Duracao { get { return duracao; } set { duracao = value; } }

@@ -75,9 +75,37 @@
     <Compile Include="view\TelaCadastroProjeto.Designer.cs">
       <DependentUpon>TelaCadastroProjeto.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\TelaLogin.cs">
+    <Compile Include="view\TelaEtapa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="view\TelaEtapa.Designer.cs">
+      <DependentUpon>TelaEtapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TelaGerenciaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TelaGerenciaCliente.Designer.cs">
+      <DependentUpon>TelaGerenciaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TelaGerenciaColaboradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TelaGerenciaColaboradores.Designer.cs">
+      <DependentUpon>TelaGerenciaColaboradores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TelaGerenciaProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TelaGerenciaProjeto.Designer.cs">
+      <DependentUpon>TelaGerenciaProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TelaTrabalhoEmProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TelaTrabalhoEmProjeto.Designer.cs">
+      <DependentUpon>TelaTrabalhoEmProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TelaLogin.cs" />
     <Compile Include="view\TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
@@ -96,24 +124,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="model\class\Projeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\TelaGerenciarColaboradores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\TelaGerenciarColaboradores.Designer.cs">
-      <DependentUpon>TelaGerenciarColaboradores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\TelaGerenciarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\TelaGerenciarCliente.Designer.cs">
-      <DependentUpon>TelaGerenciarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\TelaGerenciarProjeto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\TelaGerenciarProjeto.Designer.cs">
-      <DependentUpon>TelaGerenciarProjeto.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\TelaRelatorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,23 +148,29 @@
     <EmbeddedResource Include="view\TelaCadastroProjeto.resx">
       <DependentUpon>TelaCadastroProjeto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\TelaLogin.resx">
-      <DependentUpon>TelaLogin.cs</DependentUpon>
+    <EmbeddedResource Include="view\TelaEtapa.resx">
+      <DependentUpon>TelaEtapa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TelaGerenciaCliente.resx">
+      <DependentUpon>TelaGerenciaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TelaGerenciaColaboradores.resx">
+      <DependentUpon>TelaGerenciaColaboradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TelaGerenciaProjeto.resx">
+      <DependentUpon>TelaGerenciaProjeto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\TelaGerenciarColaboradores.resx">
-      <DependentUpon>TelaGerenciarColaboradores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\TelaGerenciarCliente.resx">
-      <DependentUpon>TelaGerenciarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\TelaGerenciarProjeto.resx">
-      <DependentUpon>TelaGerenciarProjeto.cs</DependentUpon>
+    <EmbeddedResource Include="view\TelaLogin.resx">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TelaRelatorios.resx">
       <DependentUpon>TelaRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TelaTrabalhoEmProjeto.resx">
+      <DependentUpon>TelaTrabalhoEmProjeto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

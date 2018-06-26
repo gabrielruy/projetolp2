@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Projeto_LPII
 {
     class Projeto
-    {
+    { 
+        /*Atribusto da classe*/
         private int codigo;
         private String nome;
         private int cliente;
@@ -15,6 +16,7 @@ namespace Projeto_LPII
         private DateTime previsaoTermino;
         private String situacao;
 
+        /*Get e set dos atributos */
         public int Codigo { get { return codigo; } set { codigo = value; } }
         public String Nome { get { return nome; } set { nome = value; } }
         public String Situacao { get { return situacao; } set { situacao = value; } }

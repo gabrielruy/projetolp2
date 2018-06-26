@@ -30,7 +30,7 @@
         {
             this.labelNovoProjeto = new System.Windows.Forms.Label();
             this.labelNomeProjeto = new System.Windows.Forms.Label();
-            this.nomeProjeto = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.labelCliente = new System.Windows.Forms.Label();
             this.dateTimeProjeto = new System.Windows.Forms.DateTimePicker();
             this.labelInicioProjeto = new System.Windows.Forms.Label();
@@ -40,11 +40,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkColuna = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,22 +71,22 @@
             this.labelNomeProjeto.TabIndex = 1;
             this.labelNomeProjeto.Text = "Nome do Projeto ";
             // 
-            // nomeProjeto
+            // txtNome
             // 
-            this.nomeProjeto.Location = new System.Drawing.Point(180, 65);
-            this.nomeProjeto.Name = "nomeProjeto";
-            this.nomeProjeto.Size = new System.Drawing.Size(240, 20);
-            this.nomeProjeto.TabIndex = 3;
+            this.txtNome.Location = new System.Drawing.Point(180, 65);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(240, 20);
+            this.txtNome.TabIndex = 2;
             // 
             // labelCliente
             // 
             this.labelCliente.AutoSize = true;
             this.labelCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCliente.Location = new System.Drawing.Point(96, 109);
+            this.labelCliente.Location = new System.Drawing.Point(80, 107);
             this.labelCliente.Name = "labelCliente";
-            this.labelCliente.Size = new System.Drawing.Size(55, 20);
+            this.labelCliente.Size = new System.Drawing.Size(94, 20);
             this.labelCliente.TabIndex = 4;
-            this.labelCliente.Text = "Cliente";
+            this.labelCliente.Text = "Cliente (Nro)";
             // 
             // dateTimeProjeto
             // 
@@ -109,12 +110,12 @@
             // buttonCancelarNovoProjeto
             // 
             this.buttonCancelarNovoProjeto.BackColor = System.Drawing.Color.Crimson;
-            this.buttonCancelarNovoProjeto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelarNovoProjeto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancelarNovoProjeto.Location = new System.Drawing.Point(507, 622);
             this.buttonCancelarNovoProjeto.Name = "buttonCancelarNovoProjeto";
             this.buttonCancelarNovoProjeto.Size = new System.Drawing.Size(84, 34);
-            this.buttonCancelarNovoProjeto.TabIndex = 18;
-            this.buttonCancelarNovoProjeto.Text = "Cancelar ";
+            this.buttonCancelarNovoProjeto.TabIndex = 7;
+            this.buttonCancelarNovoProjeto.Text = "CANCELAR";
             this.buttonCancelarNovoProjeto.UseVisualStyleBackColor = false;
             this.buttonCancelarNovoProjeto.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -126,8 +127,8 @@
             this.buttonCadastrarNovoProjeto.Location = new System.Drawing.Point(622, 622);
             this.buttonCadastrarNovoProjeto.Name = "buttonCadastrarNovoProjeto";
             this.buttonCadastrarNovoProjeto.Size = new System.Drawing.Size(88, 33);
-            this.buttonCadastrarNovoProjeto.TabIndex = 17;
-            this.buttonCadastrarNovoProjeto.Text = "Salvar";
+            this.buttonCadastrarNovoProjeto.TabIndex = 6;
+            this.buttonCadastrarNovoProjeto.Text = "CADASTRAR";
             this.buttonCadastrarNovoProjeto.UseVisualStyleBackColor = false;
             this.buttonCadastrarNovoProjeto.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -141,9 +142,9 @@
             this.groupBox1.Location = new System.Drawing.Point(21, 149);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(689, 136);
-            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Etapas";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dateTimePicker1
             // 
@@ -170,9 +171,21 @@
             this.groupBox2.Location = new System.Drawing.Point(21, 322);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(689, 276);
-            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Colaboradores ";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Código,
+            this.Nome,
+            this.chkColuna});
+            this.dataGridView1.Location = new System.Drawing.Point(159, 52);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(443, 187);
+            this.dataGridView1.TabIndex = 1;
             // 
             // label4
             // 
@@ -181,19 +194,20 @@
             this.label4.Location = new System.Drawing.Point(34, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 20);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Colaboradores";
             // 
-            // dataGridView1
+            // txtCliente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nome,
-            this.chkColuna});
-            this.dataGridView1.Location = new System.Drawing.Point(159, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(342, 187);
-            this.dataGridView1.TabIndex = 11;
+            this.txtCliente.Location = new System.Drawing.Point(180, 109);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(240, 20);
+            this.txtCliente.TabIndex = 8;
+            // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
             // 
             // Nome
             // 
@@ -208,32 +222,25 @@
             this.chkColuna.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.chkColuna.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(180, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 20);
-            this.textBox1.TabIndex = 25;
-            // 
             // Tela_cadastro_projeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 697);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancelarNovoProjeto);
             this.Controls.Add(this.buttonCadastrarNovoProjeto);
             this.Controls.Add(this.labelCliente);
-            this.Controls.Add(this.nomeProjeto);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.labelNomeProjeto);
             this.Controls.Add(this.labelNovoProjeto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Tela_cadastro_projeto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela_cadastro_projeto";
+            this.Text = "CADRASTRO DE PROJETO";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -248,7 +255,7 @@
 
         private System.Windows.Forms.Label labelNovoProjeto;
         private System.Windows.Forms.Label labelNomeProjeto;
-        private System.Windows.Forms.TextBox nomeProjeto;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label labelCliente;
         private System.Windows.Forms.DateTimePicker dateTimeProjeto;
         private System.Windows.Forms.Label labelInicioProjeto;
@@ -260,8 +267,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkColuna;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

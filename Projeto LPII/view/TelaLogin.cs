@@ -7,56 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace Projeto_LPII
+/*
+namespace Projeto_LPII.view
 {
-    public partial class Tela_de_login : Form
+    public partial class TelaLogin : Form
     {
-        public Tela_de_login()
+        public TelaLogin()
         {
             InitializeComponent();
-             
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCancelarNovoProjeto_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void buttonCadastroNovoColaborador_Click(object sender, EventArgs e)
+        private void bnEntrar_Click(object sender, EventArgs e)
         {
-            Tela_cadastro_de_colaborador cadastro_De_Colaborador = new Tela_cadastro_de_colaborador();
-            cadastro_De_Colaborador.Show();
-          
-        }
+            private bool Logado = false;
 
-        private void buttonConfirmarLogin_Click(object sender, EventArgs e)
+        bool result = VerificaLogin();
+
+        Logado = result;
+
+        if (result)
         {
-            //Tratamentos try-catch 
-            try
+
+        MessageBox.Show(“Seja bem vindo!”);
+
+        this.Close();
+
+        private void TelaLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Logado)
             {
-                
-            
+                this.Close();
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("Senha ou usuário incorretos!!",  ex.Message);
+                Application.Exit();
             }
-
-            //Se tudo der certo no Database chama a tela inicial
-
-            //TelaInicial telaInicial = new TelaInicial();
-            //telaInicial.Show();
         }
-
-        private void SenhaColaboradorInicio_TextChanged(object sender, EventArgs e)
+    }
+        else
         {
-
+        MessageBox.Show(“Usuário ou senha incorreto!”);
+        }
         }
     }
 }
+*/
