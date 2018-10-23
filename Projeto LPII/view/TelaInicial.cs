@@ -126,13 +126,7 @@ namespace Projeto_LPII
             TelaGerenciaProjeto gerenciaProjeto = new TelaGerenciaProjeto();
             gerenciaProjeto.ShowDialog();
         }
-
-        private void eMANDAMENTOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TelaTrabalhoEmProjeto trabalhoEmProjeto = new TelaTrabalhoEmProjeto();
-            trabalhoEmProjeto.Show();
-        }
-
+        
         private void cOLABORADORESToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Tela_cadastro_de_colaborador cadastro_De_Colaborador = new Tela_cadastro_de_colaborador();
@@ -143,6 +137,12 @@ namespace Projeto_LPII
         {
             Tela_cadastro_projeto cadastro_Projeto = new Tela_cadastro_projeto();
             cadastro_Projeto.ShowDialog();
+        }
+
+        private void pROJETOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TelaTrabalhoEmProjeto trabalhoEmProjeto = new TelaTrabalhoEmProjeto();
+            trabalhoEmProjeto.Show();
         }
     }
 

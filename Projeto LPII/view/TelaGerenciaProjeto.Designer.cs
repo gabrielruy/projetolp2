@@ -32,8 +32,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,10 +50,10 @@
             this.buttonConfirmarListagemdeClientes = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.labelcolaboradores = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSituacao = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -66,17 +64,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(639, 48);
+            this.label3.Location = new System.Drawing.Point(544, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 20);
+            this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 84;
-            this.label3.Text = "Situação";
+            this.label3.Text = "Situação:";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkOrange;
+            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(420, 403);
+            this.button2.Location = new System.Drawing.Point(419, 348);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 34);
             this.button2.TabIndex = 79;
@@ -87,11 +85,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(552, 329);
+            this.groupBox2.Location = new System.Drawing.Point(548, 290);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(537, 232);
+            this.groupBox2.Size = new System.Drawing.Size(467, 179);
             this.groupBox2.TabIndex = 75;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Colaboradores ";
@@ -101,26 +98,10 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome});
-            this.dataGridView2.Location = new System.Drawing.Point(159, 69);
+            this.dataGridView2.Location = new System.Drawing.Point(45, 37);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(341, 108);
+            this.dataGridView2.Size = new System.Drawing.Size(406, 119);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 300;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(46, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Colaboradores";
             // 
             // groupBox1
             // 
@@ -129,73 +110,73 @@
             this.groupBox1.Controls.Add(this.labelInicioProjeto);
             this.groupBox1.Controls.Add(this.dateTimeProjeto);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(552, 173);
+            this.groupBox1.Location = new System.Drawing.Point(548, 153);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(537, 131);
+            this.groupBox1.Size = new System.Drawing.Size(467, 131);
             this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datas";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(159, 86);
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 61);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(240, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(291, 27);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 89);
+            this.label1.Location = new System.Drawing.Point(6, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 20);
+            this.label1.Size = new System.Drawing.Size(148, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Previsão de término ";
+            this.label1.Text = "Previsão de término: ";
             // 
             // labelInicioProjeto
             // 
             this.labelInicioProjeto.AutoSize = true;
             this.labelInicioProjeto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInicioProjeto.Location = new System.Drawing.Point(34, 46);
+            this.labelInicioProjeto.Location = new System.Drawing.Point(8, 33);
             this.labelInicioProjeto.Name = "labelInicioProjeto";
-            this.labelInicioProjeto.Size = new System.Drawing.Size(119, 20);
+            this.labelInicioProjeto.Size = new System.Drawing.Size(122, 20);
             this.labelInicioProjeto.TabIndex = 9;
-            this.labelInicioProjeto.Text = "Inicio do Projeto";
+            this.labelInicioProjeto.Text = "Inicio do Projeto:";
             // 
             // dateTimeProjeto
             // 
-            this.dateTimeProjeto.Location = new System.Drawing.Point(159, 42);
+            this.dateTimeProjeto.Location = new System.Drawing.Point(160, 28);
             this.dateTimeProjeto.Name = "dateTimeProjeto";
-            this.dateTimeProjeto.Size = new System.Drawing.Size(240, 27);
+            this.dateTimeProjeto.Size = new System.Drawing.Size(291, 27);
             this.dateTimeProjeto.TabIndex = 0;
             // 
             // labelCliente
             // 
             this.labelCliente.AutoSize = true;
             this.labelCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCliente.Location = new System.Drawing.Point(650, 129);
+            this.labelCliente.Location = new System.Drawing.Point(544, 127);
             this.labelCliente.Name = "labelCliente";
-            this.labelCliente.Size = new System.Drawing.Size(55, 20);
+            this.labelCliente.Size = new System.Drawing.Size(58, 20);
             this.labelCliente.TabIndex = 83;
-            this.labelCliente.Text = "Cliente";
+            this.labelCliente.Text = "Cliente:";
             // 
             // labelNomeProjeto
             // 
             this.labelNomeProjeto.AutoSize = true;
             this.labelNomeProjeto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomeProjeto.Location = new System.Drawing.Point(577, 85);
+            this.labelNomeProjeto.Location = new System.Drawing.Point(544, 100);
             this.labelNomeProjeto.Name = "labelNomeProjeto";
-            this.labelNomeProjeto.Size = new System.Drawing.Size(128, 20);
+            this.labelNomeProjeto.Size = new System.Drawing.Size(57, 20);
             this.labelNomeProjeto.TabIndex = 82;
-            this.labelNomeProjeto.Text = "Nome do Projeto ";
+            this.labelNomeProjeto.Text = "Nome: ";
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Orange;
+            this.button3.BackColor = System.Drawing.SystemColors.Highlight;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(420, 62);
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Location = new System.Drawing.Point(419, 7);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(88, 33);
             this.button3.TabIndex = 73;
@@ -205,9 +186,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.OrangeRed;
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(162, 401);
+            this.button1.Location = new System.Drawing.Point(161, 346);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 34);
             this.button1.TabIndex = 77;
@@ -217,7 +198,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(72, 70);
+            this.textBox2.Location = new System.Drawing.Point(71, 15);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(325, 20);
             this.textBox2.TabIndex = 72;
@@ -226,7 +207,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 70);
+            this.label2.Location = new System.Drawing.Point(12, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 21);
             this.label2.TabIndex = 81;
@@ -238,7 +219,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Código,
             this.Name});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(495, 276);
             this.dataGridView1.TabIndex = 80;
@@ -258,9 +239,9 @@
             // 
             // buttonVoltarListarCliente
             // 
-            this.buttonVoltarListarCliente.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonVoltarListarCliente.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonVoltarListarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVoltarListarCliente.Location = new System.Drawing.Point(13, 401);
+            this.buttonVoltarListarCliente.Location = new System.Drawing.Point(12, 346);
             this.buttonVoltarListarCliente.Name = "buttonVoltarListarCliente";
             this.buttonVoltarListarCliente.Size = new System.Drawing.Size(96, 34);
             this.buttonVoltarListarCliente.TabIndex = 76;
@@ -270,10 +251,10 @@
             // 
             // buttonConfirmarListagemdeClientes
             // 
-            this.buttonConfirmarListagemdeClientes.BackColor = System.Drawing.Color.Crimson;
+            this.buttonConfirmarListagemdeClientes.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonConfirmarListagemdeClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirmarListagemdeClientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonConfirmarListagemdeClientes.Location = new System.Drawing.Point(287, 404);
+            this.buttonConfirmarListagemdeClientes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonConfirmarListagemdeClientes.Location = new System.Drawing.Point(286, 349);
             this.buttonConfirmarListagemdeClientes.Name = "buttonConfirmarListagemdeClientes";
             this.buttonConfirmarListagemdeClientes.Size = new System.Drawing.Size(88, 33);
             this.buttonConfirmarListagemdeClientes.TabIndex = 78;
@@ -283,62 +264,57 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(712, 84);
+            this.textBox1.Location = new System.Drawing.Point(642, 100);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
+            this.textBox1.Size = new System.Drawing.Size(357, 20);
             this.textBox1.TabIndex = 86;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(711, 127);
+            this.comboBox2.Location = new System.Drawing.Point(641, 126);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(251, 21);
+            this.comboBox2.Size = new System.Drawing.Size(358, 21);
             this.comboBox2.TabIndex = 87;
-            // 
-            // labelcolaboradores
-            // 
-            this.labelcolaboradores.AutoSize = true;
-            this.labelcolaboradores.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcolaboradores.Location = new System.Drawing.Point(9, 9);
-            this.labelcolaboradores.Name = "labelcolaboradores";
-            this.labelcolaboradores.Size = new System.Drawing.Size(161, 21);
-            this.labelcolaboradores.TabIndex = 88;
-            this.labelcolaboradores.Text = "GERENCIAR PROJETO";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(712, 9);
+            this.txtCodigo.Location = new System.Drawing.Point(642, 48);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(250, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(357, 20);
             this.txtCodigo.TabIndex = 90;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(639, 10);
+            this.label5.Location = new System.Drawing.Point(544, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 89;
-            this.label5.Text = "Código";
+            this.label5.Text = "Código:";
             // 
             // txtSituacao
             // 
-            this.txtSituacao.Location = new System.Drawing.Point(711, 48);
+            this.txtSituacao.Location = new System.Drawing.Point(642, 74);
             this.txtSituacao.Name = "txtSituacao";
-            this.txtSituacao.Size = new System.Drawing.Size(250, 20);
+            this.txtSituacao.Size = new System.Drawing.Size(357, 20);
             this.txtSituacao.TabIndex = 91;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 345;
             // 
             // TelaGerenciaProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 582);
+            this.ClientSize = new System.Drawing.Size(1037, 496);
             this.Controls.Add(this.txtSituacao);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.labelcolaboradores);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -355,10 +331,10 @@
             this.Controls.Add(this.buttonVoltarListarCliente);
             this.Controls.Add(this.buttonConfirmarListagemdeClientes);
             //this.Name = "TelaGerenciaProjeto";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GERENCIAMENTO DE PROJETO";
+            this.Text = "SISTEMA GERENCIADOR DE PROJETOS - Gerenciamento de Projetos";
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -374,8 +350,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
@@ -392,11 +366,11 @@
         private System.Windows.Forms.Button buttonConfirmarListagemdeClientes;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label labelcolaboradores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
     }
 }

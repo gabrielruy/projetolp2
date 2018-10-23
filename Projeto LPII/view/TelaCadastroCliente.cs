@@ -34,8 +34,12 @@ namespace Projeto_LPII
             cliente = GetDTO();
 
             if (dao.Create(cliente))
+            {
                 MessageBox.Show("O Cliente foi cadastrado.", "Cliente Cadastrado",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+            }              
             else
                 MessageBox.Show("Erro ao cadastrar.", "Erro",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -66,7 +70,7 @@ namespace Projeto_LPII
             cliente.Email = emailCliente.Text;
             cliente.Responsavel = nomeContatoCliente.Text;
             cliente.Rua = ruaCliente.Text;
-            cliente.Numero = int.Parse(maskedTextBox3.Text);
+            cliente.Numero = int.Parse(maskedTextBox3.Text);         
             cliente.Cep = txtCep.Text;
             cliente.Cidade = cidadeCliente.Text;
             cliente.Estado = comboBox1.Text;

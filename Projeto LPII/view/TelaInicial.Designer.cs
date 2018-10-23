@@ -36,8 +36,6 @@
             this.cOLABORADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROJETOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROJETOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eMANDAMENTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eMSTOPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gERENCIARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOLABORADORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,46 +94,31 @@
             // cLEINTESToolStripMenuItem
             // 
             this.cLEINTESToolStripMenuItem.Name = "cLEINTESToolStripMenuItem";
-            this.cLEINTESToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
-            this.cLEINTESToolStripMenuItem.Text = "NOVO CLIENTE";
+            this.cLEINTESToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.cLEINTESToolStripMenuItem.Text = "CLIENTE";
             this.cLEINTESToolStripMenuItem.Click += new System.EventHandler(this.cLEINTESToolStripMenuItem_Click);
             // 
             // cOLABORADORESToolStripMenuItem
             // 
             this.cOLABORADORESToolStripMenuItem.Name = "cOLABORADORESToolStripMenuItem";
-            this.cOLABORADORESToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
-            this.cOLABORADORESToolStripMenuItem.Text = "NOVO COLABORADOR";
+            this.cOLABORADORESToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.cOLABORADORESToolStripMenuItem.Text = "COLABORADOR";
             this.cOLABORADORESToolStripMenuItem.Click += new System.EventHandler(this.cOLABORADORESToolStripMenuItem_Click);
             // 
             // pROJETOToolStripMenuItem
             // 
             this.pROJETOToolStripMenuItem.Name = "pROJETOToolStripMenuItem";
-            this.pROJETOToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
-            this.pROJETOToolStripMenuItem.Text = "NOVO PROJETO";
+            this.pROJETOToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.pROJETOToolStripMenuItem.Text = "PROJETO";
             this.pROJETOToolStripMenuItem.Click += new System.EventHandler(this.pROJETOToolStripMenuItem_Click_1);
             // 
             // pROJETOSToolStripMenuItem
             // 
-            this.pROJETOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eMANDAMENTOToolStripMenuItem,
-            this.eMSTOPToolStripMenuItem});
             this.pROJETOSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pROJETOSToolStripMenuItem.Name = "pROJETOSToolStripMenuItem";
             this.pROJETOSToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.pROJETOSToolStripMenuItem.Text = "PROJETOS ";
-            // 
-            // eMANDAMENTOToolStripMenuItem
-            // 
-            this.eMANDAMENTOToolStripMenuItem.Name = "eMANDAMENTOToolStripMenuItem";
-            this.eMANDAMENTOToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
-            this.eMANDAMENTOToolStripMenuItem.Text = "EM ANDAMENTO ";
-            this.eMANDAMENTOToolStripMenuItem.Click += new System.EventHandler(this.eMANDAMENTOToolStripMenuItem_Click);
-            // 
-            // eMSTOPToolStripMenuItem
-            // 
-            this.eMSTOPToolStripMenuItem.Name = "eMSTOPToolStripMenuItem";
-            this.eMSTOPToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
-            this.eMSTOPToolStripMenuItem.Text = "EM STOP";
+            this.pROJETOSToolStripMenuItem.Click += new System.EventHandler(this.pROJETOSToolStripMenuItem_Click);
             // 
             // gERENCIARToolStripMenuItem
             // 
@@ -207,8 +190,6 @@
         private System.Windows.Forms.ToolStripMenuItem pROJETOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rELATÓRIOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pROJETOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eMANDAMENTOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eMSTOPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gERENCIARToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cOLABORADORToolStripMenuItem;

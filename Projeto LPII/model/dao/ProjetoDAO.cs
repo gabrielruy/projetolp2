@@ -233,6 +233,7 @@ namespace Projeto_LPII.model.dao
                     projeto.Nome = dataReader.GetString(2);
                     projeto.DataInicio = dataReader.GetDateTime(3);
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+                    projeto.Situacao = dataReader.GetString(5);
 
                     lista.Add(projeto); 
                 }
