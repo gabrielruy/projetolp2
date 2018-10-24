@@ -43,7 +43,7 @@
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkColuna = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -195,9 +195,11 @@
             // txtCliente
             // 
             this.txtCliente.Location = new System.Drawing.Point(167, 37);
+            this.txtCliente.Mask = "00000";
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(506, 20);
-            this.txtCliente.TabIndex = 8;
+            this.txtCliente.TabIndex = 9;
+            this.txtCliente.ValidatingType = typeof(int);
             // 
             // Tela_cadastro_projeto
             // 
@@ -239,9 +241,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkColuna;
+        private System.Windows.Forms.MaskedTextBox txtCliente;
     }
 }

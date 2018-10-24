@@ -59,17 +59,47 @@ namespace Projeto_LPII
 
         private void buttonconfirmarCadastroColaborador_Click(object sender, EventArgs e) //Cadastrar
         {
-            Colaborador c;
+            bool isFilled = new bool();
+            isFilled = estaPreenchido();
 
-            /* Chama o método para retornar um objeto colaborador com as informações da tela */
-            c = GetDTO();
+            if (isFilled)
+            {
+                Colaborador c;
 
-            if (dao.Create(c))
-                MessageBox.Show("O colaborador foi cadastrado.", "Colaborador Cadastrado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                /* Chama o método para retornar um objeto colaborador com as informações da tela */
+                c = GetDTO();
+
+                if (dao.Create(c))
+                {
+                    MessageBox.Show("O colaborador foi cadastrado.", "Colaborador Cadastrado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }                 
+                else
+                    MessageBox.Show("Erro ao cadastrar.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
-                MessageBox.Show("Erro ao cadastrar.", "Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                MessageBox.Show("Preencha todos os campos.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }   
+        }
+
+        private bool estaPreenchido()
+        {
+            if(nomeColaborador.Text != "" &&
+                cadastroLoginColaborador.Text != "" &&
+                cadastroSenhaColaborador.Text != "" &&
+                maskedTextBox1.Text != "" &&
+                comboBox1.Text != "" &&
+                maskedTextBox2.Text != "" &&
+                emailColaborador.Text != ""
+                )
+            {
+                return true;
+            }
+            return false;
         }
 
         /* Retorna um objeto categoria com as informações recolhidas da tela */

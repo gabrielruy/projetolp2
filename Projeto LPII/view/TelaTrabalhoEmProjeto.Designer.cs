@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Previsao_Termino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.radioEmAndamento = new System.Windows.Forms.RadioButton();
+            this.radioPausado = new System.Windows.Forms.RadioButton();
+            this.radioTodos = new System.Windows.Forms.RadioButton();
+            this.radioPendente = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,51 +58,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(937, 311);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(835, 368);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(114, 33);
-            this.btnVoltar.TabIndex = 2;
-            this.btnVoltar.Text = "VOLTAR";
-            this.btnVoltar.UseVisualStyleBackColor = false;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Em Andamento";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(140, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(67, 17);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Pausado";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(241, 12);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(55, 17);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Todos";
-            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // Código
             // 
@@ -138,14 +94,75 @@
             this.Situação.HeaderText = "Situação";
             this.Situação.Name = "Situação";
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(835, 368);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(114, 33);
+            this.btnVoltar.TabIndex = 2;
+            this.btnVoltar.Text = "VOLTAR";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // radioEmAndamento
+            // 
+            this.radioEmAndamento.AutoSize = true;
+            this.radioEmAndamento.Location = new System.Drawing.Point(133, 12);
+            this.radioEmAndamento.Name = "radioEmAndamento";
+            this.radioEmAndamento.Size = new System.Drawing.Size(97, 17);
+            this.radioEmAndamento.TabIndex = 3;
+            this.radioEmAndamento.TabStop = true;
+            this.radioEmAndamento.Text = "Em Andamento";
+            this.radioEmAndamento.UseVisualStyleBackColor = true;
+            this.radioEmAndamento.CheckedChanged += new System.EventHandler(this.radioEmAndamento_CheckedChanged);
+            // 
+            // radioPausado
+            // 
+            this.radioPausado.AutoSize = true;
+            this.radioPausado.Location = new System.Drawing.Point(282, 12);
+            this.radioPausado.Name = "radioPausado";
+            this.radioPausado.Size = new System.Drawing.Size(67, 17);
+            this.radioPausado.TabIndex = 4;
+            this.radioPausado.TabStop = true;
+            this.radioPausado.Text = "Pausado";
+            this.radioPausado.UseVisualStyleBackColor = true;
+            this.radioPausado.CheckedChanged += new System.EventHandler(this.radioPausado_CheckedChanged);
+            // 
+            // radioTodos
+            // 
+            this.radioTodos.AutoSize = true;
+            this.radioTodos.Location = new System.Drawing.Point(398, 12);
+            this.radioTodos.Name = "radioTodos";
+            this.radioTodos.Size = new System.Drawing.Size(55, 17);
+            this.radioTodos.TabIndex = 5;
+            this.radioTodos.TabStop = true;
+            this.radioTodos.Text = "Todos";
+            this.radioTodos.UseVisualStyleBackColor = true;
+            this.radioTodos.CheckedChanged += new System.EventHandler(this.radioTodos_CheckedChanged);
+            // 
+            // radioPendente
+            // 
+            this.radioPendente.AutoSize = true;
+            this.radioPendente.Location = new System.Drawing.Point(12, 12);
+            this.radioPendente.Name = "radioPendente";
+            this.radioPendente.Size = new System.Drawing.Size(71, 17);
+            this.radioPendente.TabIndex = 6;
+            this.radioPendente.TabStop = true;
+            this.radioPendente.Text = "Pendente";
+            this.radioPendente.UseVisualStyleBackColor = true;
+            this.radioPendente.CheckedChanged += new System.EventHandler(this.radioPendente_CheckedChanged);
+            // 
             // TelaTrabalhoEmProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 417);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioPendente);
+            this.Controls.Add(this.radioTodos);
+            this.Controls.Add(this.radioPausado);
+            this.Controls.Add(this.radioEmAndamento);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TelaTrabalhoEmProjeto";
@@ -162,14 +179,15 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioEmAndamento;
+        private System.Windows.Forms.RadioButton radioPausado;
+        private System.Windows.Forms.RadioButton radioTodos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Previsao_Termino;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situação;
+        private System.Windows.Forms.RadioButton radioPendente;
     }
 }

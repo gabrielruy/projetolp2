@@ -29,20 +29,48 @@ namespace Projeto_LPII
 
         private void button1_Click(object sender, EventArgs e) // Cadastrar
         {
-            Cliente cliente;
+            bool isFilled = new bool();
+            isFilled = estaPreenchido();
 
-            cliente = GetDTO();
-
-            if (dao.Create(cliente))
+            if (isFilled)
             {
-                MessageBox.Show("O Cliente foi cadastrado.", "Cliente Cadastrado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Cliente cliente;
 
-                this.Close();
-            }              
-            else
-                MessageBox.Show("Erro ao cadastrar.", "Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cliente = GetDTO();
+
+                if (dao.Create(cliente))
+                {
+                    MessageBox.Show("O Cliente foi cadastrado.", "Cliente Cadastrado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Erro ao cadastrar.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Preencha todos os campos.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private bool estaPreenchido()
+        {
+            if(nomeCliente.Text != "" &&
+                maskedTextBox1.Text != "" &&
+                emailCliente.Text != "" &&
+                txtCep.Text != "" &&
+                ruaCliente.Text != "" &&
+                maskedTextBox3.Text != "" &&
+                cidadeCliente.Text != "" &&
+                comboBox1.Text != "" &&
+                nomeContatoCliente.Text != "")
+            {
+                return true;
+            }
+            return false;
         }
 
         private void button2_Click(object sender, EventArgs e) // Cancelar

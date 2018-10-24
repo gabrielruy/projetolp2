@@ -250,5 +250,50 @@ namespace Projeto_LPII.model.dao
             }
             return lista;
         }
+
+        public List<Projeto> ListBySituation(String situacao)
+        {
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            List<Projeto> lista = new List<Projeto>();
+
+            Projeto projeto;
+
+            string query = "SELECT * FROM Projeto where situacao = " + situacao;
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+                    projeto.Situacao = dataReader.GetString(5);
+
+                    lista.Add(projeto);
+                }
+                dataReader.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return lista;
+        }
     }
 }

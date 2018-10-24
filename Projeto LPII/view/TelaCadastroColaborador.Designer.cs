@@ -135,8 +135,10 @@
             // 
             this.cadastroSenhaColaborador.Location = new System.Drawing.Point(419, 31);
             this.cadastroSenhaColaborador.Name = "cadastroSenhaColaborador";
+            this.cadastroSenhaColaborador.PasswordChar = '*';
             this.cadastroSenhaColaborador.Size = new System.Drawing.Size(152, 27);
             this.cadastroSenhaColaborador.TabIndex = 2;
+            this.cadastroSenhaColaborador.UseWaitCursor = true;
             // 
             // buttonconfirmarCadastroColaborador
             // 
