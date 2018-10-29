@@ -13,7 +13,7 @@ namespace Projeto_LPII
         private static MySqlConnection connection; 
         private static Database instance; 
         private string connectionString = 
-            "Server=localhost; database=projeto; Uid=root; Pwd=3968wyxb";
+            "Server=localhost; database=projeto; Uid=root; Pwd=mysql";
 
         private Database()
         {
@@ -110,7 +110,7 @@ namespace Projeto_LPII
         {
             try
             {
-                connection.ConnectionString = "Server=localhost; Uid=root; Pwd=3968wyxb";
+                connection.ConnectionString = "Server=localhost; Uid=root; Pwd=mysql";
 
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();
@@ -186,9 +186,8 @@ namespace Projeto_LPII
                 query = "CREATE TABLE IF NOT EXISTS Etapa (" +
                     "codigo INTEGER AUTO_INCREMENT," +
                     "nome VARCHAR(64) NOT NULL," +
-                    "duracao INTEGER," +
                     "projeto INTEGER NOT NULL," +
-                    "numero INTEGER," +
+                    "descricao VARCHAR(1024)," +
                     "CONSTRAINT pk_etapa PRIMARY KEY(codigo)," +
                     "CONSTRAINT fk_etapa_projeto FOREIGN KEY(projeto) " +
                     "REFERENCES Projeto(codigo));";

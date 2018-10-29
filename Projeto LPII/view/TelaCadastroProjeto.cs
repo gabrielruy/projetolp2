@@ -50,22 +50,13 @@ namespace Projeto_LPII
         {
             Projeto projeto = new Projeto();
 
-            projeto.Cliente = int.Parse(txtCliente.Text);
+            projeto.Cliente = new Cliente();
+            projeto.Cliente.Codigo = int.Parse(txtCliente.Text);
             projeto.Nome = txtNome.Text;
             projeto.DataInicio = dateTimeProjeto.Value;
             projeto.PrevisaoTermino = dateTimePicker1.Value;
             projeto.Situacao = "Pendente";
             return projeto;
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private bool vinculouTrabalhadores()
@@ -158,11 +149,6 @@ namespace Projeto_LPII
         private void button2_Click(object sender, EventArgs e) //Cancelar
         {
             this.Close();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

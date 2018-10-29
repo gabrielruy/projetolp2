@@ -12,10 +12,12 @@ namespace Projeto_LPII
         private int codigo;
         private String nome;
         private Projeto projeto;
+        private string descricao;
 
         /*Get e set dos atributos da classe */
         public int Codigo { get { return codigo; } set { codigo = value; } }
         public String Nome { get { return nome; } set { nome = value; } }
         public Projeto Projeto { get { return projeto; } set { projeto = value; } }
+        public string Descricao { get { return descricao; } set { descricao = value; } }
     }
 }

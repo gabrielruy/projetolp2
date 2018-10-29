@@ -40,15 +40,15 @@
             this.txtBuscaEtapa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEtapas = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAddEtapa = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.descricaoEtapa = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEtapas)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -80,6 +80,7 @@
             this.bntAddEtapa.TabIndex = 8;
             this.bntAddEtapa.Text = "ADICIONAR";
             this.bntAddEtapa.UseVisualStyleBackColor = false;
+            this.bntAddEtapa.Click += new System.EventHandler(this.bntAddEtapa_Click);
             // 
             // label1
             // 
@@ -165,16 +166,29 @@
             this.button1.Text = "BUSCAR";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dataGridViewEtapas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewEtapas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEtapas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
             this.Nome});
-            this.dataGridView1.Location = new System.Drawing.Point(17, 184);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(450, 215);
-            this.dataGridView1.TabIndex = 81;
+            this.dataGridViewEtapas.Location = new System.Drawing.Point(17, 184);
+            this.dataGridViewEtapas.Name = "dataGridViewEtapas";
+            this.dataGridViewEtapas.Size = new System.Drawing.Size(450, 215);
+            this.dataGridViewEtapas.TabIndex = 81;
+            this.dataGridViewEtapas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEtapas_CellClick);
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Cód.";
+            this.codigo.Name = "codigo";
+            this.codigo.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Name";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 330;
             // 
             // txtAddEtapa
             // 
@@ -183,13 +197,13 @@
             this.txtAddEtapa.Size = new System.Drawing.Size(355, 27);
             this.txtAddEtapa.TabIndex = 82;
             // 
-            // richTextBox1
+            // descricaoEtapa
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(508, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 393);
-            this.richTextBox1.TabIndex = 83;
-            this.richTextBox1.Text = "";
+            this.descricaoEtapa.Location = new System.Drawing.Point(508, 6);
+            this.descricaoEtapa.Name = "descricaoEtapa";
+            this.descricaoEtapa.Size = new System.Drawing.Size(426, 393);
+            this.descricaoEtapa.TabIndex = 83;
+            this.descricaoEtapa.Text = "";
             // 
             // button2
             // 
@@ -214,6 +228,7 @@
             this.button3.TabIndex = 85;
             this.button3.Text = "CANCELAR";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -226,18 +241,7 @@
             this.button4.TabIndex = 86;
             this.button4.Text = "VOLTAR";
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Cód.";
-            this.codigo.Name = "codigo";
-            this.codigo.Width = 50;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Name";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 330;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // TelaEtapa
             // 
@@ -247,9 +251,9 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.descricaoEtapa);
             this.Controls.Add(this.txtAddEtapa);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewEtapas);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtBuscaEtapa);
@@ -266,9 +270,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TelaEtapa";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SISTEMA GERENCIADOR DE PROJETOS - Projetos e Etapas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEtapas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,9 +292,9 @@
         private System.Windows.Forms.TextBox txtBuscaEtapa;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewEtapas;
         private System.Windows.Forms.TextBox txtAddEtapa;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox descricaoEtapa;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

@@ -82,7 +82,6 @@
             this.dateTimeProjeto.Name = "dateTimeProjeto";
             this.dateTimeProjeto.Size = new System.Drawing.Size(506, 27);
             this.dateTimeProjeto.TabIndex = 8;
-            this.dateTimeProjeto.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // labelInicioProjeto
             // 
@@ -93,7 +92,6 @@
             this.labelInicioProjeto.Size = new System.Drawing.Size(128, 20);
             this.labelInicioProjeto.TabIndex = 9;
             this.labelInicioProjeto.Text = "Previsão de início:";
-            this.labelInicioProjeto.Click += new System.EventHandler(this.label5_Click);
             // 
             // buttonCancelarNovoProjeto
             // 
@@ -132,7 +130,6 @@
             this.groupBox1.Size = new System.Drawing.Size(689, 108);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dateTimePicker1
             // 

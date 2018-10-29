@@ -144,7 +144,7 @@ namespace Projeto_LPII.view
 
             projeto.Codigo = int.Parse(txtCodigo.Text);
             projeto.Nome = textBox1.Text;
-            projeto.Cliente = int.Parse(comboBox2.Text);
+            projeto.Cliente.Codigo = int.Parse(comboBox2.Text);
             projeto.DataInicio = dateTimeProjeto.Value;
             projeto.PrevisaoTermino = dateTimePicker1.Value;
             projeto.Situacao = txtSituacao.Text;

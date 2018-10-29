@@ -8,8 +8,12 @@ using System.Windows.Forms;
 
 namespace Projeto_LPII.model.dao
 {
+    
     class ProjetoDAO
     {
+
+        private ClienteDAO daoCliente = new ClienteDAO();
+
         public bool Create(Projeto p)
         {
             bool state = false; 
@@ -21,7 +25,7 @@ namespace Projeto_LPII.model.dao
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@Cliente", p.Cliente);
+            command.Parameters.AddWithValue("@Cliente", p.Cliente.Codigo);
             command.Parameters.AddWithValue("@Nome", p.Nome);
             command.Parameters.AddWithValue("@DataInicio", p.DataInicio);
             command.Parameters.AddWithValue("@PrevisaoTermino", p.PrevisaoTermino);
@@ -141,17 +145,31 @@ namespace Projeto_LPII.model.dao
 
                 MySqlDataReader dataReader = command.ExecuteReader();
 
+                projeto = new Projeto();
+
                 if (dataReader.Read())
                 {
-                    projeto = new Projeto();
                     projeto.Codigo = dataReader.GetInt32(0);
-                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
                     projeto.Nome = dataReader.GetString(2);
                     projeto.DataInicio = dataReader.GetDateTime(3);
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
-
+                    projeto.Situacao = dataReader.GetString(5);
                 }
                 dataReader.Close();
+
+                Cliente cliente = daoCliente.Read(projeto.Cliente.Codigo);
+                projeto.Cliente.Nome = cliente.Nome;
+                projeto.Cliente.Cnpj = cliente.Cnpj;
+                projeto.Cliente.Telefone = cliente.Telefone;
+                projeto.Cliente.Email = cliente.Email;
+                projeto.Cliente.Responsavel = cliente.Responsavel;
+                projeto.Cliente.Rua = cliente.Rua;
+                projeto.Cliente.Numero = cliente.Numero;
+                projeto.Cliente.Cep = cliente.Cep;
+                projeto.Cliente.Cidade = cliente.Cidade;
+                projeto.Cliente.Estado = cliente.Estado;
             }
             catch (Exception exception)
             {
@@ -182,17 +200,31 @@ namespace Projeto_LPII.model.dao
 
                 MySqlDataReader dataReader = command.ExecuteReader();
 
+                projeto = new Projeto();
+
                 if (dataReader.Read())
                 {
-                    projeto = new Projeto();
                     projeto.Codigo = dataReader.GetInt32(0);
-                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
                     projeto.Nome = dataReader.GetString(2);
                     projeto.DataInicio = dataReader.GetDateTime(3);
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
-
+                    projeto.Situacao = dataReader.GetString(5);
                 }
                 dataReader.Close();
+
+                Cliente cliente = daoCliente.Read(projeto.Cliente.Codigo);
+                projeto.Cliente.Nome = cliente.Nome;
+                projeto.Cliente.Cnpj = cliente.Cnpj;
+                projeto.Cliente.Telefone = cliente.Telefone;
+                projeto.Cliente.Email = cliente.Email;
+                projeto.Cliente.Responsavel = cliente.Responsavel;
+                projeto.Cliente.Rua = cliente.Rua;
+                projeto.Cliente.Numero = cliente.Numero;
+                projeto.Cliente.Cep = cliente.Cep;
+                projeto.Cliente.Cidade = cliente.Cidade;
+                projeto.Cliente.Estado = cliente.Estado;
             }
             catch (Exception exception)
             {
@@ -210,9 +242,8 @@ namespace Projeto_LPII.model.dao
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
+            List<Projeto> listaAuxiliar = new List<Projeto>();
             List<Projeto> lista = new List<Projeto>();
-
-            Projeto projeto;
 
             string query = "SELECT * FROM Projeto";
 
@@ -227,17 +258,35 @@ namespace Projeto_LPII.model.dao
 
                 while (dataReader.Read())
                 {
-                    projeto = new Projeto();
+                    Projeto projeto = new Projeto();
                     projeto.Codigo = dataReader.GetInt32(0);
-                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
                     projeto.Nome = dataReader.GetString(2);
                     projeto.DataInicio = dataReader.GetDateTime(3);
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
                     projeto.Situacao = dataReader.GetString(5);
 
-                    lista.Add(projeto); 
+                    listaAuxiliar.Add(projeto);
                 }
                 dataReader.Close();
+
+                foreach(Projeto proj in listaAuxiliar)
+                {
+                    Cliente cliente = daoCliente.Read(proj.Cliente.Codigo);
+                    proj.Cliente.Nome = cliente.Nome;
+                    proj.Cliente.Cnpj = cliente.Cnpj;
+                    proj.Cliente.Telefone = cliente.Telefone;
+                    proj.Cliente.Email = cliente.Email;
+                    proj.Cliente.Responsavel = cliente.Responsavel;
+                    proj.Cliente.Rua = cliente.Rua;
+                    proj.Cliente.Numero = cliente.Numero;
+                    proj.Cliente.Cep = cliente.Cep;
+                    proj.Cliente.Cidade = cliente.Cidade;
+                    proj.Cliente.Estado = cliente.Estado;
+                    lista.Add(proj);
+                }
+                             
             }
             catch (Exception exception)
             {
@@ -255,9 +304,8 @@ namespace Projeto_LPII.model.dao
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
+            List<Projeto> listaAuxiliar = new List<Projeto>();
             List<Projeto> lista = new List<Projeto>();
-
-            Projeto projeto;
 
             string query = "SELECT * FROM Projeto where situacao = " + situacao;
 
@@ -272,17 +320,34 @@ namespace Projeto_LPII.model.dao
 
                 while (dataReader.Read())
                 {
-                    projeto = new Projeto();
+                    Projeto projeto = new Projeto();
                     projeto.Codigo = dataReader.GetInt32(0);
-                    projeto.Cliente = dataReader.GetInt32(1);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
                     projeto.Nome = dataReader.GetString(2);
                     projeto.DataInicio = dataReader.GetDateTime(3);
                     projeto.PrevisaoTermino = dataReader.GetDateTime(4);
                     projeto.Situacao = dataReader.GetString(5);
 
-                    lista.Add(projeto);
+                    listaAuxiliar.Add(projeto);
                 }
                 dataReader.Close();
+
+                foreach (Projeto proj in listaAuxiliar)
+                {
+                    Cliente cliente = daoCliente.Read(proj.Cliente.Codigo);
+                    proj.Cliente.Nome = cliente.Nome;
+                    proj.Cliente.Cnpj = cliente.Cnpj;
+                    proj.Cliente.Telefone = cliente.Telefone;
+                    proj.Cliente.Email = cliente.Email;
+                    proj.Cliente.Responsavel = cliente.Responsavel;
+                    proj.Cliente.Rua = cliente.Rua;
+                    proj.Cliente.Numero = cliente.Numero;
+                    proj.Cliente.Cep = cliente.Cep;
+                    proj.Cliente.Cidade = cliente.Cidade;
+                    proj.Cliente.Estado = cliente.Estado;
+                    lista.Add(proj);
+                }
             }
             catch (Exception exception)
             {

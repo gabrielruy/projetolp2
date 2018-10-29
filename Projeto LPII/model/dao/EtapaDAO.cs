@@ -10,6 +10,9 @@ namespace Projeto_LPII.model.dao
 {
     class EtapaDAO
     {
+
+        private ProjetoDAO daoProj = new ProjetoDAO();
+
         public bool Create(Etapa e)
         {
             bool state = false; 
@@ -17,8 +20,8 @@ namespace Projeto_LPII.model.dao
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             string query =
-            string.Format("INSERT INTO Etapa (nome, projeto) " +
-                           "VALUES ('{0}','{1}');",
+            string.Format("INSERT INTO Etapa (nome, projeto, descricao) " +
+                           "VALUES ('{0}','{1}', ' ');",
                            e.Nome, e.Projeto.Codigo);
 
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -136,12 +139,9 @@ namespace Projeto_LPII.model.dao
                     etapa = new Etapa();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
-                    etapa.Projeto.Codigo = dataReader.GetInt32(2);
-                    etapa.Projeto.Nome = dataReader.GetString(3);
-                    etapa.Projeto.Cliente = dataReader.GetInt32(4);
-                    etapa.Projeto.DataInicio = dataReader.GetDateTime(5);
-                    etapa.Projeto.PrevisaoTermino = dataReader.GetDateTime(6);
-                    etapa.Projeto.Situacao = dataReader.GetString(7);
+                    if(dataReader.GetString(3) != null)
+                        etapa.Descricao = dataReader.GetString(3);
+
                 }
                 dataReader.Close();
             }
@@ -179,12 +179,7 @@ namespace Projeto_LPII.model.dao
                     etapa = new Etapa();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
-                    etapa.Projeto.Codigo = dataReader.GetInt32(2);
-                    etapa.Projeto.Nome = dataReader.GetString(3);
-                    etapa.Projeto.Cliente = dataReader.GetInt32(4);
-                    etapa.Projeto.DataInicio = dataReader.GetDateTime(5);
-                    etapa.Projeto.PrevisaoTermino = dataReader.GetDateTime(6);
-                    etapa.Projeto.Situacao = dataReader.GetString(7);
+                    etapa.Descricao = dataReader.GetString(3);
                 }
                 dataReader.Close();
             }
@@ -200,18 +195,19 @@ namespace Projeto_LPII.model.dao
             return etapa;
         }
 
-        public List<Etapa> ListInProject(Projeto p)
+        public List<Etapa> ListInProject(int codProj)
         {
             /* Recebe a conexão utilizada para acessar o Banco de Dados */
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
+            List<Etapa> listaEtapa = new List<Etapa>();
             List<Etapa> lista = new List<Etapa>();
 
             /* Preenchido com as informações do Banco de Dados */
             Etapa etapa;
 
             /* String que contém o SQL que será executado */
-            string query = "SELECT * FROM Etapa WHERE projeto = " + p.Codigo;
+            string query = "SELECT * FROM Etapa WHERE projeto = " + codProj;
 
             /* Responsável pelo comando SQL */
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -229,19 +225,27 @@ namespace Projeto_LPII.model.dao
                 while (dataReader.Read())
                 {
                     etapa = new Etapa();
-                    etapa.Projeto = new Projeto();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
+                    etapa.Projeto = new Projeto();
                     etapa.Projeto.Codigo = dataReader.GetInt32(2);
-                    etapa.Projeto.Nome = dataReader.GetString(3);
-                    etapa.Projeto.Cliente = dataReader.GetInt32(4);
-                    etapa.Projeto.DataInicio = dataReader.GetDateTime(5);
-                    etapa.Projeto.PrevisaoTermino = dataReader.GetDateTime(6);
-                    etapa.Projeto.Situacao = dataReader.GetString(7);
 
-                    lista.Add(etapa); /* Adiciona na lista */
+                    listaEtapa.Add(etapa); /* Adiciona na lista */
                 }
                 dataReader.Close();
+
+                foreach(Etapa e in listaEtapa)
+                {
+                    Projeto projeto = daoProj.Read(e.Projeto.Codigo);
+                    e.Projeto.Nome = projeto.Nome;
+                    e.Projeto.DataInicio = projeto.DataInicio;
+                    e.Projeto.PrevisaoTermino = projeto.PrevisaoTermino;
+                    e.Projeto.Situacao = projeto.Situacao;
+
+                    e.Projeto.Cliente = projeto.Cliente;
+
+                    lista.Add(e);
+                }
             }
             catch (Exception exception)
             {

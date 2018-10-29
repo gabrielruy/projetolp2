@@ -35,7 +35,7 @@ namespace Projeto_LPII.view
             dataGridView1.Rows.Clear();
 
             foreach (Projeto projeto in lista)
-                dataGridView1.Rows.Add(projeto.Codigo.ToString(), projeto.Cliente.ToString(), projeto.Nome, projeto.DataInicio.ToString(), projeto.PrevisaoTermino.ToString(), projeto.Situacao);
+                dataGridView1.Rows.Add(projeto.Codigo.ToString(), projeto.Cliente.Nome.ToString(), projeto.Nome, projeto.DataInicio.ToString(), projeto.PrevisaoTermino.ToString(), projeto.Situacao.ToString());
 
             dataGridView1.ClearSelection();
         }
@@ -93,7 +93,7 @@ namespace Projeto_LPII.view
                 dataGridView1.Rows.Clear();
 
                 foreach (Projeto projeto in lista)
-                    dataGridView1.Rows.Add(projeto.Codigo.ToString(), projeto.Cliente.ToString(), projeto.Nome, projeto.DataInicio.ToString(), projeto.PrevisaoTermino.ToString(), projeto.Situacao);
+                    dataGridView1.Rows.Add(projeto.Codigo.ToString(), projeto.Cliente.Nome.ToString(), projeto.Nome, projeto.DataInicio.ToString(), projeto.PrevisaoTermino.ToString(), projeto.Situacao);
 
                 dataGridView1.ClearSelection();
             }          
