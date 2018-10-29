@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSituacao = new System.Windows.Forms.TextBox();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -102,6 +102,12 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(406, 119);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 345;
             // 
             // groupBox1
             // 
@@ -281,6 +287,7 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(642, 48);
             this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(357, 20);
             this.txtCodigo.TabIndex = 90;
             // 
@@ -300,12 +307,6 @@
             this.txtSituacao.Name = "txtSituacao";
             this.txtSituacao.Size = new System.Drawing.Size(357, 20);
             this.txtSituacao.TabIndex = 91;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 345;
             // 
             // TelaGerenciaProjeto
             // 

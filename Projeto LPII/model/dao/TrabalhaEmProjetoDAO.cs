@@ -111,16 +111,16 @@ namespace Projeto_LPII.model.dao
                     trabalhador.Colaborador.Nome = dataReader.GetString(2);
                     trabalhador.Colaborador.Email = dataReader.GetString(3);
                     trabalhador.Colaborador.Telefone = dataReader.GetString(4);
-                    trabalhador.Colaborador.Cargo = dataReader.GetString(6);
-                    trabalhador.Colaborador.NroRh = dataReader.GetInt32(7);
-                    trabalhador.Colaborador.Login = dataReader.GetString(9);
-                    trabalhador.Colaborador.Senha = dataReader.GetString(10);
-                    trabalhador.Projeto.Codigo = dataReader.GetInt32(11);
-                    trabalhador.Projeto.Nome = dataReader.GetString(12);
-                    trabalhador.Projeto.Cliente = dataReader.GetInt32(13);
-                    trabalhador.Projeto.DataInicio = dataReader.GetDateTime(14);
-                    trabalhador.Projeto.PrevisaoTermino = dataReader.GetDateTime(15);
-                    trabalhador.Projeto.Situacao = dataReader.GetString(16);
+                    trabalhador.Colaborador.Cargo = dataReader.GetString(5);
+                    trabalhador.Colaborador.NroRh = dataReader.GetInt32(6);
+                    trabalhador.Colaborador.Login = dataReader.GetString(7);
+                    trabalhador.Colaborador.Senha = dataReader.GetString(8);
+                    trabalhador.Projeto.Codigo = dataReader.GetInt32(9);
+                    trabalhador.Projeto.Nome = dataReader.GetString(10);
+                    trabalhador.Projeto.Cliente = dataReader.GetInt32(11);
+                    trabalhador.Projeto.DataInicio = dataReader.GetDateTime(12);
+                    trabalhador.Projeto.PrevisaoTermino = dataReader.GetDateTime(13);
+                    trabalhador.Projeto.Situacao = dataReader.GetString(14);
 
                     lista.Add(trabalhador); 
                 }

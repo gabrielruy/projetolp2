@@ -40,15 +40,11 @@ namespace Projeto_LPII.view
             dataGridView1.ClearSelection();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Tela_cadastro_de_cliente cadastro_De_Cliente = new Tela_cadastro_de_cliente();
-            cadastro_De_Cliente.ShowDialog();
+            int codProj = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            TelaEtapa etapa = new TelaEtapa(codProj);
+            etapa.ShowDialog();
         }
 
         private void radioPausado_CheckedChanged(object sender, EventArgs e)

@@ -10,16 +10,16 @@ namespace Projeto_LPII.model.dao
 {
     class EtapaDAO
     {
-        public bool Create(Etapa e, Projeto p)
+        public bool Create(Etapa e)
         {
             bool state = false; 
 
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             string query =
-            string.Format("INSERT INTO Etapa (nome, duracao, projeto) " +
-                           "VALUES ('{0}','{1}','{2}');",
-                           e.Nome, e.Duracao, p.Codigo);
+            string.Format("INSERT INTO Etapa (nome, projeto) " +
+                           "VALUES ('{0}','{1}');",
+                           e.Nome, e.Projeto.Codigo);
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -54,8 +54,8 @@ namespace Projeto_LPII.model.dao
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             string query =
-            string.Format("UPDATE Etapa SET nome='{0}', duracao='{1}', projeto='{2}," +
-            "WHERE codigo={3};", e.Nome, e.Duracao, e.Projeto, e.Codigo);
+            string.Format("UPDATE Etapa SET nome='{0}', projeto='{1}," +
+            "WHERE codigo={2};", e.Nome, e.Projeto.Codigo, e.Codigo);
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -136,9 +136,12 @@ namespace Projeto_LPII.model.dao
                     etapa = new Etapa();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
-                    etapa.Duracao = dataReader.GetInt32(2); //Duração em dias
-                    etapa.Projeto = dataReader.GetInt32(3);
-                    etapa.Numero = dataReader.GetInt32(4);
+                    etapa.Projeto.Codigo = dataReader.GetInt32(2);
+                    etapa.Projeto.Nome = dataReader.GetString(3);
+                    etapa.Projeto.Cliente = dataReader.GetInt32(4);
+                    etapa.Projeto.DataInicio = dataReader.GetDateTime(5);
+                    etapa.Projeto.PrevisaoTermino = dataReader.GetDateTime(6);
+                    etapa.Projeto.Situacao = dataReader.GetString(7);
                 }
                 dataReader.Close();
             }
@@ -176,9 +179,12 @@ namespace Projeto_LPII.model.dao
                     etapa = new Etapa();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
-                    etapa.Duracao = dataReader.GetInt32(2); //Duração em dias
-                    etapa.Projeto = dataReader.GetInt32(3);
-                    etapa.Numero = dataReader.GetInt32(4);
+                    etapa.Projeto.Codigo = dataReader.GetInt32(2);
+                    etapa.Projeto.Nome = dataReader.GetString(3);
+                    etapa.Projeto.Cliente = dataReader.GetInt32(4);
+                    etapa.Projeto.DataInicio = dataReader.GetDateTime(5);
+                    etapa.Projeto.PrevisaoTermino = dataReader.GetDateTime(6);
+                    etapa.Projeto.Situacao = dataReader.GetString(7);
                 }
                 dataReader.Close();
             }
@@ -223,11 +229,15 @@ namespace Projeto_LPII.model.dao
                 while (dataReader.Read())
                 {
                     etapa = new Etapa();
+                    etapa.Projeto = new Projeto();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
-                    etapa.Duracao = dataReader.GetInt32(2); //Duração em dias
-                    etapa.Projeto = dataReader.GetInt32(3);
-                    etapa.Numero = dataReader.GetInt32(4);
+                    etapa.Projeto.Codigo = dataReader.GetInt32(2);
+                    etapa.Projeto.Nome = dataReader.GetString(3);
+                    etapa.Projeto.Cliente = dataReader.GetInt32(4);
+                    etapa.Projeto.DataInicio = dataReader.GetDateTime(5);
+                    etapa.Projeto.PrevisaoTermino = dataReader.GetDateTime(6);
+                    etapa.Projeto.Situacao = dataReader.GetString(7);
 
                     lista.Add(etapa); /* Adiciona na lista */
                 }

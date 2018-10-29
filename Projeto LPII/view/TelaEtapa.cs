@@ -12,22 +12,9 @@ namespace Projeto_LPII.view
 {
     public partial class TelaEtapa : Form
     {
-        public TelaEtapa()
+        public TelaEtapa(int codigoProjeto)
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bntProximo_Click(object sender, EventArgs e)
-        {
-            //No fim chama a tela de trabalho em projeto 
-
-            TelaTrabalhoEmProjeto trabalhoEmProjeto = new TelaTrabalhoEmProjeto();
-            trabalhoEmProjeto.Show();
         }
     }
 }
