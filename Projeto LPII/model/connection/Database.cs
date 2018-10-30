@@ -13,7 +13,7 @@ namespace Projeto_LPII
         private static MySqlConnection connection; 
         private static Database instance; 
         private string connectionString = 
-            "Server=localhost; database=projeto; Uid=root; Pwd=mysql";
+            "Server=localhost; database=projeto; Uid=root; Pwd=3968wyxb";
 
         private Database()
         {
@@ -110,7 +110,7 @@ namespace Projeto_LPII
         {
             try
             {
-                connection.ConnectionString = "Server=localhost; Uid=root; Pwd=mysql";
+                connection.ConnectionString = "Server=localhost; Uid=root; Pwd=3968wyxb";
 
                 if (connection.State != System.Data.ConnectionState.Open)
                     connection.Open();

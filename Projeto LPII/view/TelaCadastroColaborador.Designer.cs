@@ -44,7 +44,7 @@
             this.labelLoginColaborador = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.TextBox();
             this.groupBoxLoginSenhaColaborador.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,11 +210,10 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 97);
+            this.comboBox1.Location = new System.Drawing.Point(134, 95);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(471, 21);
-            this.comboBox1.TabIndex = 8;
+            this.comboBox1.Size = new System.Drawing.Size(471, 20);
+            this.comboBox1.TabIndex = 14;
             // 
             // Tela_cadastro_de_colaborador
             // 
@@ -264,6 +263,6 @@
         private System.Windows.Forms.Label labelLoginColaborador;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox comboBox1;
     }
 }

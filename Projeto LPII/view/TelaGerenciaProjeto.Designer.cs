@@ -50,10 +50,11 @@
             this.buttonVoltarListarCliente = new System.Windows.Forms.Button();
             this.buttonConfirmarListagemdeClientes = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtSituacao = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.TextBox();
+            this.txtNroCliente = new System.Windows.Forms.TextBox();
+            this.txtSituacao = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -275,14 +276,6 @@
             this.textBox1.Size = new System.Drawing.Size(357, 20);
             this.textBox1.TabIndex = 86;
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(641, 126);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(358, 21);
-            this.comboBox2.TabIndex = 87;
-            // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(642, 48);
@@ -301,12 +294,33 @@
             this.label5.TabIndex = 89;
             this.label5.Text = "Código:";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Location = new System.Drawing.Point(716, 129);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.ReadOnly = true;
+            this.comboBox2.Size = new System.Drawing.Size(283, 20);
+            this.comboBox2.TabIndex = 92;
+            // 
+            // txtNroCliente
+            // 
+            this.txtNroCliente.Location = new System.Drawing.Point(642, 129);
+            this.txtNroCliente.Name = "txtNroCliente";
+            this.txtNroCliente.Size = new System.Drawing.Size(68, 20);
+            this.txtNroCliente.TabIndex = 93;
+            // 
             // txtSituacao
             // 
-            this.txtSituacao.Location = new System.Drawing.Point(642, 74);
+            this.txtSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtSituacao.FormattingEnabled = true;
+            this.txtSituacao.Items.AddRange(new object[] {
+            "Pendente",
+            "Em Andamento",
+            "Pausado"});
+            this.txtSituacao.Location = new System.Drawing.Point(642, 73);
             this.txtSituacao.Name = "txtSituacao";
-            this.txtSituacao.Size = new System.Drawing.Size(357, 20);
-            this.txtSituacao.TabIndex = 91;
+            this.txtSituacao.Size = new System.Drawing.Size(357, 21);
+            this.txtSituacao.TabIndex = 94;
             // 
             // TelaGerenciaProjeto
             // 
@@ -314,9 +328,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 496);
             this.Controls.Add(this.txtSituacao);
+            this.Controls.Add(this.txtNroCliente);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -331,7 +346,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonVoltarListarCliente);
             this.Controls.Add(this.buttonConfirmarListagemdeClientes);
-            //this.Name = "TelaGerenciaProjeto";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SISTEMA GERENCIADOR DE PROJETOS - Gerenciamento de Projetos";
@@ -366,12 +380,13 @@
         private System.Windows.Forms.Button buttonVoltarListarCliente;
         private System.Windows.Forms.Button buttonConfirmarListagemdeClientes;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.TextBox comboBox2;
+        private System.Windows.Forms.TextBox txtNroCliente;
+        private System.Windows.Forms.ComboBox txtSituacao;
     }
 }

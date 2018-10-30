@@ -57,8 +57,8 @@ namespace Projeto_LPII.model.dao
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             string query =
-            string.Format("UPDATE Etapa SET nome='{0}', projeto='{1}," +
-            "WHERE codigo={2};", e.Nome, e.Projeto.Codigo, e.Codigo);
+            string.Format("UPDATE Etapa SET descricao='{0}'" +
+            "WHERE codigo={1};", e.Descricao, e.Codigo);
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -157,15 +157,19 @@ namespace Projeto_LPII.model.dao
             return etapa;
         }
 
-        public Etapa Read(String nome)
+        public List<Etapa> ListByName(String nome)
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
+            List<Etapa> lista = new List<Etapa>();
+
             Etapa etapa = null;
 
-            string query = string.Format("SELECT * Etapa Cliente WHERE nome LIKE '%{0}%'", nome);
+            string query = "SELECT * FROM Etapa WHERE nome LIKE @Nome;";
 
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Nome", nome + "%");
 
             try
             {
@@ -174,12 +178,14 @@ namespace Projeto_LPII.model.dao
 
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                if (dataReader.Read())
+                while (dataReader.Read())
                 {
                     etapa = new Etapa();
                     etapa.Codigo = dataReader.GetInt32(0);
                     etapa.Nome = dataReader.GetString(1);
                     etapa.Descricao = dataReader.GetString(3);
+
+                    lista.Add(etapa);
                 }
                 dataReader.Close();
             }
@@ -192,7 +198,7 @@ namespace Projeto_LPII.model.dao
             {
                 connection.Close();
             }
-            return etapa;
+            return lista;
         }
 
         public List<Etapa> ListInProject(int codProj)

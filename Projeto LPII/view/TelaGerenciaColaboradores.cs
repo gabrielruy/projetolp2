@@ -36,21 +36,23 @@ namespace Projeto_LPII.view
         private void button3_Click(object sender, EventArgs e) //Buscar
         {
             dataGridView1.DataSource = null;
-            Colaborador c = new Colaborador();
+            List<Colaborador> c = new List<Colaborador>();
 
             if (textBox2.Text.Equals("")) //Se for vazio lista todos
                 AtualizaDGV();
             else //Se tiver alguma entrada...
             {
-                c = dao.Read(textBox2.Text); //Lê do banco
+                c = dao.ListByName(textBox2.Text); //Lê do banco
                 dataGridView1.Rows.Clear(); //Limpa o Data Grid View
                 //Adiciona somente o procurado
-                dataGridView1.Rows.Add(c.Codigo.ToString(), c.Nome);
+                foreach(Colaborador colab in c)
+                {
+                    dataGridView1.Rows.Add(colab.Codigo.ToString(), colab.Nome);
+                }
+                
                 /* Limpa a seleção de linhas no Data Grid View */
                 dataGridView1.ClearSelection();
             }
-
-            textBox2.Text = "";  // esvazia o campo, para proximo uso
 
             dataGridView1.ClearSelection();
         }
@@ -135,7 +137,7 @@ namespace Projeto_LPII.view
             txtNome.Text = c.Nome; //Nome
             txtLogin.Text = c.Login; //Login
             txtSenha.Text = c.Senha; //Senha
-            txtTelefone.Text = c.Senha; // Telefone
+            txtTelefone.Text = c.Telefone; // Telefone
             txtFuncao.Text = c.Cargo; //Cargo
             txtRegistroRh.Text = c.NroRh.ToString(); //NroRh
             txtEmail.Text = c.Email; //Email           

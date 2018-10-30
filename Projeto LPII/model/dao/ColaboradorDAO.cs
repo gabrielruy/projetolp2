@@ -177,9 +177,11 @@ namespace Projeto_LPII.model.dao
             return colaborador;
         }
 
-        public Colaborador Read(String nome)
+        public List<Colaborador> ListByName(String nome)
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            List<Colaborador> lista = new List<Colaborador>();
 
             Colaborador colaborador = null;
 
@@ -196,7 +198,7 @@ namespace Projeto_LPII.model.dao
 
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                if (dataReader.Read())
+                while (dataReader.Read())
                 {
                     colaborador = new Colaborador();
                     colaborador.Codigo = dataReader.GetInt32(0);
@@ -207,6 +209,8 @@ namespace Projeto_LPII.model.dao
                     colaborador.Cargo = dataReader.GetString(5);
                     colaborador.NroRh = dataReader.GetInt32(6);
                     colaborador.Email = dataReader.GetString(7);
+
+                    lista.Add(colaborador);
                 }
                 dataReader.Close();
             }
@@ -219,7 +223,7 @@ namespace Projeto_LPII.model.dao
             {
                 connection.Close();
             }
-            return colaborador;
+            return lista;
         }
 
         public List<Colaborador> ListAll()

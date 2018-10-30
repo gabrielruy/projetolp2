@@ -107,10 +107,11 @@ namespace Projeto_LPII.view
         {
             textBox1.Text = "";
             txtCodigo.Text = "";
-            txtSituacao.Text = "";
+            txtSituacao.Text = null;
             dateTimeProjeto.Text = "";
             dateTimePicker1.Text = "";
             comboBox2.Text = "";
+            txtNroCliente.Text = "";
             dataGridView2.Rows.Clear();
         }
 
@@ -131,7 +132,8 @@ namespace Projeto_LPII.view
         private void SetDTO_Projeto(Projeto p)
         {
             txtCodigo.Text = p.Codigo.ToString(); //Codigo
-            comboBox2.Text = p.Cliente.ToString(); //Cliente
+            txtNroCliente.Text = p.Cliente.Codigo.ToString(); //Codigo do cliente
+            comboBox2.Text = p.Cliente.Nome.ToString(); //Cliente
             textBox1.Text = p.Nome; //Nome
             dateTimeProjeto.Text = p.DataInicio.ToLongDateString(); //Data inicio
             dateTimePicker1.Text = p.PrevisaoTermino.ToLongDateString(); //Previsao Termino

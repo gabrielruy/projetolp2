@@ -31,6 +31,7 @@ namespace Projeto_LPII.view
 
         private void button3_Click(object sender, EventArgs e) //Cancelar
         {
+            AtualizaDGV(int.Parse(txtCodigo.Text));
             LimpaTxtEtapa();
             LimpaTxtDescricao();
             LimpaBusca();
@@ -64,6 +65,66 @@ namespace Projeto_LPII.view
             }
         }
 
+
+        private void btnBuscar_Click(object sender, EventArgs e) //Buscar
+        {
+            dataGridViewEtapas.DataSource = null;
+            List<Etapa> etapas = new List<Etapa>();
+
+            if (txtBuscaEtapa.Text.Equals("")) //Se for vazio lista todos
+                AtualizaDGV(int.Parse(txtCodigo.Text));
+            else //Se tiver alguma entrada...
+            {
+                etapas = daoEtapa.ListByName(txtBuscaEtapa.Text); //Lê do banco
+                dataGridViewEtapas.Rows.Clear(); //Limpa o Data Grid View
+                foreach (Etapa etapa in etapas)
+                {
+                    //Adiciona somente o procurado
+                    dataGridViewEtapas.Rows.Add(etapa.Codigo.ToString(), etapa.Nome);
+                    dataGridViewEtapas.ClearSelection();
+                }
+                
+            }
+
+            LimpaTxtEtapa();
+            LimpaTxtDescricao();
+
+            dataGridViewEtapas.ClearSelection();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e) //Salvar
+        {
+            if (MessageBox.Show("Tem certeza que deseja salvar as alterações?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if(descricaoEtapa.Text.Length < 1020)
+                {
+                    Etapa etapa;
+
+                    etapa = GetDTO_Etapa();
+
+                    if (daoEtapa.Update(etapa))
+                    {
+                        MessageBox.Show("A etapa foi atualizada.", "Etapa atualizado",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ExibeDescricao();
+                    }
+                    else
+                        MessageBox.Show("Erro ao atualizar.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Limite máximo de caracteres excedido. As alterações não foram salvas.", "Alterações descartadas",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("As alterações não foram salvas.", "Alterações descartadas",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void dataGridViewEtapas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ExibeDescricao();
@@ -89,8 +150,10 @@ namespace Projeto_LPII.view
             Etapa etapa = new Etapa();
             etapa.Projeto = new Projeto();
 
+            etapa.Codigo = int.Parse(dataGridViewEtapas.CurrentRow.Cells[0].Value.ToString());
             etapa.Nome = txtAddEtapa.Text;
             etapa.Projeto.Codigo = int.Parse(txtCodigo.Text);
+            etapa.Descricao = descricaoEtapa.Text;
 
             return etapa;
         }

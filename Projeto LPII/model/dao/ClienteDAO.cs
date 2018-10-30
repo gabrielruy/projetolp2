@@ -127,8 +127,8 @@ namespace Projeto_LPII.model.dao
             }
             catch (MySqlException exception)
             {
-                MessageBox.Show(exception.Message, "Erro ao excluir",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("O cliente tem projetos vinculados.", "Cliente não pode ser excluído",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
@@ -185,11 +185,12 @@ namespace Projeto_LPII.model.dao
             return cliente;
         }
 
-        public Cliente Read(String nome)
+        public List<Cliente> ListByName(String nome)
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             Cliente cliente = null;
+            List<Cliente> lista = new List<Cliente>();
 
             string query = string.Format("SELECT * FROM Cliente WHERE nome LIKE '%{0}%'", nome);
 
@@ -202,7 +203,7 @@ namespace Projeto_LPII.model.dao
 
                 MySqlDataReader dataReader = command.ExecuteReader();
 
-                if (dataReader.Read())
+                while (dataReader.Read())
                 {
                     cliente = new Cliente();
                     cliente.Codigo = dataReader.GetInt32(0);
@@ -216,6 +217,8 @@ namespace Projeto_LPII.model.dao
                     cliente.Cep = dataReader.GetString(8);
                     cliente.Cidade = dataReader.GetString(9);
                     cliente.Estado = dataReader.GetString(10);
+
+                    lista.Add(cliente);
                 }
                 dataReader.Close();
             }
@@ -228,7 +231,7 @@ namespace Projeto_LPII.model.dao
             {
                 connection.Close();
             }
-            return cliente;
+            return lista;
         }
 
         public List<Cliente> ListAll()

@@ -39,13 +39,13 @@
             this.txtSituacao = new System.Windows.Forms.TextBox();
             this.txtBuscaEtapa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridViewEtapas = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAddEtapa = new System.Windows.Forms.TextBox();
             this.descricaoEtapa = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEtapas)).BeginInit();
@@ -66,6 +66,7 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(82, 39);
             this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(385, 27);
             this.txtNome.TabIndex = 5;
             // 
@@ -97,6 +98,7 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(82, 6);
             this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(385, 27);
             this.txtCodigo.TabIndex = 10;
             // 
@@ -126,6 +128,7 @@
             // 
             this.txtCliente.Location = new System.Drawing.Point(82, 72);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(385, 27);
             this.txtCliente.TabIndex = 13;
             // 
@@ -133,6 +136,7 @@
             // 
             this.txtSituacao.Location = new System.Drawing.Point(82, 105);
             this.txtSituacao.Name = "txtSituacao";
+            this.txtSituacao.ReadOnly = true;
             this.txtSituacao.Size = new System.Drawing.Size(385, 27);
             this.txtSituacao.TabIndex = 14;
             // 
@@ -154,17 +158,18 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Etapa:";
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(379, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 33);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "BUSCAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBuscar.Location = new System.Drawing.Point(379, 135);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 33);
+            this.btnBuscar.TabIndex = 17;
+            this.btnBuscar.Text = "BUSCAR";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dataGridViewEtapas
             // 
@@ -205,17 +210,18 @@
             this.descricaoEtapa.TabIndex = 83;
             this.descricaoEtapa.Text = "";
             // 
-            // button2
+            // btnSalvar
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(564, 414);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 33);
-            this.button2.TabIndex = 84;
-            this.button2.Text = "SALVAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSalvar.Location = new System.Drawing.Point(564, 414);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(88, 33);
+            this.btnSalvar.TabIndex = 84;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // button3
             // 
@@ -250,11 +256,11 @@
             this.ClientSize = new System.Drawing.Size(961, 481);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.descricaoEtapa);
             this.Controls.Add(this.txtAddEtapa);
             this.Controls.Add(this.dataGridViewEtapas);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtBuscaEtapa);
             this.Controls.Add(this.txtSituacao);
@@ -291,11 +297,11 @@
         private System.Windows.Forms.TextBox txtSituacao;
         private System.Windows.Forms.TextBox txtBuscaEtapa;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dataGridViewEtapas;
         private System.Windows.Forms.TextBox txtAddEtapa;
         private System.Windows.Forms.RichTextBox descricaoEtapa;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;

@@ -46,20 +46,21 @@ namespace Projeto_LPII.view
         private void button3_Click(object sender, EventArgs e) //Buscar
         {
             dataGrid.DataSource = null;
-            Cliente cliente = new Cliente();
+            List<Cliente> clientes = new List<Cliente>();
 
             if (textBox2.Text.Equals("")) //Se for vazio lista todos
                 AtualizaDGV();
             else //Se tiver alguma entrada...
             {
-                cliente = dao.Read(textBox2.Text); //Lê do banco
+                clientes = dao.ListByName(textBox2.Text); //Lê do banco
                 dataGrid.Rows.Clear(); //Limpa o Data Grid View
                 //Adiciona somente o procurado
-                dataGrid.Rows.Add(cliente.Codigo.ToString(), cliente.Nome);
-                dataGrid.ClearSelection();
+                foreach(Cliente cliente in clientes)
+                {
+                    dataGrid.Rows.Add(cliente.Codigo.ToString(), cliente.Nome);
+                    dataGrid.ClearSelection();
+                }
             }
-
-            textBox2.Text = "";  // esvazia o campo, para proximo uso
 
             dataGrid.ClearSelection();
         }

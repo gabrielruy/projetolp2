@@ -160,6 +160,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "AC ",
@@ -405,6 +406,7 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(635, 44);
             this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(313, 20);
             this.txtCodigo.TabIndex = 76;
             // 
