@@ -165,11 +165,9 @@ namespace Projeto_LPII.model.dao
 
             Etapa etapa = null;
 
-            string query = "SELECT * FROM Etapa WHERE nome LIKE @Nome;";
+            string query = string.Format("SELECT * FROM Etapa WHERE nome LIKE '%{0}%'", nome);
 
             MySqlCommand command = new MySqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@Nome", nome + "%");
 
             try
             {

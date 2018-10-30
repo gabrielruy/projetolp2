@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +55,9 @@
             this.comboBox2 = new System.Windows.Forms.TextBox();
             this.txtNroCliente = new System.Windows.Forms.TextBox();
             this.txtSituacao = new System.Windows.Forms.ComboBox();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,17 +101,13 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nome});
+            this.codigo,
+            this.Nome,
+            this.chkColumn});
             this.dataGridView2.Location = new System.Drawing.Point(45, 37);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(406, 119);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 345;
             // 
             // groupBox1
             // 
@@ -322,6 +321,26 @@
             this.txtSituacao.Size = new System.Drawing.Size(357, 21);
             this.txtSituacao.TabIndex = 94;
             // 
+            // codigo
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.codigo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.codigo.HeaderText = "Cód.";
+            this.codigo.Name = "codigo";
+            this.codigo.Width = 45;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 245;
+            // 
+            // chkColumn
+            // 
+            this.chkColumn.HeaderText = "Selec.";
+            this.chkColumn.Name = "chkColumn";
+            this.chkColumn.Width = 50;
+            // 
             // TelaGerenciaProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +365,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonVoltarListarCliente);
             this.Controls.Add(this.buttonConfirmarListagemdeClientes);
+            this.Name = "TelaGerenciaProjeto";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SISTEMA GERENCIADOR DE PROJETOS - Gerenciamento de Projetos";
@@ -384,9 +404,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.TextBox comboBox2;
         private System.Windows.Forms.TextBox txtNroCliente;
         private System.Windows.Forms.ComboBox txtSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chkColumn;
     }
 }

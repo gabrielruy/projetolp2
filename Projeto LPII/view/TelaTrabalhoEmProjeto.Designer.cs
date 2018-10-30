@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.radioEmAndamento = new System.Windows.Forms.RadioButton();
+            this.radioPausado = new System.Windows.Forms.RadioButton();
+            this.radioTodos = new System.Windows.Forms.RadioButton();
+            this.radioPendente = new System.Windows.Forms.RadioButton();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Previsao_Termino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.radioEmAndamento = new System.Windows.Forms.RadioButton();
-            this.radioPausado = new System.Windows.Forms.RadioButton();
-            this.radioTodos = new System.Windows.Forms.RadioButton();
-            this.radioPendente = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,41 +58,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(937, 311);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
-            // 
-            // Código
-            // 
-            this.Código.HeaderText = "Código";
-            this.Código.Name = "Código";
-            this.Código.Width = 70;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.Width = 70;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 250;
-            // 
-            // Data_Inicio
-            // 
-            this.Data_Inicio.HeaderText = "Data de Início";
-            this.Data_Inicio.Name = "Data_Inicio";
-            this.Data_Inicio.Width = 190;
-            // 
-            // Previsao_Termino
-            // 
-            this.Previsao_Termino.HeaderText = "Previsao Término";
-            this.Previsao_Termino.Name = "Previsao_Termino";
-            this.Previsao_Termino.Width = 190;
-            // 
-            // Situação
-            // 
-            this.Situação.HeaderText = "Situação";
-            this.Situação.Name = "Situação";
             // 
             // btnVoltar
             // 
@@ -154,6 +119,41 @@
             this.radioPendente.UseVisualStyleBackColor = true;
             this.radioPendente.CheckedChanged += new System.EventHandler(this.radioPendente_CheckedChanged);
             // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
+            this.Código.Width = 70;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Width = 130;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 250;
+            // 
+            // Data_Inicio
+            // 
+            this.Data_Inicio.HeaderText = "Data de Início";
+            this.Data_Inicio.Name = "Data_Inicio";
+            this.Data_Inicio.Width = 160;
+            // 
+            // Previsao_Termino
+            // 
+            this.Previsao_Termino.HeaderText = "Previsao Término";
+            this.Previsao_Termino.Name = "Previsao_Termino";
+            this.Previsao_Termino.Width = 160;
+            // 
+            // Situação
+            // 
+            this.Situação.HeaderText = "Situação";
+            this.Situação.Name = "Situação";
+            // 
             // TelaTrabalhoEmProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,12 +182,12 @@
         private System.Windows.Forms.RadioButton radioEmAndamento;
         private System.Windows.Forms.RadioButton radioPausado;
         private System.Windows.Forms.RadioButton radioTodos;
+        private System.Windows.Forms.RadioButton radioPendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Previsao_Termino;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situação;
-        private System.Windows.Forms.RadioButton radioPendente;
     }
 }

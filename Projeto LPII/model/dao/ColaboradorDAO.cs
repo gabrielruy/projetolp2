@@ -185,11 +185,9 @@ namespace Projeto_LPII.model.dao
 
             Colaborador colaborador = null;
 
-            string query = "SELECT * FROM Colaborador WHERE nome LIKE @Nome;";
+            string query = string.Format("SELECT * FROM Colaborador WHERE nome LIKE '%{0}%'", nome);
 
             MySqlCommand command = new MySqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@Nome", nome + "%");
 
             try
             {

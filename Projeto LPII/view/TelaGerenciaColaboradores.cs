@@ -99,6 +99,8 @@ namespace Projeto_LPII.view
         private void buttonConfirmarListagemdeClientes_Click(object sender, EventArgs e) //Cancelar
         {
             LimparTextBox();
+            AtualizaDGV();
+            textBox2.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e) //Voltar

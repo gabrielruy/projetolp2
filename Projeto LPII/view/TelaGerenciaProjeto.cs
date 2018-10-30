@@ -37,20 +37,23 @@ namespace Projeto_LPII.view
         private void button3_Click(object sender, EventArgs e) //Buscar
         {
             dataGridView1.DataSource = null;
-            Projeto projeto = new Projeto();
+            List<Projeto> projeto = new List<Projeto>();
 
             if (textBox2.Text.Equals("")) //Se for vazio lista todos
                 AtualizaDGV();
             else //Se tiver alguma entrada...
             {
-                projeto = daoProj.Read(textBox2.Text); //Lê do banco
+                projeto = daoProj.ListByName(textBox2.Text); //Lê do banco
                 dataGridView1.Rows.Clear(); //Limpa o Data Grid View
                 //Adiciona somente o procurado
-                dataGridView1.Rows.Add(projeto.Codigo.ToString(), projeto.Nome);
+                foreach(Projeto proj in projeto)
+                {
+                    dataGridView1.Rows.Add(proj.Codigo.ToString(), proj.Nome);
+                }
+
+                /* Limpa a seleção de linhas no Data Grid View */
                 dataGridView1.ClearSelection();
             }
-
-            textBox2.Text = "";  // esvazia o campo, para proximo uso
 
             dataGridView1.ClearSelection();
         }
@@ -143,10 +146,11 @@ namespace Projeto_LPII.view
         private Projeto GetDTO()
         {
             Projeto projeto = new Projeto();
+            projeto.Cliente = new Cliente();
 
             projeto.Codigo = int.Parse(txtCodigo.Text);
             projeto.Nome = textBox1.Text;
-            projeto.Cliente.Codigo = int.Parse(comboBox2.Text);
+            projeto.Cliente.Codigo = int.Parse(txtNroCliente.Text);
             projeto.DataInicio = dateTimeProjeto.Value;
             projeto.PrevisaoTermino = dateTimePicker1.Value;
             projeto.Situacao = txtSituacao.Text;

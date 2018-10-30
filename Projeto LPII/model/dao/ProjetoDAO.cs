@@ -238,6 +238,70 @@ namespace Projeto_LPII.model.dao
             return projeto;
         }
 
+        public List<Projeto> ListByName(String nome)
+        {
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            List<Projeto> listaAuxiliar = new List<Projeto>();
+            List<Projeto> lista = new List<Projeto>();
+
+            Projeto projeto = null;
+
+            string query = string.Format("SELECT * FROM Projeto WHERE nome LIKE '%{0}%'", nome);
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+                    projeto.Situacao = dataReader.GetString(5);
+
+                    listaAuxiliar.Add(projeto);
+                }
+                dataReader.Close();
+
+                foreach(Projeto p in listaAuxiliar)
+                {
+                    Cliente cliente = daoCliente.Read(projeto.Cliente.Codigo);
+                    p.Cliente.Nome = cliente.Nome;
+                    p.Cliente.Cnpj = cliente.Cnpj;
+                    p.Cliente.Telefone = cliente.Telefone;
+                    p.Cliente.Email = cliente.Email;
+                    p.Cliente.Responsavel = cliente.Responsavel;
+                    p.Cliente.Rua = cliente.Rua;
+                    p.Cliente.Numero = cliente.Numero;
+                    p.Cliente.Cep = cliente.Cep;
+                    p.Cliente.Cidade = cliente.Cidade;
+                    p.Cliente.Estado = cliente.Estado;
+
+                    lista.Add(p);
+                }               
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return lista;
+        }
+
         public List<Projeto> ListAll()
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();

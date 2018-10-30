@@ -41,6 +41,8 @@ namespace Projeto_LPII.view
         private void buttonConfirmarListagemdeClientes_Click(object sender, EventArgs e) //Cancelar
         {
             LimparTextBox();
+            AtualizaDGV();
+            textBox2.Text = "";
         }
 
         private void button3_Click(object sender, EventArgs e) //Buscar
@@ -134,7 +136,7 @@ namespace Projeto_LPII.view
             ruaCliente.Text = "";
             maskedTextBox3.Text = "";
             cidadeCliente.Text = "";
-            comboBox1.Text = "";
+            comboBox1.Text = null;
             nomeContatoCliente.Text = "";
         }
 
