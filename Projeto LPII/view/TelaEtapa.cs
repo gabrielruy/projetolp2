@@ -102,15 +102,23 @@ namespace Projeto_LPII.view
 
                     etapa = GetDTO_Etapa();
 
-                    if (daoEtapa.Update(etapa))
+                    if(etapa != null)
                     {
-                        MessageBox.Show("A etapa foi atualizada.", "Etapa atualizado",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ExibeDescricao();
+                        if (daoEtapa.Update(etapa))
+                        {
+                            MessageBox.Show("A etapa foi atualizada.", "Etapa atualizado",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ExibeDescricao();
+                        }
+                        else
+                            MessageBox.Show("Erro ao atualizar.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        MessageBox.Show("Erro ao atualizar.", "Erro",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Escolha uma etapa para atualizar.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
                 }
                 else
                 {
@@ -150,12 +158,17 @@ namespace Projeto_LPII.view
             Etapa etapa = new Etapa();
             etapa.Projeto = new Projeto();
 
-            etapa.Codigo = int.Parse(dataGridViewEtapas.CurrentRow.Cells[0].Value.ToString());
-            etapa.Nome = txtAddEtapa.Text;
-            etapa.Projeto.Codigo = int.Parse(txtCodigo.Text);
-            etapa.Descricao = descricaoEtapa.Text;
+            if(dataGridViewEtapas.CurrentRow != null)
+            {
+                etapa.Codigo = int.Parse(dataGridViewEtapas.CurrentRow.Cells[0].Value.ToString());
+                etapa.Nome = txtAddEtapa.Text;
+                etapa.Projeto.Codigo = int.Parse(txtCodigo.Text);
+                etapa.Descricao = descricaoEtapa.Text;
 
-            return etapa;
+                return etapa;
+            }
+
+            return null;
         }
 
         private void LimpaTxtEtapa()

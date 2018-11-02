@@ -117,6 +117,37 @@ namespace Projeto_LPII.model.dao
             return state;
         }
 
+        public bool DeleteInProject(int codProj)
+        {
+            bool state = false;
+
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            string query = string.Format("DELETE FROM Etapa WHERE projeto = {0};", codProj);
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                command.ExecuteNonQuery();
+
+                state = true;
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show("Erro ao excluir", "Erro ao excluir etapas do projeto.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return state;
+        }
+
         public Etapa Read(int codigo)
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();

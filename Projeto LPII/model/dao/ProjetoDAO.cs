@@ -67,10 +67,10 @@ namespace Projeto_LPII.model.dao
             MySqlCommand command = new MySqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@Nome", p.Nome);
-            command.Parameters.AddWithValue("@Cliente", p.Cliente);
+            command.Parameters.AddWithValue("@Cliente", p.Cliente.Codigo);
             command.Parameters.AddWithValue("@Datainicio", p.DataInicio);
-            command.Parameters.AddWithValue("@Codigo", p.Codigo);
             command.Parameters.AddWithValue("@PrevisaoTermino", p.PrevisaoTermino);
+            command.Parameters.AddWithValue("@Codigo", p.Codigo);
 
             try
             {

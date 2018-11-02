@@ -77,8 +77,8 @@ namespace Projeto_LPII.view
 
         private void button1_Click(object sender, EventArgs e) //Excluir
         {
-            var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este fornecedor?",
-                "Deseja excluir fornecedor?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este colaborador?",
+                "Deseja excluir o colaborador?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
             if (result == DialogResult.Yes)
             {
@@ -86,7 +86,7 @@ namespace Projeto_LPII.view
 
                 if (dao.Delete(c))
                 {
-                    MessageBox.Show("Fornecedor foi excluído.", "Fornecedor Excluído",
+                    MessageBox.Show("Colaborador foi excluído.", "Colaborador Excluído",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -116,8 +116,6 @@ namespace Projeto_LPII.view
             txtTelefone.Text = "";
             txtFuncao.Text = "";
             txtRegistroRh.Text = "";
-            txtLogin.Text = "";
-            txtSenha.Text = "";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -137,8 +135,6 @@ namespace Projeto_LPII.view
         {
             txtCodigo.Text = c.Codigo.ToString(); //Codigo
             txtNome.Text = c.Nome; //Nome
-            txtLogin.Text = c.Login; //Login
-            txtSenha.Text = c.Senha; //Senha
             txtTelefone.Text = c.Telefone; // Telefone
             txtFuncao.Text = c.Cargo; //Cargo
             txtRegistroRh.Text = c.NroRh.ToString(); //NroRh
@@ -151,8 +147,6 @@ namespace Projeto_LPII.view
 
             c.Codigo = int.Parse(txtCodigo.Text);
             c.Nome = txtNome.Text;
-            c.Login = txtLogin.Text;
-            c.Senha = txtSenha.Text;
             c.Telefone = txtTelefone.Text;
             c.Cargo = txtFuncao.Text;
             c.NroRh = int.Parse(txtRegistroRh.Text);

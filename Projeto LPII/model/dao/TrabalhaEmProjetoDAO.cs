@@ -10,6 +10,9 @@ namespace Projeto_LPII.model.dao
 {
     class TrabalhaEmProjetoDAO
     {
+
+        private ColaboradorDAO daoColab = new ColaboradorDAO();
+
         public bool Create(TrabalhaEmProjeto trabalha)
         {
             bool state = false;
@@ -45,13 +48,13 @@ namespace Projeto_LPII.model.dao
             return state;
         }
 
-        public bool Delete(TrabalhaEmProjeto t)
+        public bool DeleteInProject(int codProj)
         {
             bool state = false; 
 
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            string query = string.Format("DELETE FROM Cliente WHERE codigo = {0};", t.Codigo);
+            string query = string.Format("DELETE FROM TrabalhaEmProjeto WHERE codigo_projeto = {0};", codProj);
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -66,8 +69,8 @@ namespace Projeto_LPII.model.dao
             }
             catch (MySqlException exception)
             {
-                MessageBox.Show(exception.Message, "Erro ao excluir",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Erro ao excluir trabalhadores vinculados ao projeto.", "Erro ao excluir.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -77,19 +80,17 @@ namespace Projeto_LPII.model.dao
         }
 
 
-        public List<TrabalhaEmProjeto> ListAll(int codProj)
+        public List<TrabalhaEmProjeto> ListInProject(int codProj)
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
             List<TrabalhaEmProjeto> lista = new List<TrabalhaEmProjeto>();
+            List<TrabalhaEmProjeto> listaAuxiliar = new List<TrabalhaEmProjeto>();
 
             TrabalhaEmProjeto trabalhador;
 
             string query =
-            string.Format("SELECT tp.*, c.*, p.* FROM Projeto p " +
-                          "JOIN TrabalhaEmProjeto tp ON p.codigo = tp.codigo_projeto " +
-                          "JOIN Colaborador c ON tp.codigo_colaborador = c.codigo " +
-                          "WHERE tp.codigo_projeto = " + codProj);
+            string.Format("SELECT * FROM TrabalhaEmProjeto WHERE codigo_projeto = " + codProj);
 
 
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -106,33 +107,68 @@ namespace Projeto_LPII.model.dao
                     trabalhador = new TrabalhaEmProjeto();
                     trabalhador.Colaborador = new Colaborador();
                     trabalhador.Projeto = new Projeto();
+
                     trabalhador.Codigo = dataReader.GetInt32(0);
                     trabalhador.Colaborador.Codigo = dataReader.GetInt32(1);
-                    trabalhador.Colaborador.Nome = dataReader.GetString(2);
-                    trabalhador.Colaborador.Email = dataReader.GetString(3);
-                    trabalhador.Colaborador.Telefone = dataReader.GetString(4);
-                    trabalhador.Colaborador.Cargo = dataReader.GetString(5);
-                    trabalhador.Colaborador.NroRh = dataReader.GetInt32(6);
-                    trabalhador.Colaborador.Login = dataReader.GetString(7);
-                    trabalhador.Colaborador.Senha = dataReader.GetString(8);
-                    trabalhador.Projeto.Codigo = dataReader.GetInt32(9);
-                    trabalhador.Projeto.Nome = dataReader.GetString(10);
-                    trabalhador.Projeto.DataInicio = dataReader.GetDateTime(11);
-                    trabalhador.Projeto.PrevisaoTermino = dataReader.GetDateTime(12);
-                    trabalhador.Projeto.Situacao = dataReader.GetString(13);
-                    trabalhador.Projeto.Cliente.Codigo = dataReader.GetInt32(14);
-                    trabalhador.Projeto.Cliente.Nome = dataReader.GetString(15);
-                    trabalhador.Projeto.Cliente.Cnpj = dataReader.GetString(16);
-                    trabalhador.Projeto.Cliente.Telefone = dataReader.GetString(17);
-                    trabalhador.Projeto.Cliente.Email = dataReader.GetString(18);
-                    trabalhador.Projeto.Cliente.Responsavel = dataReader.GetString(19);
-                    trabalhador.Projeto.Cliente.Rua = dataReader.GetString(20);
-                    trabalhador.Projeto.Cliente.Numero = dataReader.GetInt32(21);
-                    trabalhador.Projeto.Cliente.Cep = dataReader.GetString(22);
-                    trabalhador.Projeto.Cliente.Cidade = dataReader.GetString(23);
-                    trabalhador.Projeto.Cliente.Estado = dataReader.GetString(24);
+                    trabalhador.Projeto.Codigo = dataReader.GetInt32(2);
 
-                    lista.Add(trabalhador); 
+                    listaAuxiliar.Add(trabalhador); 
+                }
+                dataReader.Close();
+
+                foreach(TrabalhaEmProjeto t in listaAuxiliar)
+                {
+                    Colaborador colaborador = daoColab.Read(t.Colaborador.Codigo);
+
+                    t.Colaborador.Nome = colaborador.Nome;
+                    t.Colaborador.Email = colaborador.Email;
+                    t.Colaborador.Telefone = colaborador.Telefone;
+                    t.Colaborador.Cargo = colaborador.Cargo;
+                    t.Colaborador.NroRh = colaborador.NroRh;
+                    t.Colaborador.Login = colaborador.Login;
+                    t.Colaborador.Senha = colaborador.Senha;
+
+                    lista.Add(t);                        
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return lista; 
+        }
+
+        public List<int> ListCodeInProject(int codProj)
+        {
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            List<int> lista = new List<int>();
+
+            int codTrabalhador;
+
+            string query =
+            string.Format("SELECT * FROM TrabalhaEmProjeto WHERE codigo_projeto = " + codProj);
+
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    codTrabalhador = dataReader.GetInt32(1);
+
+                    lista.Add(codTrabalhador);
                 }
                 dataReader.Close();
             }
@@ -145,7 +181,7 @@ namespace Projeto_LPII.model.dao
             {
                 connection.Close();
             }
-            return lista; 
+            return lista;
         }
     }
 }

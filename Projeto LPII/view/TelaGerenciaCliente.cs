@@ -144,18 +144,22 @@ namespace Projeto_LPII.view
         {
             Cliente cliente = new Cliente();
 
-            cliente.Codigo = int.Parse(txtCodigo.Text);
-            cliente.Nome = nomeCliente.Text;
-            cliente.Cnpj = maskedTextBox1.Text;
-            cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
-            cliente.Email = emailCliente.Text;
-            cliente.Responsavel = nomeContatoCliente.Text;
-            cliente.Rua = ruaCliente.Text;
-            cliente.Numero = int.Parse(maskedTextBox3.Text);
-            cliente.Cep = txtCep.Text;
-            cliente.Cidade = cidadeCliente.Text;
-            cliente.Estado = comboBox1.Text;
-            return cliente;
+            if(txtCodigo.Text != null)
+            {
+                cliente.Codigo = int.Parse(txtCodigo.Text);
+                cliente.Nome = nomeCliente.Text;
+                cliente.Cnpj = maskedTextBox1.Text;
+                cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
+                cliente.Email = emailCliente.Text;
+                cliente.Responsavel = nomeContatoCliente.Text;
+                cliente.Rua = ruaCliente.Text;
+                cliente.Numero = int.Parse(maskedTextBox3.Text);
+                cliente.Cep = txtCep.Text;
+                cliente.Cidade = cidadeCliente.Text;
+                cliente.Estado = comboBox1.Text;
+                return cliente;
+            }
+            return null;
         }
 
         private void dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)

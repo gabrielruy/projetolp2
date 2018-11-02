@@ -40,11 +40,6 @@
             this.buttonConfirmarListagemdeClientes = new System.Windows.Forms.Button();
             this.txtRegistroRh = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.groupBoxLoginSenhaColaborador = new System.Windows.Forms.GroupBox();
-            this.labelLoginColaborador = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.labelSenhaColaborador = new System.Windows.Forms.Label();
             this.labelNroRegistroColaborador = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelTelefoneColaborador = new System.Windows.Forms.Label();
@@ -56,7 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFuncao = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBoxLoginSenhaColaborador.SuspendLayout();
             this.SuspendLayout();
             // 
             // button3
@@ -165,7 +159,7 @@
             // 
             // txtRegistroRh
             // 
-            this.txtRegistroRh.Location = new System.Drawing.Point(655, 176);
+            this.txtRegistroRh.Location = new System.Drawing.Point(655, 242);
             this.txtRegistroRh.Mask = "00000";
             this.txtRegistroRh.Name = "txtRegistroRh";
             this.txtRegistroRh.Size = new System.Drawing.Size(269, 20);
@@ -174,65 +168,17 @@
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(655, 124);
+            this.txtTelefone.Location = new System.Drawing.Point(655, 161);
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(269, 20);
             this.txtTelefone.TabIndex = 82;
             // 
-            // groupBoxLoginSenhaColaborador
-            // 
-            this.groupBoxLoginSenhaColaborador.Controls.Add(this.labelLoginColaborador);
-            this.groupBoxLoginSenhaColaborador.Controls.Add(this.txtLogin);
-            this.groupBoxLoginSenhaColaborador.Controls.Add(this.txtSenha);
-            this.groupBoxLoginSenhaColaborador.Controls.Add(this.labelSenhaColaborador);
-            this.groupBoxLoginSenhaColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxLoginSenhaColaborador.Location = new System.Drawing.Point(552, 212);
-            this.groupBoxLoginSenhaColaborador.Name = "groupBoxLoginSenhaColaborador";
-            this.groupBoxLoginSenhaColaborador.Size = new System.Drawing.Size(383, 75);
-            this.groupBoxLoginSenhaColaborador.TabIndex = 81;
-            this.groupBoxLoginSenhaColaborador.TabStop = false;
-            this.groupBoxLoginSenhaColaborador.Text = "Defina seu login e senha";
-            // 
-            // labelLoginColaborador
-            // 
-            this.labelLoginColaborador.AutoSize = true;
-            this.labelLoginColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLoginColaborador.Location = new System.Drawing.Point(19, 32);
-            this.labelLoginColaborador.Name = "labelLoginColaborador";
-            this.labelLoginColaborador.Size = new System.Drawing.Size(49, 20);
-            this.labelLoginColaborador.TabIndex = 20;
-            this.labelLoginColaborador.Text = "Login:";
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.Location = new System.Drawing.Point(103, 25);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(99, 27);
-            this.txtLogin.TabIndex = 13;
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Location = new System.Drawing.Point(277, 25);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(95, 27);
-            this.txtSenha.TabIndex = 14;
-            // 
-            // labelSenhaColaborador
-            // 
-            this.labelSenhaColaborador.AutoSize = true;
-            this.labelSenhaColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSenhaColaborador.Location = new System.Drawing.Point(219, 32);
-            this.labelSenhaColaborador.Name = "labelSenhaColaborador";
-            this.labelSenhaColaborador.Size = new System.Drawing.Size(52, 20);
-            this.labelSenhaColaborador.TabIndex = 12;
-            this.labelSenhaColaborador.Text = "Senha:";
-            // 
             // labelNroRegistroColaborador
             // 
             this.labelNroRegistroColaborador.AutoSize = true;
             this.labelNroRegistroColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNroRegistroColaborador.Location = new System.Drawing.Point(551, 174);
+            this.labelNroRegistroColaborador.Location = new System.Drawing.Point(551, 240);
             this.labelNroRegistroColaborador.Name = "labelNroRegistroColaborador";
             this.labelNroRegistroColaborador.Size = new System.Drawing.Size(98, 20);
             this.labelNroRegistroColaborador.TabIndex = 80;
@@ -242,7 +188,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(553, 148);
+            this.label5.Location = new System.Drawing.Point(551, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 20);
             this.label5.TabIndex = 79;
@@ -252,7 +198,7 @@
             // 
             this.labelTelefoneColaborador.AutoSize = true;
             this.labelTelefoneColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelefoneColaborador.Location = new System.Drawing.Point(551, 122);
+            this.labelTelefoneColaborador.Location = new System.Drawing.Point(551, 159);
             this.labelTelefoneColaborador.Name = "labelTelefoneColaborador";
             this.labelTelefoneColaborador.Size = new System.Drawing.Size(69, 20);
             this.labelTelefoneColaborador.TabIndex = 78;
@@ -260,7 +206,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(655, 98);
+            this.txtEmail.Location = new System.Drawing.Point(655, 123);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(269, 20);
             this.txtEmail.TabIndex = 77;
@@ -269,7 +215,7 @@
             // 
             this.labelEmailColaborador.AutoSize = true;
             this.labelEmailColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmailColaborador.Location = new System.Drawing.Point(551, 96);
+            this.labelEmailColaborador.Location = new System.Drawing.Point(551, 121);
             this.labelEmailColaborador.Name = "labelEmailColaborador";
             this.labelEmailColaborador.Size = new System.Drawing.Size(55, 20);
             this.labelEmailColaborador.TabIndex = 76;
@@ -277,7 +223,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(655, 72);
+            this.txtNome.Location = new System.Drawing.Point(655, 86);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(269, 20);
             this.txtNome.TabIndex = 75;
@@ -286,7 +232,7 @@
             // 
             this.labelNomeColaborador.AutoSize = true;
             this.labelNomeColaborador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomeColaborador.Location = new System.Drawing.Point(551, 70);
+            this.labelNomeColaborador.Location = new System.Drawing.Point(551, 84);
             this.labelNomeColaborador.Name = "labelNomeColaborador";
             this.labelNomeColaborador.Size = new System.Drawing.Size(53, 20);
             this.labelNomeColaborador.TabIndex = 74;
@@ -312,7 +258,7 @@
             // 
             // txtFuncao
             // 
-            this.txtFuncao.Location = new System.Drawing.Point(655, 150);
+            this.txtFuncao.Location = new System.Drawing.Point(655, 203);
             this.txtFuncao.Name = "txtFuncao";
             this.txtFuncao.Size = new System.Drawing.Size(269, 20);
             this.txtFuncao.TabIndex = 87;
@@ -327,7 +273,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtRegistroRh);
             this.Controls.Add(this.txtTelefone);
-            this.Controls.Add(this.groupBoxLoginSenhaColaborador);
             this.Controls.Add(this.labelNroRegistroColaborador);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelTelefoneColaborador);
@@ -348,8 +293,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SISTEMA GERENCIADOR DE PROJETOS - Gerenciamento de Colaboradores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBoxLoginSenhaColaborador.ResumeLayout(false);
-            this.groupBoxLoginSenhaColaborador.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,11 +309,6 @@
         private System.Windows.Forms.Button buttonConfirmarListagemdeClientes;
         private System.Windows.Forms.MaskedTextBox txtRegistroRh;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
-        private System.Windows.Forms.GroupBox groupBoxLoginSenhaColaborador;
-        private System.Windows.Forms.Label labelLoginColaborador;
-        private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.Label labelSenhaColaborador;
         private System.Windows.Forms.Label labelNroRegistroColaborador;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelTelefoneColaborador;
