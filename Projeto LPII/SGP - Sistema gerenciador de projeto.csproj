@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -105,7 +105,9 @@
     <Compile Include="view\TelaTrabalhoEmProjeto.Designer.cs">
       <DependentUpon>TelaTrabalhoEmProjeto.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\TelaLogin.cs" />
+    <Compile Include="view\TelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="view\TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>

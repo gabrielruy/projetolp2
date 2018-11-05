@@ -236,9 +236,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 21);
+            this.label2.Size = new System.Drawing.Size(56, 21);
             this.label2.TabIndex = 81;
-            this.label2.Text = "Nome  ";
+            this.label2.Text = "Nome:";
             // 
             // dataGridView1
             // 

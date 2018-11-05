@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_LPII.model.dao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,53 +8,62 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-/*
+
 namespace Projeto_LPII.view
 {
     public partial class TelaLogin : Form
     {
+
+        ColaboradorDAO daoColab = new ColaboradorDAO();
+    
         public TelaLogin()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Cancelar
         {
             Application.Exit();
         }
 
         private void bnEntrar_Click(object sender, EventArgs e)
         {
-            private bool Logado = false;
+            List<Colaborador> lista = daoColab.ListAll();
+            bool state = false;
 
-        bool result = VerificaLogin();
-
-        Logado = result;
-
-        if (result)
-        {
-
-        MessageBox.Show(“Seja bem vindo!”);
-
-        this.Close();
-
-        private void TelaLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (Logado)
+            if (txtUsuario.Text.ToString() == "admin" && txtSenha.Text.ToString() == "1234")
             {
-                this.Close();
+                IniciaSistema();
+                state = true;
             }
             else
             {
-                Application.Exit();
+                foreach (Colaborador c in lista)
+                {
+                    if (txtUsuario.Text.ToString() == c.Login && txtSenha.Text.ToString() == c.Senha)
+                    {
+                        IniciaSistema();
+                        state = true;
+                    }
+                    else
+                    {
+                        state = false;
+                    }
+                }
+            }
+
+            if(!state)
+            {
+                MessageBox.Show("Usuário ou/e senha inválidos.", "Erro ao logar",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    }
-        else
+
+        private void IniciaSistema()
         {
-        MessageBox.Show(“Usuário ou senha incorreto!”);
-        }
+            Form1 telaInicial = new Form1();
+            this.Hide();
+            telaInicial.ShowDialog();          
         }
     }
 }
-*/

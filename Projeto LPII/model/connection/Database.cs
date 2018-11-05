@@ -75,37 +75,6 @@ namespace Projeto_LPII
             return state;
         }
 
-        /*Cria conexão com banco para verificar e validar o login */    /*
-        bool VerificaLogin()
-        {
-            bool result = false;
-            string StringDeConexao = @”Data Source = localhost; Initial Catalog = tempdb; User Id = sa; Password = admin;”;
-            using (MySqlConnection cn = new MySqlConnection())
-            {
-                cn.ConnectionString = StringDeConexao;
-
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(“select * from login where usuario = 
-                   ‘” +txtUsuario.Text + “‘ and senha = ‘” +txtSenha.Text + “‘;”, cn);
-                    cn.Open();
-                    MySqlDataReader dados = cmd.ExecuteReader();
-                    result = dados.HasRows;
-
-                }
-                catch (MySqlException e)
-                {
-                    throw new Exception(e.Message);
-                }
-                finally
-                {
-                    cn.Close();
-                }
-            }
-            return result;
-        }*/
-
-
         private void CreateDB()
         {
             try
@@ -125,14 +94,6 @@ namespace Projeto_LPII
                 command.ExecuteNonQuery();
 
                 connection.ChangeDatabase("projeto");
-
-
-                /*SQL para criar tabela de login e senha*/
-                /*query = "CREATE TABLE IF NOT EXISTS Login (" +
-                    "codigo INTEGER AUTO_INCREMENT," +
-                    "usuario VARCHAR(15) NOT NULL," +
-                    "senha VARCHAR(15) NOT NULL," +
-                    "CONSTRAINT pk_login PRIMARY KEY(usuario));";*/
 
                 query = "CREATE TABLE IF NOT EXISTS Colaborador (" +
                     "codigo INTEGER AUTO_INCREMENT," +
