@@ -62,7 +62,7 @@ namespace Projeto_LPII.model.dao
 
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            string query = "UPDATE Projeto SET cliente=@Cliente, nome=@Nome, dataInicio=@DataInicio, previsaoTermino=@PrevisaoTermino WHERE codigo = @Codigo;";
+            string query = "UPDATE Projeto SET cliente=@Cliente, nome=@Nome, dataInicio=@DataInicio, previsaoTermino=@PrevisaoTermino, situacao=@Situacao WHERE codigo = @Codigo;";
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -71,6 +71,7 @@ namespace Projeto_LPII.model.dao
             command.Parameters.AddWithValue("@Datainicio", p.DataInicio);
             command.Parameters.AddWithValue("@PrevisaoTermino", p.PrevisaoTermino);
             command.Parameters.AddWithValue("@Codigo", p.Codigo);
+            command.Parameters.AddWithValue("@Situacao", p.Situacao);
 
             try
             {

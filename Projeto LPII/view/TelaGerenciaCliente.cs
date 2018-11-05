@@ -69,40 +69,56 @@ namespace Projeto_LPII.view
 
         private void buttonVoltarListarCliente_Click(object sender, EventArgs e) //Atualizar
         {
-            Cliente cliente;
-
-            cliente = GetDTO();
-
-            if (dao.Update(cliente))
+            if (txtCodigo.Text == "")
             {
-                MessageBox.Show("O Cliente foi atualizado.", "Cliente atualizado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AtualizaDGV();
-            }               
+                MessageBox.Show("Selecione um cliente para atualizar.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
-                MessageBox.Show("Erro ao atualizar.", "Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                Cliente cliente;
+
+                cliente = GetDTO();
+
+                if (dao.Update(cliente))
+                {
+                    MessageBox.Show("O Cliente foi atualizado.", "Cliente atualizado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AtualizaDGV();
+                }
+                else
+                    MessageBox.Show("Erro ao atualizar.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }           
         }
 
         private void button1_Click(object sender, EventArgs e) //Excluir
         {
-            var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este cliente?",
+            if(txtCodigo.Text == "")
+            {
+                MessageBox.Show("Selecione um cliente para excluir.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este cliente?",
                 "Deseja excluir cliente?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            if (result == DialogResult.Yes)
-            {
-                Cliente c = GetDTO();
-
-                if (dao.Delete(c))
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Cliente foi excluído.", "Cliente Excluído",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Cliente c = GetDTO();
+
+                    if (dao.Delete(c))
+                    {
+                        MessageBox.Show("Cliente foi excluído.", "Cliente Excluído",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    AtualizaDGV();
+
+                    LimparTextBox();
                 }
-
-                AtualizaDGV(); 
-
-                LimparTextBox(); 
-            }
+            }          
         }
 
         private void button2_Click(object sender, EventArgs e) //Voltar

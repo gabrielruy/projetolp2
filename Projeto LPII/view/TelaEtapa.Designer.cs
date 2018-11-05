@@ -173,6 +173,7 @@
             // 
             // dataGridViewEtapas
             // 
+            this.dataGridViewEtapas.AllowUserToAddRows = false;
             this.dataGridViewEtapas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEtapas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,

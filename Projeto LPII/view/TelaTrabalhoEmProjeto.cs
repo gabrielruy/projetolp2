@@ -62,6 +62,12 @@ namespace Projeto_LPII.view
             filtraDGV();
         }
 
+
+        private void radioFinalizado_CheckedChanged(object sender, EventArgs e)
+        {
+            filtraDGV();
+        }
+
         private void radioTodos_CheckedChanged(object sender, EventArgs e)
         {
             filtraDGV();
@@ -83,6 +89,10 @@ namespace Projeto_LPII.view
                 else if (radioPausado.Checked)
                 {
                     situacao = "'Pausado'";
+                }
+                else if (radioFinalizado.Checked)
+                {
+                    situacao = "'Finalizado'";
                 }
                 else
                 {

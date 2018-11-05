@@ -177,6 +177,50 @@ namespace Projeto_LPII.model.dao
             return colaborador;
         }
 
+        public Colaborador Read(String nome)
+        {
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            Colaborador colaborador = null;
+
+            
+            string query = string.Format("SELECT * FROM Colaborador WHERE nome = '{0}'", nome);
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    colaborador = new Colaborador();
+                    colaborador.Codigo = dataReader.GetInt32(0);
+                    colaborador.Nome = dataReader.GetString(1);
+                    colaborador.Login = dataReader.GetString(2);
+                    colaborador.Senha = dataReader.GetString(3);
+                    colaborador.Telefone = dataReader.GetString(4);
+                    colaborador.Cargo = dataReader.GetString(5);
+                    colaborador.NroRh = dataReader.GetInt32(6);
+                    colaborador.Email = dataReader.GetString(7);
+                }
+                dataReader.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro.", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return colaborador;
+        }
+
         public List<Colaborador> ListByName(String nome)
         {
             MySqlConnection connection = Database.GetInstance().GetConnection();

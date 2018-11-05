@@ -21,7 +21,7 @@ namespace Projeto_LPII.model.dao
 
             string query =
             string.Format("INSERT INTO Etapa (nome, projeto, descricao) " +
-                           "VALUES ('{0}','{1}', ' ');",
+                           "VALUES ('{0}','{1}', '');",
                            e.Nome, e.Projeto.Codigo);
 
             MySqlCommand command = new MySqlCommand(query, connection);

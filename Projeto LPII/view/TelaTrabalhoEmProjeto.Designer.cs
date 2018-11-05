@@ -29,22 +29,24 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.radioEmAndamento = new System.Windows.Forms.RadioButton();
-            this.radioPausado = new System.Windows.Forms.RadioButton();
-            this.radioTodos = new System.Windows.Forms.RadioButton();
-            this.radioPendente = new System.Windows.Forms.RadioButton();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Previsao_Termino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.radioEmAndamento = new System.Windows.Forms.RadioButton();
+            this.radioPausado = new System.Windows.Forms.RadioButton();
+            this.radioTodos = new System.Windows.Forms.RadioButton();
+            this.radioPendente = new System.Windows.Forms.RadioButton();
+            this.radioFinalizado = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Código,
@@ -58,6 +60,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(937, 311);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
+            this.Código.Width = 70;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Width = 130;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 250;
+            // 
+            // Data_Inicio
+            // 
+            this.Data_Inicio.HeaderText = "Data de Início";
+            this.Data_Inicio.Name = "Data_Inicio";
+            this.Data_Inicio.Width = 160;
+            // 
+            // Previsao_Termino
+            // 
+            this.Previsao_Termino.HeaderText = "Previsao Término";
+            this.Previsao_Termino.Name = "Previsao_Termino";
+            this.Previsao_Termino.Width = 160;
+            // 
+            // Situação
+            // 
+            this.Situação.HeaderText = "Situação";
+            this.Situação.Name = "Situação";
             // 
             // btnVoltar
             // 
@@ -98,7 +135,7 @@
             // radioTodos
             // 
             this.radioTodos.AutoSize = true;
-            this.radioTodos.Location = new System.Drawing.Point(398, 12);
+            this.radioTodos.Location = new System.Drawing.Point(542, 12);
             this.radioTodos.Name = "radioTodos";
             this.radioTodos.Size = new System.Drawing.Size(55, 17);
             this.radioTodos.TabIndex = 5;
@@ -119,46 +156,24 @@
             this.radioPendente.UseVisualStyleBackColor = true;
             this.radioPendente.CheckedChanged += new System.EventHandler(this.radioPendente_CheckedChanged);
             // 
-            // Código
+            // radioFinalizado
             // 
-            this.Código.HeaderText = "Código";
-            this.Código.Name = "Código";
-            this.Código.Width = 70;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.Width = 130;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 250;
-            // 
-            // Data_Inicio
-            // 
-            this.Data_Inicio.HeaderText = "Data de Início";
-            this.Data_Inicio.Name = "Data_Inicio";
-            this.Data_Inicio.Width = 160;
-            // 
-            // Previsao_Termino
-            // 
-            this.Previsao_Termino.HeaderText = "Previsao Término";
-            this.Previsao_Termino.Name = "Previsao_Termino";
-            this.Previsao_Termino.Width = 160;
-            // 
-            // Situação
-            // 
-            this.Situação.HeaderText = "Situação";
-            this.Situação.Name = "Situação";
+            this.radioFinalizado.AutoSize = true;
+            this.radioFinalizado.Location = new System.Drawing.Point(417, 12);
+            this.radioFinalizado.Name = "radioFinalizado";
+            this.radioFinalizado.Size = new System.Drawing.Size(72, 17);
+            this.radioFinalizado.TabIndex = 7;
+            this.radioFinalizado.TabStop = true;
+            this.radioFinalizado.Text = "Finalizado";
+            this.radioFinalizado.UseVisualStyleBackColor = true;
+            this.radioFinalizado.CheckedChanged += new System.EventHandler(this.radioFinalizado_CheckedChanged);
             // 
             // TelaTrabalhoEmProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 417);
+            this.Controls.Add(this.radioFinalizado);
             this.Controls.Add(this.radioPendente);
             this.Controls.Add(this.radioTodos);
             this.Controls.Add(this.radioPausado);
@@ -189,5 +204,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Previsao_Termino;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situação;
+        private System.Windows.Forms.RadioButton radioFinalizado;
     }
 }

@@ -12,6 +12,7 @@ namespace Projeto_LPII.model.dao
     {
 
         private ColaboradorDAO daoColab = new ColaboradorDAO();
+        private ProjetoDAO daoProj = new ProjetoDAO();
 
         public bool Create(TrabalhaEmProjeto trabalha)
         {
@@ -79,6 +80,36 @@ namespace Projeto_LPII.model.dao
             return state;
         }
 
+        public bool Delete(int codProj, int codColab)
+        {
+            bool state = false;
+
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            string query = string.Format("DELETE FROM TrabalhaEmProjeto WHERE codigo_projeto = {0} and codigo_colaborador = {1};", codProj, codColab);
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                command.ExecuteNonQuery();
+
+                state = true;
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show("Erro ao excluir trabalhador vinculado ao projeto.", "Erro ao excluir.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return state;
+        }
 
         public List<TrabalhaEmProjeto> ListInProject(int codProj)
         {

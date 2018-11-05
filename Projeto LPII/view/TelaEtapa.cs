@@ -43,7 +43,7 @@ namespace Projeto_LPII.view
             {
                 Etapa etapa;
 
-                etapa = GetDTO_Etapa();
+                etapa = GetDTO_Etapa_Criacao();
 
                 if (daoEtapa.Create(etapa))
                 {
@@ -151,6 +151,12 @@ namespace Projeto_LPII.view
             txtNome.Text = p.Nome;
             txtCliente.Text = p.Cliente.Nome.ToString();
             txtSituacao.Text = p.Situacao;
+            
+            if(p.Situacao.ToString() == "Finalizado" || p.Situacao.ToString() == "Pendente" || p.Situacao.ToString() == "Pausado")
+            {
+                txtAddEtapa.ReadOnly = true;
+                descricaoEtapa.ReadOnly = true;
+            }
         }
 
         private Etapa GetDTO_Etapa()
@@ -169,6 +175,17 @@ namespace Projeto_LPII.view
             }
 
             return null;
+        }
+
+        private Etapa GetDTO_Etapa_Criacao()
+        {
+            Etapa etapa = new Etapa();
+            etapa.Projeto = new Projeto();
+
+            etapa.Nome = txtAddEtapa.Text;
+            etapa.Projeto.Codigo = int.Parse(txtCodigo.Text);
+
+             return etapa;
         }
 
         private void LimpaTxtEtapa()

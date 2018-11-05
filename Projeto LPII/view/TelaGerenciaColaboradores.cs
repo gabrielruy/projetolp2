@@ -59,41 +59,57 @@ namespace Projeto_LPII.view
 
         private void buttonVoltarListarCliente_Click(object sender, EventArgs e) //Atualizar
         {
-            Colaborador c;
-
-            c = GetDTO();
-
-            if (dao.Update(c))
+            if (txtCodigo.Text == "")
             {
-                MessageBox.Show("O colaborador foi atualizado.", "Colaborador atualizado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AtualizaDGV();
+                MessageBox.Show("Selecione um colaborador para atualizar.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-               
             else
-                MessageBox.Show("Erro ao atualizar.", "Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                Colaborador c;
+
+                c = GetDTO();
+
+                if (dao.Update(c))
+                {
+                    MessageBox.Show("O colaborador foi atualizado.", "Colaborador atualizado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AtualizaDGV();
+                }
+
+                else
+                    MessageBox.Show("Erro ao atualizar.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }               
         }
 
         private void button1_Click(object sender, EventArgs e) //Excluir
         {
-            var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este colaborador?",
+            if(txtCodigo.Text == "")
+            {
+                MessageBox.Show("Selecione um colaborador para excluir.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este colaborador?",
                 "Deseja excluir o colaborador?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            if (result == DialogResult.Yes)
-            {
-                Colaborador c = GetDTO();
-
-                if (dao.Delete(c))
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Colaborador foi excluído.", "Colaborador Excluído",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Colaborador c = GetDTO();
+
+                    if (dao.Delete(c))
+                    {
+                        MessageBox.Show("Colaborador foi excluído.", "Colaborador Excluído",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    AtualizaDGV();
+
+                    LimparTextBox();
                 }
-
-                AtualizaDGV(); 
-
-                LimparTextBox(); 
-            }
+            }            
         }
 
         private void buttonConfirmarListagemdeClientes_Click(object sender, EventArgs e) //Cancelar

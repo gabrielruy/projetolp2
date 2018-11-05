@@ -65,56 +65,73 @@ namespace Projeto_LPII.view
 
         private void buttonVoltarListarCliente_Click(object sender, EventArgs e) //Atualizar
         {
-            Projeto projeto;
-
-            bool clienteValido = informouClienteValido();
-
-            if(clienteValido)
+            if (txtCodigo.Text == "")
             {
-                projeto = GetDTO();
-
-                if (daoProj.Update(projeto))
-                {
-                    MessageBox.Show("O Projeto foi atualizado.", "Projeto atualizado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AtualizaDGV();
-                    AtualizaDGV_Colaborador(int.Parse(txtNroCliente.Text));
-                    ExibeProjeto();
-                }
-                else
-                    MessageBox.Show("Erro ao atualizar.", "Erro",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione um projeto para atualizar.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Informe um número de cliente válido.", "Erro",
+                Projeto projeto;
+
+                bool clienteValido = informouClienteValido();
+
+                if (clienteValido)
+                {
+                    projeto = GetDTO();
+
+                    AtualizaTrabalhadores();
+
+                    if (daoProj.Update(projeto))
+                    {
+                        MessageBox.Show("O Projeto foi atualizado.", "Projeto atualizado",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
+                        AtualizaDGV();
+                        AtualizaDGV_Colaborador(int.Parse(txtCodigo.Text));
+                        ExibeProjeto(int.Parse(txtCodigo.Text));
+                    }
+                    else
+                        MessageBox.Show("Erro ao atualizar.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Informe um número de cliente válido.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }                      
         }
 
         private void button1_Click(object sender, EventArgs e) //Excluir
         {
-            var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este projeto?",
+            if(txtCodigo.Text == "")
+            {
+                MessageBox.Show("Selecione um projeto para excluir.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                var result = MessageBox.Show(this, "Você tem certeza que deseja excluir este projeto?",
                 "Deseja excluir projeto?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            if (result == DialogResult.Yes)
-            {
-                Projeto p = GetDTO();
-
-                if(ExcluiTrabalhadores() && ExcluiEtapas())
+                if (result == DialogResult.Yes)
                 {
-                    if (daoProj.Delete(p))
+                    Projeto p = GetDTO();
+
+                    if (ExcluiTrabalhadores() && ExcluiEtapas())
                     {
-                        MessageBox.Show("Projeto foi excluído.", "Projeto Excluído",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (daoProj.Delete(p))
+                        {
+                            MessageBox.Show("Projeto foi excluído.", "Projeto Excluído",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
+
+                    AtualizaDGV();
+
+                    LimparTextBox();
                 }
-
-                AtualizaDGV(); 
-
-                LimparTextBox();
-            }
+            }           
         }
 
         private void buttonConfirmarListagemdeClientes_Click(object sender, EventArgs e) //Cancelar
@@ -142,7 +159,7 @@ namespace Projeto_LPII.view
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ExibeProjeto();
+            ExibeProjeto(int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
         }
 
         private bool ExcluiTrabalhadores()
@@ -161,6 +178,40 @@ namespace Projeto_LPII.view
             return false;
         }
 
+        private void AtualizaTrabalhadores()
+        {
+            List<TrabalhaEmProjeto> listaTrabalhador = daoTrab.ListInProject(int.Parse(txtCodigo.Text));
+            List<int> listaCodigo = daoTrab.ListCodeInProject(int.Parse(txtCodigo.Text));
+
+            Projeto proj = daoProj.Read(int.Parse(txtCodigo.Text));
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                if (bool.Parse(dataGridView2.Rows[i].Cells[2].FormattedValue.ToString()) == true)
+                {               
+                    TrabalhaEmProjeto trabalhador = new TrabalhaEmProjeto();
+                    trabalhador.Projeto = proj;
+                    trabalhador.Colaborador = daoColab.Read(dataGridView2.Rows[i].Cells[1].Value.ToString());
+                    if(listaTrabalhador.Contains(trabalhador))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        daoTrab.Create(trabalhador);
+                    }                   
+                }
+                else
+                {
+                    if(dataGridView2.Rows[i].Cells[0].Value != null && 
+                        listaCodigo.Contains(int.Parse(dataGridView2.Rows[i].Cells[0].Value.ToString())))
+                    {
+                        bool state  = daoTrab.Delete(int.Parse(txtCodigo.Text.ToString()),
+                            int.Parse(dataGridView2.Rows[i].Cells[0].Value.ToString()));
+                    }
+                }
+            }
+        }
+
         private bool informouClienteValido()
         {
             List<Cliente> lista = daoCliente.ListAll();
@@ -175,10 +226,8 @@ namespace Projeto_LPII.view
             return false;
         }
 
-        private void ExibeProjeto()
+        private void ExibeProjeto(int codigo)
         {
-            int codigo = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-
             Projeto p = daoProj.Read(codigo);
             SetDTO_Projeto(p);
             AtualizaDGV_Colaborador(p.Codigo);
