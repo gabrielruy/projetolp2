@@ -32,31 +32,35 @@ namespace Projeto_LPII.view
         private void button3_Click(object sender, EventArgs e) //Cancelar
         {
             AtualizaDGV(int.Parse(txtCodigo.Text));
-            LimpaTxtEtapa();
-            LimpaTxtDescricao();
-            LimpaBusca();
+            LimpaCampos();
         }
 
         private void bntAddEtapa_Click(object sender, EventArgs e) //Adicionar Etapa
         {
             if(txtAddEtapa.Text != "")
             {
-                Etapa etapa;
 
-                etapa = GetDTO_Etapa_Criacao();
+                var result = MessageBox.Show(this, "Confira as datas ao cadastrar a etapa.",
+                "Deseja cadastrar a etapa?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (daoEtapa.Create(etapa))
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Etapa cadastrada com sucesso.", "Etapa cadastrada",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Etapa etapa;
 
-                    LimpaTxtEtapa();
-                    LimpaTxtDescricao();
-                    AtualizaDGV(int.Parse(txtCodigo.Text));
+                    etapa = GetDTO_Etapa_Criacao();
+
+                    if (daoEtapa.Create(etapa))
+                    {
+                        MessageBox.Show("Etapa cadastrada com sucesso.", "Etapa cadastrada",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        LimpaCampos();
+                        AtualizaDGV(int.Parse(txtCodigo.Text));
+                    }
+                    else
+                        MessageBox.Show("Erro ao cadastrar.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                    MessageBox.Show("Erro ao cadastrar.", "Erro",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -86,10 +90,34 @@ namespace Projeto_LPII.view
                 
             }
 
-            LimpaTxtEtapa();
-            LimpaTxtDescricao();
+            LimpaCampos();
 
             dataGridViewEtapas.ClearSelection();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e) //Excluir
+        {
+            Etapa etapa;
+
+            etapa = GetDTO_Etapa();
+
+            if (etapa.Situacao != null)
+            {
+                if (MessageBox.Show("Tem certeza que deseja excluir essa etapa?", "Confirmação", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (daoEtapa.Delete(etapa))
+                    {
+                        MessageBox.Show("Etapa excluída com sucesso.", "Etapa excluída",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpaCampos();
+                        AtualizaDGV(int.Parse(txtCodigo.Text));
+                    }
+                    else
+                        MessageBox.Show("Erro ao excluir.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) //Salvar
@@ -102,13 +130,13 @@ namespace Projeto_LPII.view
 
                     etapa = GetDTO_Etapa();
 
-                    if(etapa != null)
+                    if(etapa.Situacao != null)
                     {
                         if (daoEtapa.Update(etapa))
                         {
-                            MessageBox.Show("A etapa foi atualizada.", "Etapa atualizado",
+                            MessageBox.Show("A etapa foi atualizada.", "Etapa atualizada",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ExibeDescricao();
+                            SetDTO_Etapa();
                         }
                         else
                             MessageBox.Show("Erro ao atualizar.", "Erro",
@@ -135,7 +163,7 @@ namespace Projeto_LPII.view
 
         private void dataGridViewEtapas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ExibeDescricao();
+            SetDTO_Etapa();
         }
 
 
@@ -164,12 +192,15 @@ namespace Projeto_LPII.view
             Etapa etapa = new Etapa();
             etapa.Projeto = new Projeto();
 
-            if(dataGridViewEtapas.CurrentRow != null)
+            if (dataGridViewEtapas.CurrentRow != null)
             {
                 etapa.Codigo = int.Parse(dataGridViewEtapas.CurrentRow.Cells[0].Value.ToString());
                 etapa.Nome = txtAddEtapa.Text;
                 etapa.Projeto.Codigo = int.Parse(txtCodigo.Text);
                 etapa.Descricao = descricaoEtapa.Text;
+                etapa.DataInicio = datePickerInicio.Value;
+                etapa.PrevisaoTermino = datePickerTermino.Value;
+                etapa.Situacao = txtSituacao.Text;
 
                 return etapa;
             }
@@ -180,27 +211,26 @@ namespace Projeto_LPII.view
         private Etapa GetDTO_Etapa_Criacao()
         {
             Etapa etapa = new Etapa();
-            etapa.Projeto = new Projeto();
+            etapa.Projeto = new Projeto();           
 
             etapa.Nome = txtAddEtapa.Text;
             etapa.Projeto.Codigo = int.Parse(txtCodigo.Text);
+            etapa.DataInicio = datePickerInicio.Value;
+            etapa.PrevisaoTermino = datePickerTermino.Value;
 
-             return etapa;
+            return etapa;
         }
 
-        private void LimpaTxtEtapa()
+        private void LimpaCampos()
         {
             txtAddEtapa.Text = "";
-        }
-
-        private void LimpaTxtDescricao()
-        {
             descricaoEtapa.Text = "";
-        }
-
-        private void LimpaBusca()
-        {
             txtBuscaEtapa.Text = "";
+            txtSituacaoEtapa.Text = null;
+            datePickerInicio.Value = DateTime.Now.Date;
+            datePickerTermino.Value = DateTime.Now.Date;
+            dataGridViewEtapas.ClearSelection();
+
         }
 
         private void AtualizaDGV(int codProj)
@@ -215,15 +245,24 @@ namespace Projeto_LPII.view
             dataGridViewEtapas.ClearSelection();
         }
 
-        private void ExibeDescricao()
+        private void SetDTO_Etapa()
         {
             int codEtapa = int.Parse(dataGridViewEtapas.CurrentRow.Cells[0].Value.ToString());
+
+            descricaoEtapa.ReadOnly = false;
 
             Etapa e = daoEtapa.Read(codEtapa);
             if (e.Descricao != null)
                 descricaoEtapa.Text = e.Descricao.ToString();
             else
                 descricaoEtapa.Text = "";
+
+            txtSituacaoEtapa.Text = e.Situacao;
+            datePickerInicio.Text = e.DataInicio.ToLongDateString();
+            datePickerTermino.Text = e.PrevisaoTermino.ToLongDateString();
+
+            if (e.Situacao.ToString() == "Finalizado" || e.Situacao.ToString() == "Pendente" || e.Situacao.ToString() == "Pausado")
+                descricaoEtapa.ReadOnly = true;
         }
     }
 }

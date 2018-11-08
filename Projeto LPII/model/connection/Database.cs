@@ -149,6 +149,9 @@ namespace Projeto_LPII
                     "nome VARCHAR(64) NOT NULL," +
                     "projeto INTEGER NOT NULL," +
                     "descricao VARCHAR(1024)," +
+                    "dataInicio DATETIME NOT NULL, " +
+                    "previsaoTermino DATETIME NOT NULL, " +
+                    "situacao VARCHAR(64)," +
                     "CONSTRAINT pk_etapa PRIMARY KEY(codigo)," +
                     "CONSTRAINT fk_etapa_projeto FOREIGN KEY(projeto) " +
                     "REFERENCES Projeto(codigo));";

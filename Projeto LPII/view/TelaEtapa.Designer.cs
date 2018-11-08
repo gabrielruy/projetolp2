@@ -48,6 +48,13 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.datePickerInicio = new System.Windows.Forms.DateTimePicker();
+            this.datePickerTermino = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSituacaoEtapa = new System.Windows.Forms.ComboBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEtapas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,6 +187,7 @@
             this.Nome});
             this.dataGridViewEtapas.Location = new System.Drawing.Point(17, 184);
             this.dataGridViewEtapas.Name = "dataGridViewEtapas";
+            this.dataGridViewEtapas.ReadOnly = true;
             this.dataGridViewEtapas.Size = new System.Drawing.Size(450, 215);
             this.dataGridViewEtapas.TabIndex = 81;
             this.dataGridViewEtapas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEtapas_CellClick);
@@ -188,12 +196,14 @@
             // 
             this.codigo.HeaderText = "Cód.";
             this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
             this.codigo.Width = 50;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Name";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             this.Nome.Width = 330;
             // 
             // txtAddEtapa
@@ -216,7 +226,7 @@
             this.btnSalvar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSalvar.Location = new System.Drawing.Point(564, 414);
+            this.btnSalvar.Location = new System.Drawing.Point(508, 476);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(88, 33);
             this.btnSalvar.TabIndex = 84;
@@ -229,7 +239,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.Highlight;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(713, 414);
+            this.button3.Location = new System.Drawing.Point(677, 476);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(88, 33);
             this.button3.TabIndex = 85;
@@ -242,7 +252,7 @@
             this.button4.BackColor = System.Drawing.SystemColors.Highlight;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(846, 414);
+            this.button4.Location = new System.Drawing.Point(846, 476);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(88, 33);
             this.button4.TabIndex = 86;
@@ -250,11 +260,92 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // datePickerInicio
+            // 
+            this.datePickerInicio.Location = new System.Drawing.Point(164, 453);
+            this.datePickerInicio.Name = "datePickerInicio";
+            this.datePickerInicio.Size = new System.Drawing.Size(303, 27);
+            this.datePickerInicio.TabIndex = 87;
+            // 
+            // datePickerTermino
+            // 
+            this.datePickerTermino.Location = new System.Drawing.Point(164, 486);
+            this.datePickerTermino.Name = "datePickerTermino";
+            this.datePickerTermino.Size = new System.Drawing.Size(303, 27);
+            this.datePickerTermino.TabIndex = 88;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 458);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 20);
+            this.label4.TabIndex = 89;
+            this.label4.Text = "Previsão de início:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 489);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 20);
+            this.label5.TabIndex = 90;
+            this.label5.Text = "Previsão de término:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(504, 420);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(132, 20);
+            this.label8.TabIndex = 91;
+            this.label8.Text = "Situação da Etapa:";
+            // 
+            // txtSituacaoEtapa
+            // 
+            this.txtSituacaoEtapa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtSituacaoEtapa.FormattingEnabled = true;
+            this.txtSituacaoEtapa.Items.AddRange(new object[] {
+            "Pendente",
+            "Em Andamento",
+            "Pausado",
+            "Finalizado"});
+            this.txtSituacaoEtapa.Location = new System.Drawing.Point(643, 417);
+            this.txtSituacaoEtapa.Name = "txtSituacaoEtapa";
+            this.txtSituacaoEtapa.Size = new System.Drawing.Size(197, 28);
+            this.txtSituacaoEtapa.TabIndex = 95;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnExcluir.Location = new System.Drawing.Point(846, 414);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(88, 33);
+            this.btnExcluir.TabIndex = 96;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // TelaEtapa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 481);
+            this.ClientSize = new System.Drawing.Size(961, 536);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.txtSituacaoEtapa);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.datePickerTermino);
+            this.Controls.Add(this.datePickerInicio);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnSalvar);
@@ -307,5 +398,12 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DateTimePicker datePickerInicio;
+        private System.Windows.Forms.DateTimePicker datePickerTermino;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox txtSituacaoEtapa;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

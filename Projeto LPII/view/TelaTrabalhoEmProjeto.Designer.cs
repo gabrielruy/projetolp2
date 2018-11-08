@@ -57,6 +57,7 @@
             this.Situação});
             this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(937, 311);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
@@ -65,36 +66,42 @@
             // 
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
             this.Código.Width = 70;
             // 
             // Cliente
             // 
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
             this.Cliente.Width = 130;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             this.Nome.Width = 250;
             // 
             // Data_Inicio
             // 
             this.Data_Inicio.HeaderText = "Data de Início";
             this.Data_Inicio.Name = "Data_Inicio";
+            this.Data_Inicio.ReadOnly = true;
             this.Data_Inicio.Width = 160;
             // 
             // Previsao_Termino
             // 
             this.Previsao_Termino.HeaderText = "Previsao Término";
             this.Previsao_Termino.Name = "Previsao_Termino";
+            this.Previsao_Termino.ReadOnly = true;
             this.Previsao_Termino.Width = 160;
             // 
             // Situação
             // 
             this.Situação.HeaderText = "Situação";
             this.Situação.Name = "Situação";
+            this.Situação.ReadOnly = true;
             // 
             // btnVoltar
             // 

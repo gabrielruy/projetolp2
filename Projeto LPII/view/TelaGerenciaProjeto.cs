@@ -164,7 +164,7 @@ namespace Projeto_LPII.view
 
         private bool ExcluiTrabalhadores()
         {
-            if (daoTrab.DeleteInProject(int.Parse(txtNroCliente.Text)))
+            if (daoTrab.DeleteInProject(int.Parse(txtCodigo.Text)))
                 return true;
 
             return false;

@@ -352,6 +352,7 @@
             this.Nome});
             this.dataGrid.Location = new System.Drawing.Point(20, 44);
             this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
             this.dataGrid.Size = new System.Drawing.Size(495, 276);
             this.dataGrid.TabIndex = 68;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
@@ -360,12 +361,14 @@
             // 
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
             this.Código.Width = 125;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             this.Nome.Width = 300;
             // 
             // buttonVoltarListarCliente

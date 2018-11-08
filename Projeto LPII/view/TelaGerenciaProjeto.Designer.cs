@@ -117,18 +117,21 @@
             this.codigo.HeaderText = "Cód.";
             this.codigo.Name = "codigo";
             this.codigo.Width = 45;
+            this.codigo.ReadOnly = true;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.Width = 245;
+            this.Nome.ReadOnly = true;
             // 
             // chkColumn
             // 
             this.chkColumn.HeaderText = "Selec.";
             this.chkColumn.Name = "chkColumn";
             this.chkColumn.Width = 50;
+            this.chkColumn.ReadOnly = false;
             // 
             // groupBox1
             // 
@@ -249,6 +252,7 @@
             this.Name});
             this.dataGridView1.Location = new System.Drawing.Point(12, 48);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(495, 276);
             this.dataGridView1.TabIndex = 80;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -257,12 +261,14 @@
             // 
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
             this.Código.Width = 150;
             // 
             // Name
             // 
             this.Name.HeaderText = "Name";
             this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
             this.Name.Width = 300;
             // 
             // buttonVoltarListarCliente

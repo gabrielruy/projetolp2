@@ -19,12 +19,15 @@ namespace Projeto_LPII.model.dao
 
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            string query =
-            string.Format("INSERT INTO Etapa (nome, projeto, descricao) " +
-                           "VALUES ('{0}','{1}', '');",
-                           e.Nome, e.Projeto.Codigo);
+            string query ="INSERT INTO Etapa (nome, projeto, descricao, dataInicio, previsaoTermino, situacao) " +
+                           "VALUES (@Nome, @Projeto, '', @DataInicio, @PrevisaoTermino, 'Pendente');";
 
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Nome", e.Nome);
+            command.Parameters.AddWithValue("@Projeto", e.Projeto.Codigo);
+            command.Parameters.AddWithValue("@DataInicio", e.DataInicio);
+            command.Parameters.AddWithValue("@PrevisaoTermino", e.PrevisaoTermino);
 
             try
             {
@@ -56,11 +59,15 @@ namespace Projeto_LPII.model.dao
 
             MySqlConnection connection = Database.GetInstance().GetConnection();
 
-            string query =
-            string.Format("UPDATE Etapa SET descricao='{0}'" +
-            "WHERE codigo={1};", e.Descricao, e.Codigo);
-
+            string query = "UPDATE Etapa SET descricao=@Descricao, dataInicio=@DataInicio, previsaoTermino=@PrevisaoTermino, situacao=@Situacao WHERE codigo = @Codigo;";
+            
             MySqlCommand command = new MySqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Descricao", e.Descricao);
+            command.Parameters.AddWithValue("@Datainicio", e.DataInicio);
+            command.Parameters.AddWithValue("@PrevisaoTermino", e.PrevisaoTermino);
+            command.Parameters.AddWithValue("@Situacao", e.Situacao);
+            command.Parameters.AddWithValue("@Codigo", e.Codigo);
 
             try
             {
@@ -172,6 +179,9 @@ namespace Projeto_LPII.model.dao
                     etapa.Nome = dataReader.GetString(1);
                     if(dataReader.GetString(3) != null)
                         etapa.Descricao = dataReader.GetString(3);
+                    etapa.DataInicio = dataReader.GetDateTime(4);
+                    etapa.PrevisaoTermino = dataReader.GetDateTime(5);
+                    etapa.Situacao = dataReader.GetString(6);
 
                 }
                 dataReader.Close();

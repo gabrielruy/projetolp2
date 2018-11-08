@@ -117,6 +117,7 @@
             this.Nome});
             this.dataGridView1.Location = new System.Drawing.Point(20, 44);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(495, 276);
             this.dataGridView1.TabIndex = 68;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -125,12 +126,14 @@
             // 
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
             this.Código.Width = 130;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             this.Nome.Width = 300;
             // 
             // buttonVoltarListarCliente

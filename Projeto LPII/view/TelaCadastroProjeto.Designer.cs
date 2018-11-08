@@ -176,17 +176,20 @@
             // 
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             this.Nome.Width = 380;
             // 
             // chkColuna
             // 
             this.chkColuna.HeaderText = "Selecionar";
             this.chkColuna.Name = "chkColuna";
+            this.chkColuna.ReadOnly = false;
             this.chkColuna.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.chkColuna.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
