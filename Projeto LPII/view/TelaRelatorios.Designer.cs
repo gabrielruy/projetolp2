@@ -28,122 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCancelarCadastroCliente = new System.Windows.Forms.Button();
-            this.buttonconfirmarCadastroCliente = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.radioColaborador = new System.Windows.Forms.RadioButton();
+            this.radioCliente = new System.Windows.Forms.RadioButton();
+            this.radioProjeto = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtBusca = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCancelarCadastroCliente
+            // btnVoltar
             // 
-            this.buttonCancelarCadastroCliente.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonCancelarCadastroCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelarCadastroCliente.Location = new System.Drawing.Point(477, 474);
-            this.buttonCancelarCadastroCliente.Name = "buttonCancelarCadastroCliente";
-            this.buttonCancelarCadastroCliente.Size = new System.Drawing.Size(84, 34);
-            this.buttonCancelarCadastroCliente.TabIndex = 1;
-            this.buttonCancelarCadastroCliente.Text = "VOLTAR";
-            this.buttonCancelarCadastroCliente.UseVisualStyleBackColor = false;
-            this.buttonCancelarCadastroCliente.Click += new System.EventHandler(this.buttonCancelarCadastroCliente_Click);
+            this.btnVoltar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(473, 160);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(88, 34);
+            this.btnVoltar.TabIndex = 1;
+            this.btnVoltar.Text = "VOLTAR";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // buttonconfirmarCadastroCliente
+            // btnBuscar
             // 
-            this.buttonconfirmarCadastroCliente.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonconfirmarCadastroCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonconfirmarCadastroCliente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonconfirmarCadastroCliente.Location = new System.Drawing.Point(473, 96);
-            this.buttonconfirmarCadastroCliente.Name = "buttonconfirmarCadastroCliente";
-            this.buttonconfirmarCadastroCliente.Size = new System.Drawing.Size(88, 33);
-            this.buttonconfirmarCadastroCliente.TabIndex = 0;
-            this.buttonconfirmarCadastroCliente.Text = "BUSCAR";
-            this.buttonconfirmarCadastroCliente.UseVisualStyleBackColor = false;
-            this.buttonconfirmarCadastroCliente.Click += new System.EventHandler(this.buttonconfirmarCadastroCliente_Click);
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBuscar.Location = new System.Drawing.Point(473, 96);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 33);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.Text = "GERAR";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // textBox1
+            // radioColaborador
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(455, 20);
-            this.textBox1.TabIndex = 4;
+            this.radioColaborador.AutoSize = true;
+            this.radioColaborador.Location = new System.Drawing.Point(201, 30);
+            this.radioColaborador.Name = "radioColaborador";
+            this.radioColaborador.Size = new System.Drawing.Size(134, 24);
+            this.radioColaborador.TabIndex = 1;
+            this.radioColaborador.TabStop = true;
+            this.radioColaborador.Text = "COLABORADOR";
+            this.radioColaborador.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioCliente
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(30, 34);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(134, 24);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "COLABORADOR";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioCliente.AutoSize = true;
+            this.radioCliente.Location = new System.Drawing.Point(28, 30);
+            this.radioCliente.Name = "radioCliente";
+            this.radioCliente.Size = new System.Drawing.Size(82, 24);
+            this.radioCliente.TabIndex = 3;
+            this.radioCliente.TabStop = true;
+            this.radioCliente.Text = "CLIENTE";
+            this.radioCliente.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioProjeto
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(435, 34);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(90, 24);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "CLIENTES";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(240, 34);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(98, 24);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "PROJETOS ";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioProjeto.AutoSize = true;
+            this.radioProjeto.Location = new System.Drawing.Point(409, 30);
+            this.radioProjeto.Name = "radioProjeto";
+            this.radioProjeto.Size = new System.Drawing.Size(86, 24);
+            this.radioProjeto.TabIndex = 2;
+            this.radioProjeto.TabStop = true;
+            this.radioProjeto.Text = "PROJETO";
+            this.radioProjeto.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioColaborador);
+            this.groupBox1.Controls.Add(this.radioCliente);
+            this.groupBox1.Controls.Add(this.radioProjeto);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(549, 78);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "RELATÓRIOS ";
+            this.groupBox1.Text = "RELATÓRIOS (POR CÓDIGO)";
             // 
-            // dataGridView1
+            // txtBusca
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 291);
-            this.dataGridView1.TabIndex = 35;
+            this.txtBusca.Location = new System.Drawing.Point(12, 104);
+            this.txtBusca.Mask = "00000";
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(455, 20);
+            this.txtBusca.TabIndex = 5;
+            this.txtBusca.ValidatingType = typeof(int);
             // 
             // TelaRelatorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 532);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.buttonconfirmarCadastroCliente);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(592, 246);
+            this.Controls.Add(this.txtBusca);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonCancelarCadastroCliente);
+            this.Controls.Add(this.btnVoltar);
             this.Name = "TelaRelatorios";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SISTEMA GERENCIADOR DE PROJETOS - Relatórios";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,13 +140,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCancelarCadastroCliente;
-        private System.Windows.Forms.Button buttonconfirmarCadastroCliente;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.RadioButton radioColaborador;
+        private System.Windows.Forms.RadioButton radioCliente;
+        private System.Windows.Forms.RadioButton radioProjeto;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.MaskedTextBox txtBusca;
     }
 }

@@ -191,7 +191,8 @@ namespace Projeto_LPII.view
                     TrabalhaEmProjeto trabalhador = new TrabalhaEmProjeto();
                     trabalhador.Projeto = proj;
                     trabalhador.Colaborador = daoColab.Read(dataGridView2.Rows[i].Cells[1].Value.ToString());
-                    if(listaTrabalhador.Contains(trabalhador))
+                    if(dataGridView2.Rows[i].Cells[0].Value != null && 
+                        listaCodigo.Contains(int.Parse(dataGridView2.Rows[i].Cells[0].Value.ToString())))
                     {
                         continue;
                     }

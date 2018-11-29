@@ -142,7 +142,6 @@
             this.groupBoxLogradouro.TabIndex = 4;
             this.groupBoxLogradouro.TabStop = false;
             this.groupBoxLogradouro.Text = "Logradouro ";
-            this.groupBoxLogradouro.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboBox1
             // 

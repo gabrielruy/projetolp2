@@ -274,6 +274,10 @@ namespace Projeto_LPII.model.dao
                     etapa.Nome = dataReader.GetString(1);
                     etapa.Projeto = new Projeto();
                     etapa.Projeto.Codigo = dataReader.GetInt32(2);
+                    etapa.Descricao = dataReader.GetString(3);
+                    etapa.DataInicio = dataReader.GetDateTime(4);
+                    etapa.PrevisaoTermino = dataReader.GetDateTime(5);
+                    etapa.Situacao = dataReader.GetString(6);
 
                     listaEtapa.Add(etapa); /* Adiciona na lista */
                 }

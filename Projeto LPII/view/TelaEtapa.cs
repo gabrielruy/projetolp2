@@ -101,7 +101,7 @@ namespace Projeto_LPII.view
 
             etapa = GetDTO_Etapa();
 
-            if (etapa.Situacao != null)
+            if (etapa != null && etapa.Situacao != null)
             {
                 if (MessageBox.Show("Tem certeza que deseja excluir essa etapa?", "Confirmação", 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -130,7 +130,7 @@ namespace Projeto_LPII.view
 
                     etapa = GetDTO_Etapa();
 
-                    if(etapa.Situacao != null)
+                    if(etapa != null && etapa.Situacao != null)
                     {
                         if (daoEtapa.Update(etapa))
                         {

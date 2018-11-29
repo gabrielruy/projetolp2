@@ -215,17 +215,20 @@ namespace Projeto_LPII.model.dao
                 }
                 dataReader.Close();
 
-                Cliente cliente = daoCliente.Read(projeto.Cliente.Codigo);
-                projeto.Cliente.Nome = cliente.Nome;
-                projeto.Cliente.Cnpj = cliente.Cnpj;
-                projeto.Cliente.Telefone = cliente.Telefone;
-                projeto.Cliente.Email = cliente.Email;
-                projeto.Cliente.Responsavel = cliente.Responsavel;
-                projeto.Cliente.Rua = cliente.Rua;
-                projeto.Cliente.Numero = cliente.Numero;
-                projeto.Cliente.Cep = cliente.Cep;
-                projeto.Cliente.Cidade = cliente.Cidade;
-                projeto.Cliente.Estado = cliente.Estado;
+                if (projeto.Cliente != null)
+                {
+                    Cliente cliente = daoCliente.Read(projeto.Cliente.Codigo);
+                    projeto.Cliente.Nome = cliente.Nome;
+                    projeto.Cliente.Cnpj = cliente.Cnpj;
+                    projeto.Cliente.Telefone = cliente.Telefone;
+                    projeto.Cliente.Email = cliente.Email;
+                    projeto.Cliente.Responsavel = cliente.Responsavel;
+                    projeto.Cliente.Rua = cliente.Rua;
+                    projeto.Cliente.Numero = cliente.Numero;
+                    projeto.Cliente.Cep = cliente.Cep;
+                    projeto.Cliente.Cidade = cliente.Cidade;
+                    projeto.Cliente.Estado = cliente.Estado;
+                }              
             }
             catch (Exception exception)
             {
@@ -373,6 +376,128 @@ namespace Projeto_LPII.model.dao
             List<Projeto> lista = new List<Projeto>();
 
             string query = "SELECT * FROM Projeto where situacao = " + situacao;
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Projeto projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+                    projeto.Situacao = dataReader.GetString(5);
+
+                    listaAuxiliar.Add(projeto);
+                }
+                dataReader.Close();
+
+                foreach (Projeto proj in listaAuxiliar)
+                {
+                    Cliente cliente = daoCliente.Read(proj.Cliente.Codigo);
+                    proj.Cliente.Nome = cliente.Nome;
+                    proj.Cliente.Cnpj = cliente.Cnpj;
+                    proj.Cliente.Telefone = cliente.Telefone;
+                    proj.Cliente.Email = cliente.Email;
+                    proj.Cliente.Responsavel = cliente.Responsavel;
+                    proj.Cliente.Rua = cliente.Rua;
+                    proj.Cliente.Numero = cliente.Numero;
+                    proj.Cliente.Cep = cliente.Cep;
+                    proj.Cliente.Cidade = cliente.Cidade;
+                    proj.Cliente.Estado = cliente.Estado;
+                    lista.Add(proj);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return lista;
+        }
+
+        public List<Projeto> ListByClient(int codigo)
+        {
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            List<Projeto> listaAuxiliar = new List<Projeto>();
+            List<Projeto> lista = new List<Projeto>();
+
+            string query = "SELECT * FROM Projeto where cliente = " + codigo;
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                if (connection.State != System.Data.ConnectionState.Open)
+                    connection.Open();
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Projeto projeto = new Projeto();
+                    projeto.Codigo = dataReader.GetInt32(0);
+                    projeto.Cliente = new Cliente();
+                    projeto.Cliente.Codigo = dataReader.GetInt32(1);
+                    projeto.Nome = dataReader.GetString(2);
+                    projeto.DataInicio = dataReader.GetDateTime(3);
+                    projeto.PrevisaoTermino = dataReader.GetDateTime(4);
+                    projeto.Situacao = dataReader.GetString(5);
+
+                    listaAuxiliar.Add(projeto);
+                }
+                dataReader.Close();
+
+                foreach (Projeto proj in listaAuxiliar)
+                {
+                    Cliente cliente = daoCliente.Read(proj.Cliente.Codigo);
+                    proj.Cliente.Nome = cliente.Nome;
+                    proj.Cliente.Cnpj = cliente.Cnpj;
+                    proj.Cliente.Telefone = cliente.Telefone;
+                    proj.Cliente.Email = cliente.Email;
+                    proj.Cliente.Responsavel = cliente.Responsavel;
+                    proj.Cliente.Rua = cliente.Rua;
+                    proj.Cliente.Numero = cliente.Numero;
+                    proj.Cliente.Cep = cliente.Cep;
+                    proj.Cliente.Cidade = cliente.Cidade;
+                    proj.Cliente.Estado = cliente.Estado;
+                    lista.Add(proj);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "Erro", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return lista;
+        }
+
+        public List<Projeto> ListByCollaborator(int codigo)
+        {
+            MySqlConnection connection = Database.GetInstance().GetConnection();
+
+            List<Projeto> listaAuxiliar = new List<Projeto>();
+            List<Projeto> lista = new List<Projeto>();
+
+            string query = "SELECT p.* FROM Projeto p INNER JOIN TrabalhaEmProjeto t ON p.codigo = t.codigo_projeto WHERE t.codigo_colaborador = " + codigo;
 
             MySqlCommand command = new MySqlCommand(query, connection);
 
